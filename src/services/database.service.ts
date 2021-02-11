@@ -3,6 +3,7 @@ import config from '../config/config';
 
 import Knex from 'knex'; 
 import { User } from '../interfaces/users.interface';
+import { Place } from '../interfaces/places.interface';
 
 const knex = Knex({
     client: 'mysql',
@@ -16,9 +17,14 @@ const knex = Knex({
 
 class DatabaseService {
     async findUserByID(id: number) {
-        return await knex<User>('users').where("id", id).first();
+        return await knex<User>('user').where("id", id).first();
     }
-    
+    async findPlaceByLocation(location: string){
+        return await knex<Place>('place').where("location", location).first();
+    }
+    async findEventByPlace(place: Place){
+        //return await knex<
+    }
 
 }
 

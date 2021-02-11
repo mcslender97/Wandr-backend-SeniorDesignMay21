@@ -16,3 +16,4 @@ ReferenceError: d is not defined
 2021-02-10 22:33:10 error: StatusCode : 500, Message : ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol requested by server; consider upgrading MySQL client
 2021-02-10 22:33:31 error: StatusCode : 500, Message : ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol requested by server; consider upgrading MySQL client
 2021-02-10 22:33:31 error: StatusCode : 500, Message : ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol requested by server; consider upgrading MySQL client
+2021-02-10 23:00:13 error: StatusCode : 500, Message : select * from `users` where `id` = 1 limit 1 - ER_NO_SUCH_TABLE: Table 'wandr1.users' doesn't exist
