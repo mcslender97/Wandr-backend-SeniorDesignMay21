@@ -49,20 +49,20 @@
 2021-02-10 22:33:31 error: StatusCode : 500, Message : ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol requested by server; consider upgrading MySQL client
 2021-02-10 22:33:31 info: [0mGET /users/1 [31m500[0m 5.036 ms - 142[0m
 2021-02-10 22:33:41 info: 🚀 App listening on the port 3000
-2021-02-10 22:59:52 info: 🚀 App listening on the port 3000
-2021-02-10 22:59:52 info: [0mGET / [32m200[0m 4.004 ms - 17[0m
-2021-02-10 22:59:52 info: [0mGET /favicon.ico [33m404[0m 1.811 ms - 150[0m
-2021-02-10 23:00:08 info: [0mGET /users [32m200[0m 0.695 ms - 460[0m
-2021-02-10 23:00:13 error: StatusCode : 500, Message : select * from `users` where `id` = 1 limit 1 - ER_NO_SUCH_TABLE: Table 'wandr1.users' doesn't exist
-2021-02-10 23:00:13 info: [0mGET /users/1 [31m500[0m 452.309 ms - 113[0m
-2021-02-10 23:00:34 info: 🚀 App listening on the port 3000
-2021-02-10 23:00:37 info: [0mGET /users/1 [32m200[0m 69.322 ms - 216[0m
-2021-02-10 23:03:33 info: 🚀 App listening on the port 3000
-2021-02-10 23:04:07 info: 🚀 App listening on the port 3000
-2021-02-10 23:08:44 info: 🚀 App listening on the port 3000
-2021-02-10 23:09:00 info: 🚀 App listening on the port 3000
-2021-02-10 23:11:35 info: 🚀 App listening on the port 3000
-2021-02-10 23:25:42 info: 🚀 App listening on the port 3000
-2021-02-10 23:25:53 info: 🚀 App listening on the port 3000
-2021-02-10 23:26:30 info: 🚀 App listening on the port 3000
-2021-02-10 23:27:25 info: 🚀 App listening on the port 3000
+2021-02-10 22:59:52 info: 🚀 App listening on the port 3000
+2021-02-10 22:59:52 info: [0mGET / [32m200[0m 4.004 ms - 17[0m
+2021-02-10 22:59:52 info: [0mGET /favicon.ico [33m404[0m 1.811 ms - 150[0m
+2021-02-10 23:00:08 info: [0mGET /users [32m200[0m 0.695 ms - 460[0m
+2021-02-10 23:00:13 error: StatusCode : 500, Message : select * from `users` where `id` = 1 limit 1 - ER_NO_SUCH_TABLE: Table 'wandr1.users' doesn't exist
+2021-02-10 23:00:13 info: [0mGET /users/1 [31m500[0m 452.309 ms - 113[0m
+2021-02-10 23:00:34 info: 🚀 App listening on the port 3000
+2021-02-10 23:00:37 info: [0mGET /users/1 [32m200[0m 69.322 ms - 216[0m
+2021-02-10 23:03:33 info: 🚀 App listening on the port 3000
+2021-02-10 23:04:07 info: 🚀 App listening on the port 3000
+2021-02-10 23:08:44 info: 🚀 App listening on the port 3000
+2021-02-10 23:09:00 info: 🚀 App listening on the port 3000
+2021-02-10 23:11:35 info: 🚀 App listening on the port 3000
+2021-02-10 23:25:42 info: 🚀 App listening on the port 3000
+2021-02-10 23:25:53 info: 🚀 App listening on the port 3000
+2021-02-10 23:26:30 info: 🚀 App listening on the port 3000
+2021-02-10 23:27:25 info: 🚀 App listening on the port 3000
