@@ -4,9 +4,11 @@ import HttpException from '../exceptions/HttpException';
 import { User } from '../interfaces/users.interface';
 import userModel from '../models/users.model';
 import { isEmpty } from '../utils/util';
+import DatabaseService from './database.service';
 
 class UserService {
   public users = userModel;
+  private db = new DatabaseService();
 
   public async findAllUser(): Promise<User[]> {
     const users: User[] = this.users;
@@ -15,9 +17,10 @@ class UserService {
 
   public async findUserById(userId: number): Promise<User> {
     const findUser: User = this.users.find(user => user.id === userId);
+    const user = await this.db.findUserByID(userId);
     if (!findUser) throw new HttpException(409, "You're not user");
 
-    return findUser;
+    return user;
   }
 
   public async createUser(userData: CreateUserDto): Promise<User> {
