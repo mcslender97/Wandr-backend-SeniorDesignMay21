@@ -1,0 +1,1 @@
+2021-02-11 11:08:17 error: StatusCode : 500, Message : select * from `user` where `id` = 1 limit 1 - ER_NO_SUCH_TABLE: Table 'wandr1.user' doesn't exist
