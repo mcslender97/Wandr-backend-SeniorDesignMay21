@@ -1,0 +1,68 @@
+2021-02-10 20:20:31 info: 🚀 App listening on the port 3000
+2021-02-10 20:20:36 info: [0mGET / [32m200[0m 5.387 ms - 2[0m
+2021-02-10 20:20:36 info: [0mGET /favicon.ico [33m404[0m 4.914 ms - 150[0m
+2021-02-10 20:24:56 info: 🚀 App listening on the port 3000
+2021-02-10 20:24:59 info: [0mGET / [32m200[0m 11.652 ms - 22[0m
+2021-02-10 20:25:31 info: 🚀 App listening on the port 3000
+2021-02-10 20:25:41 info: 🚀 App listening on the port 3000
+2021-02-10 20:25:41 info: [0mGET / [32m200[0m 10.393 ms - 17[0m
+2021-02-10 20:27:27 info: [0mGET /users [32m200[0m 1.661 ms - 460[0m
+2021-02-10 20:32:51 info: 🚀 App listening on the port 3000
+2021-02-10 20:33:23 info: 🚀 App listening on the port 3000
+2021-02-10 20:33:32 info: 🚀 App listening on the port 3000
+2021-02-10 20:34:19 info: 🚀 App listening on the port 3000
+2021-02-10 20:58:28 info: 🚀 App listening on the port 3000
+2021-02-10 20:58:30 info: [0mGET /api-docs [36m301[0m 6.194 ms - 183[0m
+2021-02-10 20:58:30 info: [0mGET /api-docs/ [32m200[0m 6.681 ms - -[0m
+2021-02-10 20:58:30 info: [0mGET /api-docs/swagger-ui-init.js [32m200[0m 0.850 ms - -[0m
+2021-02-10 20:58:30 info: [0mGET /api-docs/swagger-ui.css [32m200[0m 12.224 ms - -[0m
+2021-02-10 20:58:30 info: [0mGET /api-docs/swagger-ui-standalone-preset.js [32m200[0m 8.321 ms - -[0m
+2021-02-10 20:58:30 info: [0mGET /api-docs/swagger-ui-bundle.js [32m200[0m 12.511 ms - -[0m
+2021-02-10 20:58:31 info: [0mGET /api-docs/favicon-32x32.png [32m200[0m 1.463 ms - 628[0m
+2021-02-10 20:59:06 info: [0mGET /users [36m304[0m 1.539 ms - -[0m
+2021-02-10 20:59:50 info: [0mGET /users [36m304[0m 0.826 ms - -[0m
+2021-02-10 22:03:51 info: 🚀 App listening on the port 3000
+2021-02-10 22:04:46 info: 🚀 App listening on the port 3000
+2021-02-10 22:06:57 info: 🚀 App listening on the port 3000
+2021-02-10 22:08:06 info: 🚀 App listening on the port 3000
+2021-02-10 22:08:14 info: [0mGET /api-docs/ [36m304[0m 7.401 ms - -[0m
+2021-02-10 22:08:14 info: [0mGET /api-docs/swagger-ui.css [36m304[0m 3.181 ms - -[0m
+2021-02-10 22:08:14 info: [0mGET /api-docs/swagger-ui-bundle.js [36m304[0m 3.699 ms - -[0m
+2021-02-10 22:08:14 info: [0mGET /api-docs/swagger-ui-init.js [36m304[0m 0.439 ms - -[0m
+2021-02-10 22:08:14 info: [0mGET /api-docs/swagger-ui-standalone-preset.js [36m304[0m 2.704 ms - -[0m
+2021-02-10 22:08:15 info: [0mGET /api-docs/favicon-32x32.png [36m304[0m 0.626 ms - -[0m
+2021-02-10 22:08:20 info: [0mGET /users [36m304[0m 0.939 ms - -[0m
+2021-02-10 22:08:25 info: 🚀 App listening on the port 3000
+2021-02-10 22:08:49 error: StatusCode : 500, Message : ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol requested by server; consider upgrading MySQL client
+2021-02-10 22:08:49 info: [0mGET /users/1 [31m500[0m 106.761 ms - 142[0m
+2021-02-10 22:10:54 info: 🚀 App listening on the port 3000
+2021-02-10 22:16:33 info: 🚀 App listening on the port 3000
+2021-02-10 22:33:09 error: StatusCode : 500, Message : ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol requested by server; consider upgrading MySQL client
+2021-02-10 22:33:09 info: [0mGET /users/1 [31m500[0m 84.164 ms - 142[0m
+2021-02-10 22:33:09 error: StatusCode : 500, Message : ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol requested by server; consider upgrading MySQL client
+2021-02-10 22:33:09 info: [0mGET /users/1 [31m500[0m 4.959 ms - 142[0m
+2021-02-10 22:33:10 error: StatusCode : 500, Message : ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol requested by server; consider upgrading MySQL client
+2021-02-10 22:33:10 info: [0mGET /users/1 [31m500[0m 5.228 ms - 142[0m
+2021-02-10 22:33:23 info: 🚀 App listening on the port 3000
+2021-02-10 22:33:31 error: StatusCode : 500, Message : ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol requested by server; consider upgrading MySQL client
+2021-02-10 22:33:31 info: [0mGET /users/1 [31m500[0m 78.917 ms - 142[0m
+2021-02-10 22:33:31 error: StatusCode : 500, Message : ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol requested by server; consider upgrading MySQL client
+2021-02-10 22:33:31 info: [0mGET /users/1 [31m500[0m 5.036 ms - 142[0m
+2021-02-10 22:33:41 info: 🚀 App listening on the port 3000
+2021-02-10 22:59:52 info: 🚀 App listening on the port 3000
+2021-02-10 22:59:52 info: [0mGET / [32m200[0m 4.004 ms - 17[0m
+2021-02-10 22:59:52 info: [0mGET /favicon.ico [33m404[0m 1.811 ms - 150[0m
+2021-02-10 23:00:08 info: [0mGET /users [32m200[0m 0.695 ms - 460[0m
+2021-02-10 23:00:13 error: StatusCode : 500, Message : select * from `users` where `id` = 1 limit 1 - ER_NO_SUCH_TABLE: Table 'wandr1.users' doesn't exist
+2021-02-10 23:00:13 info: [0mGET /users/1 [31m500[0m 452.309 ms - 113[0m
+2021-02-10 23:00:34 info: 🚀 App listening on the port 3000
+2021-02-10 23:00:37 info: [0mGET /users/1 [32m200[0m 69.322 ms - 216[0m
+2021-02-10 23:03:33 info: 🚀 App listening on the port 3000
+2021-02-10 23:04:07 info: 🚀 App listening on the port 3000
+2021-02-10 23:08:44 info: 🚀 App listening on the port 3000
+2021-02-10 23:09:00 info: 🚀 App listening on the port 3000
+2021-02-10 23:11:35 info: 🚀 App listening on the port 3000
+2021-02-10 23:25:42 info: 🚀 App listening on the port 3000
+2021-02-10 23:25:53 info: 🚀 App listening on the port 3000
+2021-02-10 23:26:30 info: 🚀 App listening on the port 3000
+2021-02-10 23:27:25 info: 🚀 App listening on the port 3000

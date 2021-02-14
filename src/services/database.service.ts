@@ -1,35 +1,33 @@
 import mysql from 'mysql';
 import config from '../config/config';
 
-const params = {
-    user: config.mysql.user,
-    password: config.mysql.password,
-    host: config.mysql.host,
-    database: config.mysql.database
+import Knex from 'knex'; 
+import { User } from '../interfaces/users.interface';
+import { Place } from '../interfaces/places.interface';
+
+const knex = Knex({
+    client: 'mysql',
+    connection: {
+        host: config.mysql.host,
+        user: config.mysql.user,
+        password: config.mysql.password,
+        database: config.mysql.database
+    }
+})
+
+class DatabaseService {
+    async findUserByID(id: number) {
+        return await knex<User>('user').where("id", id).first();
+    }
+    async findPlaceByLocation(location: string){
+        return await knex<Place>('place').where("location", location).first();
+    }
+    async findEventByPlace(place: Place){
+        //return await knex<
+    }
+
 }
-const Connect = async () =>
-    new Promise<mysql.Connection>((resolve, reject) => {
-        const connection = mysql.createConnection(params);
 
-        connection.connect((error) => {
-            if (error) {
-                reject(error);
-                return;
-            }
 
-            resolve(connection);
-        });
-    });
-const Query = async (connection: mysql.Connection, query: string) =>
-    new Promise((resolve, reject) => {
-        connection.query(query, connection, (error, result) => {
-            if (error) {
-                reject(error);
-                return;
-            }
 
-            resolve(result);
-        });
-    });
-
-export { Connect, Query };    
+export default DatabaseService;

@@ -1,6 +1,9 @@
-tags:
-- name: users
+openapi: 3.0.0
+
+info:
+  title: users
   description: users API
+  version: '0.1'
 
 paths:
 # [GET] users
@@ -12,6 +15,15 @@ paths:
       responses:
         200:
           description: 'OK'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  users:  
+                    type: array
+                    items: 
+                      $ref: "#/components/schemas/users"
         500:
           description: 'Server Error'
 
@@ -20,13 +32,13 @@ paths:
       tags:
       - users
       summary: Add User
-      parameters:
-      - name: body
-        in: body
-        description: user Data
+      requestBody:
+        description: user data
         required: true
-        schema:
-          $ref: '#/definitions/users'
+        content:
+          appliction/json:     
+            schema:
+              $ref:  "#/components/schemas/users"
       responses:
         201:
           description: 'Created'
@@ -44,11 +56,14 @@ paths:
       - users
       summary: Find User By Id
       parameters:
-      - name: id
-        in: path
+      - in: path
+        name: id
         description: User Id
         required: true
-        type: integer
+        schema:
+          type : integer
+          format: int64
+          minimum: 1
       responses:
         200:
           description: 'OK'
@@ -67,13 +82,17 @@ paths:
         in: path
         description: user Id
         required: true
-        type: integer
-      - name: body
-        in: body
-        description: user Data
-        required: true
         schema:
-          $ref: '#/definitions/users'
+          type : integer
+          format: int64
+          minimum: 1
+      requestBody:
+        description: user data
+        required: true
+        content:
+          appliction/json:     
+            schema:
+              $ref:  "#/components/schemas/users"
       responses:
         200:
           description: 'OK'
@@ -94,7 +113,10 @@ paths:
         in: path
         description: user Id
         required: true
-        type: integer
+        schema:
+          type : integer
+          format: int64
+          minimum: 1
       responses:
         200:
           description: 'OK'
@@ -104,23 +126,31 @@ paths:
           description: 'Server Error'
 
 # definitions
-definitions:
-  users:
-    type: object
-    required:
-        - email
-        - password
-    properties:
-      id:
-        type: integer
-        description: user Id
-      email:
-        type: string
-        description: user Email
-      password:
-        type: string
-        description: user Password
-
-schemes:
- - https
- - http
+components:
+  schemas:
+    users:
+      type: object
+      required:
+          - email
+          - password
+      properties:
+        id:
+          type: integer
+          description: user Id
+        email:
+          type: string
+          description: user Email
+        password:
+          type: string
+          description: user Password
+        events:
+          type: array
+          items:
+            $ref: "#/components/schemas/event"
+    event:
+      type: object
+      properties:
+        title:
+          type: string
+        createdAt:
+          type: number
