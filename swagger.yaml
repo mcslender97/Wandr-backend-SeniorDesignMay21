@@ -1,8 +1,8 @@
 openapi: 3.0.0
 
 info:
-  title: users
-  description: users API
+  title: wandr
+  description: wandr API
   version: '0.1'
 
 paths:
@@ -124,6 +124,38 @@ paths:
           description: 'Conflict'
         500:
           description: 'Server Error'
+# [GET] event/{id}
+  /event/{id}:
+    get:
+      tags:
+      - event
+      summary: Find Events by ID
+      parameters:
+      - in: path
+        name: id
+        description: Event Id
+        required: true
+        schema:
+          type : integer
+          format: int64
+          minimum: 1
+      responses:
+        200:
+          description: 'OK'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  users:  
+                    type: object
+                    $ref: "#/components/schemas/users"
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
+  
+
 
 # definitions
 components:
@@ -154,3 +186,66 @@ components:
           type: string
         createdAt:
           type: number
+        eventTime:
+          type: string
+        user:
+          type: object
+          $ref:  "#/components/schemas/users"
+          description: The user that create/own the event
+        place:
+          type: object
+          $ref:  "#/components/schemas/place"
+          description: Place that event takes place
+    place:
+      type: object
+      required:
+        - name
+        - location
+        - type
+      properties:
+        id:
+          type: integer
+          description: place id
+        name:
+          type: string
+        placeType:
+          type: string
+          description: Activity type of the Place
+        description:
+          type: string
+          description: Information of the Place
+        location:
+          type: string
+          description: Address of the place
+    usereventgroup:
+      type: object
+      required:
+        - event
+        - user
+      properties:
+        id:
+          type: integer
+        event :
+          type: object
+          $ref: "#/components/schemas/event"
+        user:
+          type: object
+          $ref: "#/components/schemas/users"
+        joinedAt:
+          type: string
+    eventMessages:
+      type: object
+      required:
+        - timestamp
+        - content
+      properties:
+        id:
+          type: integer
+        timestamp:
+          type: string
+        content:
+          type: string
+        userEvent:
+          type: object
+          $ref: "#/components/schemas/usereventgroup"
+

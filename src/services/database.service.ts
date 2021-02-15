@@ -20,11 +20,13 @@ class DatabaseService {
         return await knex<User>('user').where("id", id).first();
     }
     async findPlaceByLocation(location: string){
-        return await knex<Place>('place').where("location", location).first();
+        return await knex<Place>('place').where("location", location);
     }
     async findEventByPlace(place: Place){
         //return await knex<
+        return await knex<Event>('event').where("place", place );
     }
+    
 
 }
 
