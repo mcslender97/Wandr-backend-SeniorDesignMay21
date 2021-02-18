@@ -1,9 +1,6 @@
-openapi: 3.0.0
-
-info:
-  title: wandr
-  description: wandr API
-  version: '0.1'
+tags:
+- name: users
+  description: users API
 
 paths:
 # [GET] users
@@ -15,15 +12,6 @@ paths:
       responses:
         200:
           description: 'OK'
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  users:  
-                    type: array
-                    items: 
-                      $ref: "#/components/schemas/users"
         500:
           description: 'Server Error'
 
@@ -32,13 +20,13 @@ paths:
       tags:
       - users
       summary: Add User
-      requestBody:
-        description: user data
+      parameters:
+      - name: body
+        in: body
+        description: user Data
         required: true
-        content:
-          appliction/json:     
-            schema:
-              $ref:  "#/components/schemas/users"
+        schema:
+          $ref: '#/definitions/users'
       responses:
         201:
           description: 'Created'
@@ -56,14 +44,11 @@ paths:
       - users
       summary: Find User By Id
       parameters:
-      - in: path
-        name: id
+      - name: id
+        in: path
         description: User Id
         required: true
-        schema:
-          type : integer
-          format: int64
-          minimum: 1
+        type: integer
       responses:
         200:
           description: 'OK'
@@ -82,17 +67,13 @@ paths:
         in: path
         description: user Id
         required: true
-        schema:
-          type : integer
-          format: int64
-          minimum: 1
-      requestBody:
-        description: user data
+        type: integer
+      - name: body
+        in: body
+        description: user Data
         required: true
-        content:
-          appliction/json:     
-            schema:
-              $ref:  "#/components/schemas/users"
+        schema:
+          $ref: '#/definitions/users'
       responses:
         200:
           description: 'OK'
@@ -113,10 +94,7 @@ paths:
         in: path
         description: user Id
         required: true
-        schema:
-          type : integer
-          format: int64
-          minimum: 1
+        type: integer
       responses:
         200:
           description: 'OK'
@@ -124,6 +102,7 @@ paths:
           description: 'Conflict'
         500:
           description: 'Server Error'
+
 # [GET] event/{id}
   /event/{id}:
     get:
@@ -149,43 +128,29 @@ paths:
                 properties:
                   users:  
                     type: object
-                    $ref: "#/components/schemas/users"
+                    $ref: "#/components/schemas/event"
         409:
           description: 'Conflict'
         500:
           description: 'Server Error'
-  
-
 
 # definitions
-components:
-  schemas:
-    users:
-      type: object
-      required:
-          - email
-          - password
-      properties:
-        id:
-          type: integer
-          description: user Id
-        email:
-          type: string
-          description: user Email
-        password:
-          type: string
-          description: user Password
-        events:
-          type: array
-          items:
-            $ref: "#/components/schemas/event"
-    event:
-      type: object
-      properties:
-        title:
-          type: string
-        createdAt:
-          type: number
+definitions:
+  users:
+    type: object
+    required:
+        - email
+        - password
+    properties:
+      id:
+        type: integer
+        description: user Id
+      email:
+        type: string
+        description: user Email
+      password:
+        type: string
+        description: user Password
         eventTime:
           type: string
         user:
@@ -248,4 +213,24 @@ components:
         userEvent:
           type: object
           $ref: "#/components/schemas/usereventgroup"
+    event:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        createdAt:
+          type: string
+        eventTime:
+          type: string
+        place:
+          type: object
+          $ref: "#/components/schemas/place"
+        user:
+          type: object
+          $ref: "#/components/schemas/users"
 
+schemes:
+ - https
+ - http

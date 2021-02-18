@@ -1,0 +1,298 @@
+2021-02-18 12:59:10 error: uncaughtException: Cannot read property 'schemas' of undefined
+TypeError: Cannot read property 'schemas' of undefined
+    at organize (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\swagger-jsdoc\src\specification.js:144:35)
+    at build (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\swagger-jsdoc\src\specification.js:275:7)
+    at Object.module.exports [as default] (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\swagger-jsdoc\src\lib.js:30:10)
+    at App.initializeSwagger (D:\Back end app\Wandr-Back-end\wandr-backend\src\app.ts:75:31)
+    at new App (D:\Back end app\Wandr-Back-end\wandr-backend\src\app.ts:26:10)
+    at Object.<anonymous> (D:\Back end app\Wandr-Back-end\wandr-backend\src\server.ts:10:13)
+    at Module._compile (internal/modules/cjs/loader.js:1076:30)
+    at Module.m._compile (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:1056:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1097:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:1059:12)
+2021-02-18 12:59:50 error: uncaughtException: Cannot read property 'schemas' of undefined
+TypeError: Cannot read property 'schemas' of undefined
+    at organize (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\swagger-jsdoc\src\specification.js:144:35)
+    at build (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\swagger-jsdoc\src\specification.js:275:7)
+    at Object.module.exports [as default] (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\swagger-jsdoc\src\lib.js:30:10)
+    at App.initializeSwagger (D:\Back end app\Wandr-Back-end\wandr-backend\src\app.ts:75:31)
+    at new App (D:\Back end app\Wandr-Back-end\wandr-backend\src\app.ts:26:10)
+    at Object.<anonymous> (D:\Back end app\Wandr-Back-end\wandr-backend\src\server.ts:10:13)
+    at Module._compile (internal/modules/cjs/loader.js:1076:30)
+    at Module.m._compile (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:1056:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1097:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:1059:12)
+2021-02-18 12:59:56 error: uncaughtException: Cannot read property 'schemas' of undefined
+TypeError: Cannot read property 'schemas' of undefined
+    at organize (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\swagger-jsdoc\src\specification.js:144:35)
+    at build (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\swagger-jsdoc\src\specification.js:275:7)
+    at Object.module.exports [as default] (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\swagger-jsdoc\src\lib.js:30:10)
+    at App.initializeSwagger (D:\Back end app\Wandr-Back-end\wandr-backend\src\app.ts:75:31)
+    at new App (D:\Back end app\Wandr-Back-end\wandr-backend\src\app.ts:26:10)
+    at Object.<anonymous> (D:\Back end app\Wandr-Back-end\wandr-backend\src\server.ts:10:13)
+    at Module._compile (internal/modules/cjs/loader.js:1076:30)
+    at Module.m._compile (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:1056:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1097:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:1059:12)
+2021-02-18 13:00:08 error: uncaughtException: Cannot read property 'schemas' of undefined
+TypeError: Cannot read property 'schemas' of undefined
+    at organize (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\swagger-jsdoc\src\specification.js:144:35)
+    at build (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\swagger-jsdoc\src\specification.js:275:7)
+    at Object.module.exports [as default] (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\swagger-jsdoc\src\lib.js:30:10)
+    at App.initializeSwagger (D:\Back end app\Wandr-Back-end\wandr-backend\src\app.ts:75:31)
+    at new App (D:\Back end app\Wandr-Back-end\wandr-backend\src\app.ts:26:10)
+    at Object.<anonymous> (D:\Back end app\Wandr-Back-end\wandr-backend\src\server.ts:10:13)
+    at Module._compile (internal/modules/cjs/loader.js:1076:30)
+    at Module.m._compile (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:1056:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1097:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:1059:12)
+2021-02-18 13:00:13 error: uncaughtException: Cannot read property 'schemas' of undefined
+TypeError: Cannot read property 'schemas' of undefined
+    at organize (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\swagger-jsdoc\src\specification.js:144:35)
+    at build (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\swagger-jsdoc\src\specification.js:275:7)
+    at Object.module.exports [as default] (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\swagger-jsdoc\src\lib.js:30:10)
+    at App.initializeSwagger (D:\Back end app\Wandr-Back-end\wandr-backend\src\app.ts:75:31)
+    at new App (D:\Back end app\Wandr-Back-end\wandr-backend\src\app.ts:26:10)
+    at Object.<anonymous> (D:\Back end app\Wandr-Back-end\wandr-backend\src\server.ts:10:13)
+    at Module._compile (internal/modules/cjs/loader.js:1076:30)
+    at Module.m._compile (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:1056:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1097:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:1059:12)
+2021-02-18 13:00:24 error: uncaughtException: Cannot read property 'schemas' of undefined
+TypeError: Cannot read property 'schemas' of undefined
+    at organize (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\swagger-jsdoc\src\specification.js:144:35)
+    at build (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\swagger-jsdoc\src\specification.js:275:7)
+    at Object.module.exports [as default] (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\swagger-jsdoc\src\lib.js:30:10)
+    at App.initializeSwagger (D:\Back end app\Wandr-Back-end\wandr-backend\src\app.ts:75:31)
+    at new App (D:\Back end app\Wandr-Back-end\wandr-backend\src\app.ts:26:10)
+    at Object.<anonymous> (D:\Back end app\Wandr-Back-end\wandr-backend\src\server.ts:10:13)
+    at Module._compile (internal/modules/cjs/loader.js:1076:30)
+    at Module.m._compile (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:1056:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1097:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:1059:12)
+2021-02-18 13:01:09 error: uncaughtException: Cannot read property 'schemas' of undefined
+TypeError: Cannot read property 'schemas' of undefined
+    at organize (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\swagger-jsdoc\src\specification.js:144:35)
+    at build (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\swagger-jsdoc\src\specification.js:275:7)
+    at Object.module.exports [as default] (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\swagger-jsdoc\src\lib.js:30:10)
+    at App.initializeSwagger (D:\Back end app\Wandr-Back-end\wandr-backend\src\app.ts:75:31)
+    at new App (D:\Back end app\Wandr-Back-end\wandr-backend\src\app.ts:26:10)
+    at Object.<anonymous> (D:\Back end app\Wandr-Back-end\wandr-backend\src\server.ts:10:13)
+    at Module._compile (internal/modules/cjs/loader.js:1076:30)
+    at Module.m._compile (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:1056:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1097:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:1059:12)
+2021-02-18 13:03:21 error: uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/services/users.service.ts[0m:[93m59[0m:[93m5[0m - [91merror[0m[90m TS1109: [0mExpression expected.
+
+[7m59[0m     return updateUserData;
+[7m  [0m [91m    ~~~~~~[0m
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/services/users.service.ts[0m:[93m59[0m:[93m5[0m - [91merror[0m[90m TS1109: [0mExpression expected.
+
+[7m59[0m     return updateUserData;
+[7m  [0m [91m    ~~~~~~[0m
+
+    at createTSError (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:513:12)
+    at reportTSError (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:517:19)
+    at getOutput (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:955:34)
+    at Object.compile (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:968:32)
+    at Module.m._compile (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:1056:42)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1097:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:1059:12)
+    at Module.load (internal/modules/cjs/loader.js:941:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:782:14)
+    at Module.require (internal/modules/cjs/loader.js:965:19)
+2021-02-18 13:04:21 error: uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/services/users.service.ts[0m:[93m59[0m:[93m5[0m - [91merror[0m[90m TS1109: [0mExpression expected.
+
+[7m59[0m     return updateUserData;
+[7m  [0m [91m    ~~~~~~[0m
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/services/users.service.ts[0m:[93m59[0m:[93m5[0m - [91merror[0m[90m TS1109: [0mExpression expected.
+
+[7m59[0m     return updateUserData;
+[7m  [0m [91m    ~~~~~~[0m
+
+    at createTSError (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:513:12)
+    at reportTSError (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:517:19)
+    at getOutput (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:955:34)
+    at Object.compile (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:968:32)
+    at Module.m._compile (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:1056:42)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1097:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:1059:12)
+    at Module.load (internal/modules/cjs/loader.js:941:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:782:14)
+    at Module.require (internal/modules/cjs/loader.js:965:19)
+2021-02-18 13:05:27 error: uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/services/users.service.ts[0m:[93m59[0m:[93m5[0m - [91merror[0m[90m TS1109: [0mExpression expected.
+
+[7m59[0m     return updateUserData;
+[7m  [0m [91m    ~~~~~~[0m
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/services/users.service.ts[0m:[93m59[0m:[93m5[0m - [91merror[0m[90m TS1109: [0mExpression expected.
+
+[7m59[0m     return updateUserData;
+[7m  [0m [91m    ~~~~~~[0m
+
+    at createTSError (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:513:12)
+    at reportTSError (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:517:19)
+    at getOutput (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:955:34)
+    at Object.compile (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:968:32)
+    at Module.m._compile (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:1056:42)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1097:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:1059:12)
+    at Module.load (internal/modules/cjs/loader.js:941:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:782:14)
+    at Module.require (internal/modules/cjs/loader.js:965:19)
+2021-02-18 13:05:41 error: uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/services/users.service.ts[0m:[93m59[0m:[93m5[0m - [91merror[0m[90m TS1109: [0mExpression expected.
+
+[7m59[0m     return updateUserData;
+[7m  [0m [91m    ~~~~~~[0m
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/services/users.service.ts[0m:[93m59[0m:[93m5[0m - [91merror[0m[90m TS1109: [0mExpression expected.
+
+[7m59[0m     return updateUserData;
+[7m  [0m [91m    ~~~~~~[0m
+
+    at createTSError (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:513:12)
+    at reportTSError (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:517:19)
+    at getOutput (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:955:34)
+    at Object.compile (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:968:32)
+    at Module.m._compile (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:1056:42)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1097:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:1059:12)
+    at Module.load (internal/modules/cjs/loader.js:941:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:782:14)
+    at Module.require (internal/modules/cjs/loader.js:965:19)
+2021-02-18 13:06:45 error: uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/services/users.service.ts[0m:[93m59[0m:[93m5[0m - [91merror[0m[90m TS1109: [0mExpression expected.
+
+[7m59[0m     return updateUserData;
+[7m  [0m [91m    ~~~~~~[0m
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/services/users.service.ts[0m:[93m59[0m:[93m5[0m - [91merror[0m[90m TS1109: [0mExpression expected.
+
+[7m59[0m     return updateUserData;
+[7m  [0m [91m    ~~~~~~[0m
+
+    at createTSError (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:513:12)
+    at reportTSError (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:517:19)
+    at getOutput (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:955:34)
+    at Object.compile (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:968:32)
+    at Module.m._compile (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:1056:42)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1097:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:1059:12)
+    at Module.load (internal/modules/cjs/loader.js:941:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:782:14)
+    at Module.require (internal/modules/cjs/loader.js:965:19)
+2021-02-18 13:09:45 error: uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/services/users.service.ts[0m:[93m59[0m:[93m5[0m - [91merror[0m[90m TS1109: [0mExpression expected.
+
+[7m59[0m     return updateUserData;
+[7m  [0m [91m    ~~~~~~[0m
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/services/users.service.ts[0m:[93m59[0m:[93m5[0m - [91merror[0m[90m TS1109: [0mExpression expected.
+
+[7m59[0m     return updateUserData;
+[7m  [0m [91m    ~~~~~~[0m
+
+    at createTSError (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:513:12)
+    at reportTSError (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:517:19)
+    at getOutput (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:955:34)
+    at Object.compile (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:968:32)
+    at Module.m._compile (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:1056:42)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1097:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:1059:12)
+    at Module.load (internal/modules/cjs/loader.js:941:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:782:14)
+    at Module.require (internal/modules/cjs/loader.js:965:19)
+2021-02-18 13:17:37 error: uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/services/users.service.ts[0m:[93m59[0m:[93m5[0m - [91merror[0m[90m TS1109: [0mExpression expected.
+
+[7m59[0m     return updateUserData;
+[7m  [0m [91m    ~~~~~~[0m
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/services/users.service.ts[0m:[93m59[0m:[93m5[0m - [91merror[0m[90m TS1109: [0mExpression expected.
+
+[7m59[0m     return updateUserData;
+[7m  [0m [91m    ~~~~~~[0m
+
+    at createTSError (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:513:12)
+    at reportTSError (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:517:19)
+    at getOutput (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:955:34)
+    at Object.compile (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:968:32)
+    at Module.m._compile (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:1056:42)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1097:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:1059:12)
+    at Module.load (internal/modules/cjs/loader.js:941:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:782:14)
+    at Module.require (internal/modules/cjs/loader.js:965:19)
+2021-02-18 13:30:31 error: uncaughtException: Cannot read property 'schemas' of undefined
+TypeError: Cannot read property 'schemas' of undefined
+    at organize (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\swagger-jsdoc\src\specification.js:144:35)
+    at build (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\swagger-jsdoc\src\specification.js:275:7)
+    at Object.module.exports [as default] (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\swagger-jsdoc\src\lib.js:30:10)
+    at App.initializeSwagger (D:\Back end app\Wandr-Back-end\wandr-backend\src\app.ts:75:31)
+    at new App (D:\Back end app\Wandr-Back-end\wandr-backend\src\app.ts:26:10)
+    at Object.<anonymous> (D:\Back end app\Wandr-Back-end\wandr-backend\src\server.ts:10:13)
+    at Module._compile (internal/modules/cjs/loader.js:1076:30)
+    at Module.m._compile (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:1056:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1097:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:1059:12)
+2021-02-18 13:31:26 error: uncaughtException: Cannot read property 'schemas' of undefined
+TypeError: Cannot read property 'schemas' of undefined
+    at organize (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\swagger-jsdoc\src\specification.js:144:35)
+    at build (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\swagger-jsdoc\src\specification.js:275:7)
+    at Object.module.exports [as default] (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\swagger-jsdoc\src\lib.js:30:10)
+    at App.initializeSwagger (D:\Back end app\Wandr-Back-end\wandr-backend\src\app.ts:75:31)
+    at new App (D:\Back end app\Wandr-Back-end\wandr-backend\src\app.ts:26:10)
+    at Object.<anonymous> (D:\Back end app\Wandr-Back-end\wandr-backend\src\server.ts:10:13)
+    at Module._compile (internal/modules/cjs/loader.js:1076:30)
+    at Module.m._compile (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:1056:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1097:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:1059:12)
+2021-02-18 13:33:25 error: uncaughtException: Cannot read property 'schemas' of undefined
+TypeError: Cannot read property 'schemas' of undefined
+    at organize (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\swagger-jsdoc\src\specification.js:144:35)
+    at build (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\swagger-jsdoc\src\specification.js:275:7)
+    at Object.module.exports [as default] (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\swagger-jsdoc\src\lib.js:30:10)
+    at App.initializeSwagger (D:\Back end app\Wandr-Back-end\wandr-backend\src\app.ts:75:31)
+    at new App (D:\Back end app\Wandr-Back-end\wandr-backend\src\app.ts:26:10)
+    at Object.<anonymous> (D:\Back end app\Wandr-Back-end\wandr-backend\src\server.ts:10:13)
+    at Module._compile (internal/modules/cjs/loader.js:1076:30)
+    at Module.m._compile (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:1056:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1097:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:1059:12)
+2021-02-18 14:15:47 error: uncaughtException: Cannot read property 'schemas' of undefined
+TypeError: Cannot read property 'schemas' of undefined
+    at organize (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\swagger-jsdoc\src\specification.js:144:35)
+    at build (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\swagger-jsdoc\src\specification.js:275:7)
+    at Object.module.exports [as default] (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\swagger-jsdoc\src\lib.js:30:10)
+    at App.initializeSwagger (D:\Back end app\Wandr-Back-end\wandr-backend\src\app.ts:75:31)
+    at new App (D:\Back end app\Wandr-Back-end\wandr-backend\src\app.ts:26:10)
+    at Object.<anonymous> (D:\Back end app\Wandr-Back-end\wandr-backend\src\server.ts:10:13)
+    at Module._compile (internal/modules/cjs/loader.js:1076:30)
+    at Module.m._compile (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:1056:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1097:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:1059:12)
+2021-02-18 14:59:04 error: uncaughtException: Cannot read property 'schemas' of undefined
+TypeError: Cannot read property 'schemas' of undefined
+    at organize (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\swagger-jsdoc\src\specification.js:144:35)
+    at build (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\swagger-jsdoc\src\specification.js:275:7)
+    at Object.module.exports [as default] (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\swagger-jsdoc\src\lib.js:30:10)
+    at App.initializeSwagger (D:\Back end app\Wandr-Back-end\wandr-backend\src\app.ts:75:31)
+    at new App (D:\Back end app\Wandr-Back-end\wandr-backend\src\app.ts:26:10)
+    at Object.<anonymous> (D:\Back end app\Wandr-Back-end\wandr-backend\src\server.ts:10:13)
+    at Module._compile (internal/modules/cjs/loader.js:1076:30)
+    at Module.m._compile (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:1056:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1097:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\ts-node\src\index.ts:1059:12)
