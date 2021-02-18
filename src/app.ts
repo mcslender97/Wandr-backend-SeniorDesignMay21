@@ -63,6 +63,7 @@ class App {
   private initializeSwagger() {
     const options = {
       swaggerDefinition: {
+        components: {},
         info: {
           title: 'REST API',
           version: '1.0.0',
