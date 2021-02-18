@@ -3,7 +3,7 @@ export interface User {
   fullname: string;
   phone: number;
   dob: string; // type of date in SQL
-  gender: string
+  gender: string;
   email: string;
   password: string;
   //profile picture type here
