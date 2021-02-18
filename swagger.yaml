@@ -1,6 +1,9 @@
-tags:
-- name: users
+openapi: 3.0.0
+
+info:
+  title: users
   description: users API
+  version: '0.1'
 
 paths:
 # [GET] users
@@ -12,6 +15,15 @@ paths:
       responses:
         200:
           description: 'OK'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  users:  
+                    type: array
+                    items: 
+                      $ref: "#/components/schemas/users"
         500:
           description: 'Server Error'
 
@@ -20,13 +32,13 @@ paths:
       tags:
       - users
       summary: Add User
-      parameters:
-      - name: body
-        in: body
-        description: user Data
+      requestBody:
+        description: user data
         required: true
-        schema:
-          $ref: '#/definitions/users'
+        content:
+          appliction/json:     
+            schema:
+              $ref:  "#/components/schemas/users"
       responses:
         201:
           description: 'Created'
@@ -44,14 +56,23 @@ paths:
       - users
       summary: Find User By Id
       parameters:
-      - name: id
-        in: path
+      - in: path
+        name: id
         description: User Id
         required: true
-        type: integer
+        schema:
+          type : integer
+          format: int64
+          minimum: 1
       responses:
+        
         200:
           description: 'OK'
+          content:
+              application/json:
+                schema:
+                  type: object
+                  $ref: "#/components/schemas/users"
         409:
           description: 'Conflict'
         500:
@@ -67,13 +88,17 @@ paths:
         in: path
         description: user Id
         required: true
-        type: integer
-      - name: body
-        in: body
-        description: user Data
-        required: true
         schema:
-          $ref: '#/definitions/users'
+          type : integer
+          format: int64
+          minimum: 1
+      requestBody:
+        description: user data
+        required: true
+        content:
+          appliction/json:     
+            schema:
+              $ref:  "#/components/schemas/users"
       responses:
         200:
           description: 'OK'
@@ -94,26 +119,6 @@ paths:
         in: path
         description: user Id
         required: true
-        type: integer
-      responses:
-        200:
-          description: 'OK'
-        409:
-          description: 'Conflict'
-        500:
-          description: 'Server Error'
-
-# [GET] event/{id}
-  /event/{id}:
-    get:
-      tags:
-      - event
-      summary: Find Events by ID
-      parameters:
-      - in: path
-        name: id
-        description: Event Id
-        required: true
         schema:
           type : integer
           format: int64
@@ -121,36 +126,50 @@ paths:
       responses:
         200:
           description: 'OK'
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  users:  
-                    type: object
-                    $ref: "#/components/schemas/event"
         409:
           description: 'Conflict'
         500:
           description: 'Server Error'
-
+# [GET] event/id
+  /events/{id}:
+    get:
+      tags:
+        - events
+      summary: Get event by Id
+      parameters:
+      - name: id
+        in: path
+        description: event id
+        required: true
+        schema:
+          type: integer
+          format: int64
+          minimum: 1
+      responses:
+        200:
+          description: 'OK'
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
 # definitions
-definitions:
-  users:
-    type: object
-    required:
-        - email
-        - password
-    properties:
-      id:
-        type: integer
-        description: user Id
-      email:
-        type: string
-        description: user Email
-      password:
-        type: string
-        description: user Password
+components:
+  schemas:
+    users:
+      type: object
+      required:
+          - email
+          - password
+      properties:
+        id:
+          type: integer
+          description: user Id
+        email:
+          type: string
+          description: user Email
+        password:
+          type: string
+          description: user Password
         eventTime:
           type: string
         user:
@@ -229,8 +248,5 @@ definitions:
           $ref: "#/components/schemas/place"
         user:
           type: object
-          $ref: "#/components/schemas/users"
+          $ref: "#/components/schemas/users"          
 
-schemes:
- - https
- - http

@@ -16,3 +16,12 @@
 2021-02-18 15:06:19 info: 🚀 App listening on the port 3000
 2021-02-18 15:06:31 info: 🚀 App listening on the port 3000
 2021-02-18 15:06:57 info: 🚀 App listening on the port 3000
+2021-02-18 16:31:40 info: 🚀 App listening on the port 3000
+2021-02-18 16:34:51 info: 🚀 App listening on the port 3000
+2021-02-18 16:35:31 info: 🚀 App listening on the port 3000
+2021-02-18 17:09:48 info: [0mGET /users/1 [32m200[0m 10.644 ms - 216[0m
+2021-02-18 17:09:48 info: [0mGET /favicon.ico [33m404[0m 3.795 ms - 150[0m
+2021-02-18 17:09:54 info: [0mGET /users/ [32m200[0m 3.651 ms - 218[0m
+2021-02-18 17:10:07 info: [0mGET /users/1 [36m304[0m 3.921 ms - -[0m
+2021-02-18 17:10:11 info: [0mGET /users/2 [32m200[0m 2.321 ms - 21[0m
+2021-02-18 17:10:16 info: [0mGET /users/3 [32m200[0m 2.791 ms - 21[0m
