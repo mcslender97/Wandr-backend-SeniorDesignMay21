@@ -65,8 +65,14 @@ paths:
           format: int64
           minimum: 1
       responses:
+        
         200:
           description: 'OK'
+          content:
+              application/json:
+                schema:
+                  type: object
+                  $ref: "#/components/schemas/users"
         409:
           description: 'Conflict'
         500:
@@ -124,7 +130,101 @@ paths:
           description: 'Conflict'
         500:
           description: 'Server Error'
+# [GET] events
+  /events:
+    get:
+      tags:
+      - events
+      summary: Find All events
+      responses:
+        200:
+          description: 'OK'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  users:  
+                    type: array
+                    items: 
+                      $ref: "#/components/schemas/event"
+        500:
+          description: 'Server Error'
 
+# [GET] event/id
+  /events/{id}:
+    get:
+      tags:
+        - events
+      summary: Get event by Id
+      parameters:
+      - name: id
+        in: path
+        description: event id
+        required: true
+        schema:
+          type: integer
+          format: int64
+          minimum: 1
+      responses:
+        200:
+          description: 'OK'
+          content:
+              application/json:
+                schema:
+                  type: object
+                  $ref: "#/components/schemas/event"
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
+# [GET] places
+  /places:
+    get:
+      tags:
+      - places
+      summary: Find All places
+      responses:
+        200:
+          description: 'OK'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  users:  
+                    type: array
+                    items: 
+                      $ref: "#/components/schemas/place"
+        500:
+          description: 'Server Error'  
+# [GET] places/id
+  /places/{id}:
+    get:
+      tags:
+        - places
+      summary: Get place by Id
+      parameters:
+      - name: id
+        in: path
+        description: place id
+        required: true
+        schema:
+          type: integer
+          format: int64
+          minimum: 1
+      responses:
+        200:
+          description: 'OK'
+          content:
+              application/json:
+                schema:
+                  type: object
+                  $ref: "#/components/schemas/place"
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'  
 # definitions
 components:
   schemas:
@@ -133,24 +233,97 @@ components:
       required:
           - email
           - password
+          
+      properties:
+        ID:
+          type: integer
+          description: user Id
+        Fullname:
+          type: string
+        Username:
+          type: string
+        Email:
+          type: string
+          description: user Email
+        Phone:
+          type: number
+        Password:
+          type: string
+          description: user Password
+        Dob:
+          type: string
+        Gender:
+          type: string
+        Pfp:
+          type: object
+        
+       
+    place:
+      type: object
+      required:
+        - name
+        - location
+        - type
       properties:
         id:
           type: integer
-          description: user Id
-        email:
+          description: place id
+        name:
           type: string
-          description: user Email
-        password:
+        placeType:
           type: string
-          description: user Password
-        events:
-          type: array
-          items:
-            $ref: "#/components/schemas/event"
+          description: Activity type of the Place
+        description:
+          type: string
+          description: Information of the Place
+        location:
+          type: string
+          description: Address of the place
+    usereventgroup:
+      type: object
+      required:
+        - event
+        - user
+      properties:
+        id:
+          type: integer
+        event :
+          type: object
+          $ref: "#/components/schemas/event"
+        user:
+          type: object
+          $ref: "#/components/schemas/users"
+        joinedAt:
+          type: string
+    eventMessages:
+      type: object
+      required:
+        - timestamp
+        - content
+      properties:
+        id:
+          type: integer
+        timestamp:
+          type: string
+        content:
+          type: string
+        userEvent:
+          type: object
+          $ref: "#/components/schemas/usereventgroup"
     event:
       type: object
       properties:
+        id:
+          type: integer
         title:
           type: string
         createdAt:
-          type: number
+          type: string
+        eventTime:
+          type: string
+        PlaceID:
+          type: integer      
+        UserID:
+          type: integer
+         
+

@@ -1,0 +1,14 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 30
+    },
+    "auditLog": "D:\\Back end app\\Wandr-Back-end\\wandr-backend\\build\\logs\\info\\.8c3691a4eee60410a25ccf297f460400ea070042-audit.json",
+    "files": [
+        {
+            "date": 1613600337808,
+            "name": "D:\\Back end app\\Wandr-Back-end\\wandr-backend\\build\\logs\\info\\2021-02-17.log",
+            "hash": "48e7bc8c7a0d79c89563825b615a3bfb"
+        }
+    ]
+}

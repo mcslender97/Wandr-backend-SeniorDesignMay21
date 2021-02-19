@@ -1,0 +1,24 @@
+2021-02-17 19:48:04 error: uncaughtException: Cannot read property 'schemas' of undefined
+TypeError: Cannot read property 'schemas' of undefined
+    at organize (D:\Flutter project\wandr-backend\node_modules\swagger-jsdoc\src\specification.js:144:35)
+    at build (D:\Flutter project\wandr-backend\node_modules\swagger-jsdoc\src\specification.js:275:7)
+    at Object.module.exports [as default] (D:\Flutter project\wandr-backend\node_modules\swagger-jsdoc\src\lib.js:30:10)
+    at App.initializeSwagger (D:\Flutter project\wandr-backend\src\app.ts:75:31)
+    at new App (D:\Flutter project\wandr-backend\src\app.ts:26:10)
+    at Object.<anonymous> (D:\Flutter project\wandr-backend\src\server.ts:10:13)
+    at Module._compile (internal/modules/cjs/loader.js:1063:30)
+    at Module.m._compile (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:1056:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:1059:12)
+2021-02-17 19:49:37 error: uncaughtException: Cannot read property 'schemas' of undefined
+TypeError: Cannot read property 'schemas' of undefined
+    at organize (D:\Flutter project\wandr-backend\node_modules\swagger-jsdoc\src\specification.js:144:35)
+    at build (D:\Flutter project\wandr-backend\node_modules\swagger-jsdoc\src\specification.js:275:7)
+    at Object.module.exports [as default] (D:\Flutter project\wandr-backend\node_modules\swagger-jsdoc\src\lib.js:30:10)
+    at App.initializeSwagger (D:\Flutter project\wandr-backend\src\app.ts:75:31)
+    at new App (D:\Flutter project\wandr-backend\src\app.ts:26:10)
+    at Object.<anonymous> (D:\Flutter project\wandr-backend\src\server.ts:10:13)
+    at Module._compile (internal/modules/cjs/loader.js:1063:30)
+    at Module.m._compile (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:1056:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:1059:12)

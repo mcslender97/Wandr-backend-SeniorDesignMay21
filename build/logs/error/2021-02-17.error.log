@@ -1,0 +1,12 @@
+2021-02-17 17:19:10 error: uncaughtException: Cannot read property 'schemas' of undefined
+TypeError: Cannot read property 'schemas' of undefined
+    at organize (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\swagger-jsdoc\src\specification.js:144:35)
+    at build (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\swagger-jsdoc\src\specification.js:275:7)
+    at Object.module.exports [as default] (D:\Back end app\Wandr-Back-end\wandr-backend\node_modules\swagger-jsdoc\src\lib.js:30:10)
+    at App.initializeSwagger (D:\Back end app\Wandr-Back-end\wandr-backend\build\app.js:67:46)
+    at new App (D:\Back end app\Wandr-Back-end\wandr-backend\build\app.js:24:14)
+    at Object.<anonymous> (D:\Back end app\Wandr-Back-end\wandr-backend\build\server.js:13:13)
+    at Module._compile (internal/modules/cjs/loader.js:1076:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1097:10)
+    at Module.load (internal/modules/cjs/loader.js:941:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:782:14)
