@@ -71,3 +71,6 @@
 2021-02-18 21:59:53 info: [0mGET /places/1 [32m200[0m 2.706 ms - 115[0m
 2021-02-18 22:11:21 info: [0mGET /events/1 [32m200[0m 2.588 ms - 141[0m
 2021-02-18 22:12:40 info: [0mGET /users/1 [32m200[0m 1.971 ms - 187[0m
+2021-02-18 22:30:31 info: 🚀 App listening on the port 3000
+2021-02-18 22:30:49 info: 🚀 App listening on the port 3000
+2021-02-18 22:31:06 info: 🚀 App listening on the port 3000
