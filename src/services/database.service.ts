@@ -4,6 +4,7 @@ import config from '../config/config';
 import Knex from 'knex';
 import { User } from '../interfaces/users.interface';
 import { Place } from '../interfaces/places.interface';
+import { Event } from '../interfaces/events.interface';
 import UsersController from '../controllers/users.controller';
 
 const knex = Knex({
@@ -23,9 +24,7 @@ class DatabaseService {
   async findUserByEmail(email: string) {
     return await knex<User>('user').where('email', email).first();
   }
-  async findPlaceByLocation(location: string) {
-    return await knex<Place>('place').where('location', location);
-  }
+  
   // async findEventByPlace(place: Place){
   //     //return await knex<
   //     return await knex<Event>('event').where("place", place );
@@ -61,6 +60,27 @@ class DatabaseService {
       },
       ['id', 'fullname', 'dob', 'email', 'gender', 'password', 'phone'],
     );
+  }
+
+
+  async getAllEvents() {
+    return await knex<Event>('event');
+  }
+  async findEventByID(id: number) {
+    return await knex('event').where('EventId', id).first();
+  }
+  async findEventByPlace(placeName: string) {
+    return await knex<Event>('event').where('place', placeName).first();
+  }
+  async getAllPlaces() {
+    return await knex<Place>('place');
+  }
+  async findPlaceByID(id: number) {
+    return await knex('place').where('PlaceID', id).first();
+  }
+
+  async findPlaceByLocation(location: string) {
+    return await knex<Place>('place').where('location', location);
   }
 }
 
