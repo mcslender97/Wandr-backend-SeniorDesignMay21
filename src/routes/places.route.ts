@@ -16,6 +16,7 @@ class PlacesRoute implements Route {
   private initializeRoutes() {
     this.router.get(`${this.path}`, this.placesController.getPlaces);
     this.router.get(`${this.path}/:id(\\d+)`, this.placesController.getPlaceById);
+ //   this.router.get(`${this.path}/search`, this.placesController.getPlaceById); //search places route
 //     this.router.post(`${this.path}`, validationMiddleware(CreatePlaceDto, 'body'), this.placesController.createPlace);
 //     this.router.put(`${this.path}/:id(\\d+)`, validationMiddleware(CreatePlaceDto, 'body', true), this.placesController.updatePlace);
 //     this.router.delete(`${this.path}/:id(\\d+)`, this.placesController.deletePlace);

@@ -62,7 +62,7 @@ class DatabaseService {
     );
   }
 
-
+// function for search data from 2 tables to get events in 1 place: use inner join query
   async getAllEvents() {
     return await knex<Event>('event');
   }
