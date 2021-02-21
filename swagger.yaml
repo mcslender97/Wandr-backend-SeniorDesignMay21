@@ -192,7 +192,36 @@ paths:
               schema:
                 type: object
                 properties:
-                  users:  
+                  places:  
+                    type: array
+                    items: 
+                      $ref: "#/components/schemas/place"
+        500:
+          description: 'Server Error'  
+# [GET] places
+  /places/search:
+    get:
+      tags:
+      - places
+      summary: Find Places with location query search
+      parameters:
+      - name: q
+        in: query
+        description: location name
+        required: true
+        schema:
+          type: string
+          format: string
+          minimum: 3
+      responses:
+        200:
+          description: 'OK'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  places:  
                     type: array
                     items: 
                       $ref: "#/components/schemas/place"
