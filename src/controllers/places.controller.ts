@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
+import { Query } from 'mysql';
 //import { CreatePlaceDto } from '../dtos/places.dto';
 import { Place } from '../interfaces/places.interface';
 import PlaceService from '../services/places.service';
@@ -15,7 +16,18 @@ class PlacesController {
       } catch (error) {
         next(error);
       }
-    };
+  };
+  public getPlacesBySearchQuery = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      let q = req.query.q;
+      const findAllPlacesData: Place[] = await this.placeService.showPlacesBySearchQuery(q.toString());
+
+        res.status(200).json(findAllPlacesData);
+        console.log("findAll")
+    } catch (error) {
+      next(error);
+    }
+  };
   
     public getPlaceById = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
       try {
