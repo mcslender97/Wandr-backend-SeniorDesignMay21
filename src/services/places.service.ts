@@ -27,7 +27,11 @@ class PlaceService {
 
     return place;
   }
-
+  public async showPlacesBySearchQuery(query: string): Promise<Place[]> {
+    //   const places: Place[] = this.places;
+    const places = await this.db.showPlaceByLocationSearchQuery(query);
+    return places;
+  }
 //   public async createPlace(placeData: CreatePlaceDto): Promise<Place> {
 //     if (isEmpty(placeData)) throw new HttpException(400, "You're not placeData");  
 //     const findPlace = await this.db.findPlaceByEmail(placeData.email);
