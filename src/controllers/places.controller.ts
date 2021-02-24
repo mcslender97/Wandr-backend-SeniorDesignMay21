@@ -17,13 +17,13 @@ class PlacesController {
         next(error);
       }
   };
-  public getPlacesBySearchQuery = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+  public getPlacesBySearchQuery = async (req: Request, res: Response, next: NextFunction): Promise<void> => {// search?q=<search query goes here>
     try {
       let q = req.query.q;
       const findAllPlacesData: Place[] = await this.placeService.showPlacesBySearchQuery(q.toString());
 
         res.status(200).json(findAllPlacesData);
-        console.log("findAll")
+        console.log("findBySearchQuery")
     } catch (error) {
       next(error);
     }

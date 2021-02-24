@@ -85,6 +85,10 @@ class DatabaseService {
   async showPlaceByLocationSearchQuery(query: string) {
     const regexQuery: string = query.concat('%');
     return await knex<Place>('place').where('location', 'like', regexQuery);
+
+  }
+  async showEventByPlace(placeID: number) {
+    return await knex<Event>('event').where('PlaceID', placeID).innerJoin('place', 'event.PlaceID', 'place.PlaceID');
   }
 }
 
