@@ -27,9 +27,9 @@ class EventService {
 
     return event;
   }
-  public async showEventsInAPlace(placeID: number): Promise<Event[]> {
+  public async showEventsInAPlace(pid: number): Promise<Event[]> {
     //   const events: Event[] = this.events;
-    const events = await this.db.showEventByPlace(placeID);
+    const events = await this.db.showEventByPlace(pid);
     return events;
   }
 
