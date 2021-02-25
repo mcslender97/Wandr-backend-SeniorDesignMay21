@@ -87,8 +87,9 @@ class DatabaseService {
     return await knex<Place>('place').where('location', 'like', regexQuery);
 
   }
-  async showEventByPlace(placeID: number) {
-    return await knex<Event>('event').where('PlaceID', placeID).innerJoin('place', 'event.PlaceID', 'place.PlaceID');
+  async showEventByPlace(pid: number) {
+    //return await knex<Event>('event').innerJoin('place', 'event.PlaceID', 'place.PlaceID').where('event.PlaceID', placeID);
+    return await knex.raw('SELECT * FROM event INNER JOIN place on event.PlaceID = place.PlaceID where event.PlaceID = ?', pid);
   }
 }
 

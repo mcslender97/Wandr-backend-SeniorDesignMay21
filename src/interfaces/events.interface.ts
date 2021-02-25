@@ -7,5 +7,5 @@ export interface Event {
   eventTime: string; // type of date in SQL
   
   PlaceID: number;//FK? for Place
-  UserID: number
+  UserID: number;
 }

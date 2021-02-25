@@ -30,8 +30,8 @@ class EventsController {
   };
   public getEventsOfAPlace = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
-      const placeId = Number(req.params.placeid);
-      const findAllEventsData: Event[] = await this.eventService.showEventsInAPlace(placeId);
+      const pid = Number(req.params.pid);
+      const findAllEventsData: Event[] = await this.eventService.showEventsInAPlace(pid);
 
         res.status(200).json(findAllEventsData);
         console.log("findFromPlace")
