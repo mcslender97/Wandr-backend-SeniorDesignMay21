@@ -84,12 +84,13 @@ class DatabaseService {
   }
   async showPlaceByLocationSearchQuery(query: string) {
     const regexQuery: string = query.concat('%');
-    return await knex<Place>('place').where('location', 'like', regexQuery);
+    return await knex<Place>('place').where('location', 'like ', regexQuery);
 
   }
   async showEventByPlace(pid: number) {
-    //return await knex<Event>('event').innerJoin('place', 'event.PlaceID', 'place.PlaceID').where('event.PlaceID', placeID);
-    return await knex.raw('SELECT * FROM event INNER JOIN place on event.PlaceID = place.PlaceID where event.PlaceID = ?', pid);
+    return await knex<Event>('event').select('*').innerJoin('place', 'event.PlaceID', 'place.PlaceID').where('event.PlaceId', pid);
+    // return await knex<Event>('event').select('*').innerJoin('place', 'event.PlaceID', 'place.PlaceID').where('event.PlaceID', pid);
+    //return await knex.raw('SELECT * FROM event INNER JOIN place on event.PlaceID = place.PlaceID where event.PlaceID = ?', pid);
   }
 }
 
