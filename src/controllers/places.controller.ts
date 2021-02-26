@@ -10,7 +10,6 @@ class PlacesController {
     public getPlaces = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
       try {
         const findAllPlacesData: Place[] = await this.placeService.findAllPlaces();
-  
           res.status(200).json(findAllPlacesData);
           console.log("findAll")
       } catch (error) {
@@ -40,7 +39,17 @@ class PlacesController {
         next(error);
       }
     };
+    public getEventsOfAPlace = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+      try {
+        const pid = Number(req.params.id);
+        const findAllEventsData: Event[] = await this.placeService.showEventsInAPlace(pid);
   
+          res.status(200).json(findAllEventsData);
+          console.log("findFromPlace")
+      } catch (error) {
+        next(error);
+      }
+    };
     // public createPlace = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     //   try {
     //     const placeData: CreatePlaceDto = req.body;

@@ -28,17 +28,7 @@ class EventsController {
         next(error);
       }
   };
-  public getEventsOfAPlace = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-    try {
-      const pid = Number(req.params.pid);
-      const findAllEventsData: Event[] = await this.eventService.showEventsInAPlace(pid);
 
-        res.status(200).json(findAllEventsData);
-        console.log("findFromPlace")
-    } catch (error) {
-      next(error);
-    }
-  };
   
     // public createEvent = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     //   try {

@@ -27,11 +27,6 @@ class EventService {
 
     return event;
   }
-  public async showEventsInAPlace(pid: number): Promise<Event[]> {
-    //   const events: Event[] = this.events;
-    const events = await this.db.showEventByPlace(pid);
-    return events;
-  }
 
 //   public async createEvent(eventData: CreateEventDto): Promise<Event> {
 //     if (isEmpty(eventData)) throw new HttpException(400, "You're not eventData");  
