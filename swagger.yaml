@@ -202,6 +202,7 @@ paths:
           description: 'Conflict'
         500:
           description: 'Server Error'
+
 # [GET] places
   /places:
     get:
@@ -274,6 +275,39 @@ paths:
                 schema:
                   type: object
                   $ref: "#/components/schemas/place"
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'  
+# [GET] events of a place
+  /places/{id}/events:
+    get:
+      tags:
+        - places
+      summary: Get events of a place by place ID
+      parameters:
+      - name: id
+        in: path
+        description: place id
+        required: true
+        schema:
+          type: integer
+          format: int64
+          minimum: 1
+      responses:
+        200:
+          description: 'OK'
+          content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    events:  
+                      type: array
+                      items:
+                        allOf:
+                          - $ref: "#/components/schemas/event"
+                          - $ref: "#/components/schemas/place"
         409:
           description: 'Conflict'
         500:
