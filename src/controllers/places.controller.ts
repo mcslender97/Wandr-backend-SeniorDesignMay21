@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
-import { Query } from 'mysql';
 //import { CreatePlaceDto } from '../dtos/places.dto';
+import { Event } from '../interfaces/events.interface';
+
 import { Place } from '../interfaces/places.interface';
 import PlaceService from '../services/places.service';
 
@@ -43,7 +44,6 @@ class PlacesController {
       try {
         const pid = Number(req.params.id);
         const findAllEventsData: Event[] = await this.placeService.showEventsInAPlace(pid);
-  
           res.status(200).json(findAllEventsData);
           console.log("findFromPlace")
       } catch (error) {

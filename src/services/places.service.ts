@@ -1,9 +1,7 @@
-import bcrypt from 'bcrypt';
 //import { CreatePlaceDto } from '../dtos/places.dto';
-import HttpException from '../exceptions/HttpException';
 import { Place } from '../interfaces/places.interface';
+import { Event } from '../interfaces/events.interface';
 //import placeModel from '../models/places.model';
-import { isEmpty } from '../utils/util';
 import DatabaseService from './database.service';
 
 class PlaceService {
@@ -33,7 +31,7 @@ class PlaceService {
     return places;
   }
 
-  public async showEventsInAPlace(pid: number): Promise<Event[]> {
+  public async showEventsInAPlace(pid: number): Promise<(Event & Place)[]> {
     //   const events: Event[] = this.events;
     const events = await this.db.showEventByPlace(pid);
     return events;

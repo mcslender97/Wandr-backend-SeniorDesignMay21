@@ -6,9 +6,33 @@ info:
   version: '0.1'
 
 paths:
+# [POST] login
+  /login:
+    post:
+      requestBody:
+        description: Email and Password
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        200:
+          description: 'OK'
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/users"
 # [GET] users
   /users:
     get:
+      security:
+        - bearerAuth: []
       tags:
       - users
       summary: Find All Users
@@ -256,6 +280,11 @@ paths:
           description: 'Server Error'  
 # definitions
 components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
   schemas:
     users:
       type: object
@@ -355,4 +384,3 @@ components:
         UserID:
           type: integer
          
-

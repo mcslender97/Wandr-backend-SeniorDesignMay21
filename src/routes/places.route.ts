@@ -2,6 +2,7 @@ import { Router } from 'express';
 import PlacesController from '../controllers/places.controller';
 //import { CreatePlaceDto } from '../dtos/places.dto';
 import Route from '../interfaces/routes.interface';
+import authMiddleware from '../middlewares/auth.middleware';
 import validationMiddleware from '../middlewares/validation.middleware';
 
 class PlacesRoute implements Route {
@@ -14,6 +15,8 @@ class PlacesRoute implements Route {
   }
 
   private initializeRoutes() {
+    this.router.use(`${this.path}`, authMiddleware);
+
     this.router.get(`${this.path}`, this.placesController.getPlaces);
     this.router.get(`${this.path}/:id(\\d+)`, this.placesController.getPlaceById);
     this.router.get(`${this.path}/search`, this.placesController.getPlacesBySearchQuery); //search places route

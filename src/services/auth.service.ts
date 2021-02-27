@@ -31,7 +31,7 @@ class AuthService {
     return createUserData;
   }
 
-  public async login(userData: CreateUserDto): Promise<{ cookie: string; findUser: User }> {
+  public async login(userData: CreateUserDto): Promise<{ user: { token: TokenData } & User }> {
     if (isEmpty(userData)) throw new HttpException(400, "You're not userData");
 
     const findUser: User = this.users.find(user => user.email === userData.email);
@@ -41,9 +41,10 @@ class AuthService {
     if (!isPasswordMatching) throw new HttpException(409, "You're password not matching");
 
     const tokenData = this.createToken(findUser);
-    const cookie = this.createCookie(tokenData);
 
-    return { cookie, findUser };
+    const user = Object.assign({token: tokenData}, findUser)
+
+    return { user };
   }
 
   public async logout(userData: User): Promise<User> {
