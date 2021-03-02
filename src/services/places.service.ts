@@ -27,6 +27,17 @@ class PlaceService {
 
     return place;
   }
+  public async showPlacesBySearchQuery(query: string): Promise<Place[]> {
+    //   const places: Place[] = this.places;
+    const places = await this.db.showPlaceByLocationSearchQuery(query);
+    return places;
+  }
+
+  public async showEventsInAPlace(pid: number): Promise<Event[]> {
+    //   const events: Event[] = this.events;
+    const events = await this.db.showEventByPlace(pid);
+    return events;
+  }
 
 //   public async createPlace(placeData: CreatePlaceDto): Promise<Place> {
 //     if (isEmpty(placeData)) throw new HttpException(400, "You're not placeData");  

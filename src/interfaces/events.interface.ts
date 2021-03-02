@@ -5,6 +5,7 @@ export interface Event {
   title: string;
   createdAt: string; //timestamp
   eventTime: string; // type of date in SQL
-  //FK? for Place
-  place: Place;
+  
+  PlaceID: number;//FK? for Place
+  UserID: number;
 }

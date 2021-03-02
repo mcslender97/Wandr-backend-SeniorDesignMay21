@@ -62,7 +62,7 @@ class DatabaseService {
     );
   }
 
-
+// function for search data from 2 tables to get events in 1 place: use inner join query
   async getAllEvents() {
     return await knex<Event>('event');
   }
@@ -81,6 +81,16 @@ class DatabaseService {
 
   async findPlaceByLocation(location: string) {
     return await knex<Place>('place').where('location', location);
+  }
+  async showPlaceByLocationSearchQuery(query: string) {
+    const regexQuery: string = query.concat('%');
+    return await knex<Place>('place').where('location', 'like ', regexQuery);
+
+  }
+  async showEventByPlace(pid: number) {
+    return await knex<Event>('event').select('*').innerJoin('place', 'event.PlaceID', 'place.PlaceID').where('event.PlaceId', pid);
+    // return await knex<Event>('event').select('*').innerJoin('place', 'event.PlaceID', 'place.PlaceID').where('event.PlaceID', pid);
+    //return await knex.raw('SELECT * FROM event INNER JOIN place on event.PlaceID = place.PlaceID where event.PlaceID = ?', pid);
   }
 }
 

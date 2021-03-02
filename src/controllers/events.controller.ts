@@ -27,7 +27,8 @@ class EventsController {
       } catch (error) {
         next(error);
       }
-    };
+  };
+
   
     // public createEvent = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     //   try {

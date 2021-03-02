@@ -18,7 +18,27 @@
         {
             "date": 1613705424221,
             "name": "D:\\Back end app\\Wandr-Back-end\\wandr-backend\\src\\logs\\error\\2021-02-18.error.log",
-            "hash": "0a91c48afc137eaa8f097d6c3ca54074"
+            "hash": "312e8f597b6305693626c44cb1067b46"
+        },
+        {
+            "date": 1614049852511,
+            "name": "D:\\Back end app\\Wandr-Back-end\\wandr-backend\\src\\logs\\error\\2021-02-22.error.log",
+            "hash": "cd44a67c1a48c498f9178fd6463b56ac"
+        },
+        {
+            "date": 1614127102598,
+            "name": "D:\\Back end app\\Wandr-Back-end\\wandr-backend\\src\\logs\\error\\2021-02-23.error.log",
+            "hash": "e593a7cdeda7c3b4f6ad7b2678b9f750"
+        },
+        {
+            "date": 1614194737142,
+            "name": "D:\\Back end app\\Wandr-Back-end\\wandr-backend\\src\\logs\\error\\2021-02-24.error.log",
+            "hash": "f7eca616fc1deb34dc7133b389092c5c"
+        },
+        {
+            "date": 1614276923626,
+            "name": "D:\\Back end app\\Wandr-Back-end\\wandr-backend\\src\\logs\\error\\2021-02-25.error.log",
+            "hash": "4be3127fc1320cc552d55650b670251f"
         }
     ]
 }
