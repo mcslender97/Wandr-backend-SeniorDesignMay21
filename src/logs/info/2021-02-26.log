@@ -29,3 +29,17 @@
 2021-02-26 12:26:44 info: 🚀 App listening on the port 3000
 2021-02-26 12:26:53 info: 🚀 App listening on the port 3000
 2021-02-26 12:27:20 info: 🚀 App listening on the port 3000
+2021-02-26 13:57:51 info: 🚀 App listening on the port 3000
+2021-02-26 13:57:52 info: [0mGET / [32m200[0m 5.104 ms - 17[0m
+2021-02-26 13:57:52 info: [0mGET /favicon.ico [33m404[0m 2.213 ms - 150[0m
+2021-02-26 13:57:59 info: [0mGET /places [32m200[0m 1.855 ms - 430[0m
+2021-02-26 13:58:04 info: [0mGET /places/1 [32m200[0m 2.739 ms - 115[0m
+2021-02-26 13:58:07 info: [0mGET /places/1/event [33m404[0m 0.694 ms - 153[0m
+2021-02-26 13:58:09 info: [0mGET /places/1/events [32m200[0m 4.227 ms - 245[0m
+2021-02-26 14:15:36 info: [0mGET /places [36m304[0m 3.966 ms - -[0m
+2021-02-26 14:15:53 info: [0mGET /places/1 [36m304[0m 1.821 ms - -[0m
+2021-02-26 14:15:58 info: [0mGET /places/2 [32m200[0m 1.449 ms - 146[0m
+2021-02-26 14:16:13 info: [0mGET /places/3 [32m200[0m 1.589 ms - 165[0m
+2021-02-26 14:16:20 info: [0mGET /places/3/events [32m200[0m 1.433 ms - 2[0m
+2021-02-26 14:16:27 info: [0mGET /places/2/events [32m200[0m 1.670 ms - 299[0m
+2021-02-26 14:16:42 info: [0mGET /places/1/events [36m304[0m 2.647 ms - -[0m
