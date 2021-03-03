@@ -11,7 +11,7 @@ const authMiddleware = async (req: RequestWithUser, res: Response, next: NextFun
       const secret = process.env.JWT_SECRET;
       const verificationResponse = (await jwt.verify(headers.authorization.replace(/Bearer /, "") as string, secret)) as DataStoredInToken;
       const userId = verificationResponse.id;
-      const findUser = userModel.find(user => user.id === userId);
+      const findUser = userModel.find(user => user.ID === userId);
 
       if (findUser) {
         req.user = findUser;

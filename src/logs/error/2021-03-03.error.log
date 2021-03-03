@@ -1,0 +1,153 @@
+2021-03-03 16:50:54 error: StatusCode : 500, Message : data and hash arguments required
+2021-03-03 16:52:17 error: StatusCode : 500, Message : data and hash arguments required
+2021-03-03 16:59:57 error: uncaughtException: Is is not defined
+ReferenceError: Is is not defined
+    at Object.<anonymous> (D:\Flutter project\wandr-backend\src\dtos\users.dto.ts:13:4)
+    at Module._compile (internal/modules/cjs/loader.js:1063:30)
+    at Module.m._compile (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:1056:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:1059:12)
+    at Module.load (internal/modules/cjs/loader.js:928:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:769:14)
+    at Module.require (internal/modules/cjs/loader.js:952:19)
+    at require (internal/modules/cjs/helpers.js:88:18)
+    at Object.<anonymous> (D:\Flutter project\wandr-backend\src\routes\auth.route.ts:3:1)
+2021-03-03 17:12:42 error: uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/services/database.service.ts[0m:[93m97[0m:[93m3[0m - [91merror[0m[90m TS1003: [0mIdentifier expected.
+
+[7m97[0m   }
+[7m  [0m [91m  ~[0m
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/services/database.service.ts[0m:[93m97[0m:[93m3[0m - [91merror[0m[90m TS1003: [0mIdentifier expected.
+
+[7m97[0m   }
+[7m  [0m [91m  ~[0m
+
+    at createTSError (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:513:12)
+    at reportTSError (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:517:19)
+    at getOutput (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:955:34)
+    at Object.compile (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:968:32)
+    at Module.m._compile (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:1056:42)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:1059:12)
+    at Module.load (internal/modules/cjs/loader.js:928:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:769:14)
+    at Module.require (internal/modules/cjs/loader.js:952:19)
+2021-03-03 17:35:35 error: StatusCode : 400, Message : Email must be an email, Username must be a string, Phone must be a string,Phone must be a valid phone number, Password must be a string, Fullname must be a string, Gender must be a string, Dob must be a string
+2021-03-03 17:38:28 error: StatusCode : 400, Message : Email must be an email, Username must be a string, Phone must be a string,Phone must be a valid phone number, Password must be a string, Fullname must be a string, Gender must be a string, Dob must be a string
+2021-03-03 17:41:47 error: StatusCode : 400, Message : Email must be an email, Username must be a string, Phone must be a string,Phone must be a valid phone number, Password must be a string, Fullname must be a string, Gender must be a string, Dob must be a string
+2021-03-03 17:44:13 error: StatusCode : 400, Message : Email must be an email, Username must be a string, Phone must be a string,Phone must be a valid phone number, Password must be a string, Fullname must be a string, Gender must be a string, Dob must be a string
+2021-03-03 17:45:02 error: StatusCode : 400, Message : Email must be an email, Password must be a string
+2021-03-03 17:50:59 error: uncaughtException: listen EADDRINUSE: address already in use :::3000
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (net.js:1318:16)
+    at listenInCluster (net.js:1366:12)
+    at Server.listen (net.js:1452:7)
+    at Function.listen (D:\Flutter project\wandr-backend\node_modules\express\lib\application.js:618:24)
+    at App.listen (D:\Flutter project\wandr-backend\src\app.ts:32:14)
+    at Object.<anonymous> (D:\Flutter project\wandr-backend\src\server.ts:14:5)
+    at Module._compile (internal/modules/cjs/loader.js:1063:30)
+    at Module.m._compile (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:1056:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:1059:12)
+2021-03-03 17:51:22 error: StatusCode : 400, Message : Email must be an email, Password must be a string
+2021-03-03 17:55:14 error: uncaughtException: listen EADDRINUSE: address already in use :::3000
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (net.js:1318:16)
+    at listenInCluster (net.js:1366:12)
+    at Server.listen (net.js:1452:7)
+    at Function.listen (D:\Flutter project\wandr-backend\node_modules\express\lib\application.js:618:24)
+    at App.listen (D:\Flutter project\wandr-backend\src\app.ts:32:14)
+    at Object.<anonymous> (D:\Flutter project\wandr-backend\src\server.ts:14:5)
+    at Module._compile (internal/modules/cjs/loader.js:1063:30)
+    at Module.m._compile (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:1056:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:1059:12)
+2021-03-03 17:55:31 error: uncaughtException: listen EADDRINUSE: address already in use :::3000
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (net.js:1318:16)
+    at listenInCluster (net.js:1366:12)
+    at Server.listen (net.js:1452:7)
+    at Function.listen (D:\Flutter project\wandr-backend\node_modules\express\lib\application.js:618:24)
+    at App.listen (D:\Flutter project\wandr-backend\src\app.ts:32:14)
+    at Object.<anonymous> (D:\Flutter project\wandr-backend\src\server.ts:14:5)
+    at Module._compile (internal/modules/cjs/loader.js:1063:30)
+    at Module.m._compile (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:1056:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:1059:12)
+2021-03-03 18:01:13 error: StatusCode : 400, Message : Email must be an email, Password must be a string
+2021-03-03 18:04:59 error: StatusCode : 400, Message : Email must be an email, Password must be a string
+2021-03-03 18:08:02 error: uncaughtException: listen EADDRINUSE: address already in use :::3000
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (net.js:1318:16)
+    at listenInCluster (net.js:1366:12)
+    at Server.listen (net.js:1452:7)
+    at Function.listen (D:\Flutter project\wandr-backend\node_modules\express\lib\application.js:618:24)
+    at App.listen (D:\Flutter project\wandr-backend\src\app.ts:32:14)
+    at Object.<anonymous> (D:\Flutter project\wandr-backend\src\server.ts:14:5)
+    at Module._compile (internal/modules/cjs/loader.js:1063:30)
+    at Module.m._compile (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:1056:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:1059:12)
+2021-03-03 18:10:13 error: uncaughtException: listen EADDRINUSE: address already in use :::3000
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (net.js:1318:16)
+    at listenInCluster (net.js:1366:12)
+    at Server.listen (net.js:1452:7)
+    at Function.listen (D:\Flutter project\wandr-backend\node_modules\express\lib\application.js:618:24)
+    at App.listen (D:\Flutter project\wandr-backend\src\app.ts:32:14)
+    at Object.<anonymous> (D:\Flutter project\wandr-backend\src\server.ts:14:5)
+    at Module._compile (internal/modules/cjs/loader.js:1063:30)
+    at Module.m._compile (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:1056:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:1059:12)
+2021-03-03 18:10:26 error: uncaughtException: listen EADDRINUSE: address already in use :::3000
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (net.js:1318:16)
+    at listenInCluster (net.js:1366:12)
+    at Server.listen (net.js:1452:7)
+    at Function.listen (D:\Flutter project\wandr-backend\node_modules\express\lib\application.js:618:24)
+    at App.listen (D:\Flutter project\wandr-backend\src\app.ts:32:14)
+    at Object.<anonymous> (D:\Flutter project\wandr-backend\src\server.ts:14:5)
+    at Module._compile (internal/modules/cjs/loader.js:1063:30)
+    at Module.m._compile (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:1056:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:1059:12)
+2021-03-03 18:12:25 error: uncaughtException: listen EADDRINUSE: address already in use :::3000
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (net.js:1318:16)
+    at listenInCluster (net.js:1366:12)
+    at Server.listen (net.js:1452:7)
+    at Function.listen (D:\Flutter project\wandr-backend\node_modules\express\lib\application.js:618:24)
+    at App.listen (D:\Flutter project\wandr-backend\src\app.ts:32:14)
+    at Object.<anonymous> (D:\Flutter project\wandr-backend\src\server.ts:14:5)
+    at Module._compile (internal/modules/cjs/loader.js:1063:30)
+    at Module.m._compile (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:1056:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:1059:12)
+2021-03-03 18:12:34 error: uncaughtException: listen EADDRINUSE: address already in use :::3000
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (net.js:1318:16)
+    at listenInCluster (net.js:1366:12)
+    at Server.listen (net.js:1452:7)
+    at Function.listen (D:\Flutter project\wandr-backend\node_modules\express\lib\application.js:618:24)
+    at App.listen (D:\Flutter project\wandr-backend\src\app.ts:32:14)
+    at Object.<anonymous> (D:\Flutter project\wandr-backend\src\server.ts:14:5)
+    at Module._compile (internal/modules/cjs/loader.js:1063:30)
+    at Module.m._compile (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:1056:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:1059:12)
+2021-03-03 18:14:16 error: StatusCode : 400, Message : Email must be an email, Password must be a string
+2021-03-03 18:15:42 error: uncaughtException: listen EADDRINUSE: address already in use :::3000
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (net.js:1318:16)
+    at listenInCluster (net.js:1366:12)
+    at Server.listen (net.js:1452:7)
+    at Function.listen (D:\Flutter project\wandr-backend\node_modules\express\lib\application.js:618:24)
+    at App.listen (D:\Flutter project\wandr-backend\src\app.ts:32:14)
+    at Object.<anonymous> (D:\Flutter project\wandr-backend\src\server.ts:14:5)
+    at Module._compile (internal/modules/cjs/loader.js:1063:30)
+    at Module.m._compile (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:1056:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:1059:12)

@@ -6,6 +6,7 @@ import { User } from '../interfaces/users.interface';
 import { Place } from '../interfaces/places.interface';
 import { Event } from '../interfaces/events.interface';
 import UsersController from '../controllers/users.controller';
+import { UserDto } from '../dtos/users.dto';
 
 const knex = Knex({
   client: 'mysql',
@@ -38,27 +39,27 @@ class DatabaseService {
   async updateUserByID(id: number, userData: User) {
     return await knex<User>('user').where('id', id).update(
       {
-        fullname: userData.fullname,
-        dob: userData.dob,
-        email: userData.email,
-        gender: userData.gender,
-        password: userData.password,
-        phone: userData.phone,
+        Fullname: userData.Fullname,
+        Dob: userData.Dob,
+        Email: userData.Email,
+        Gender: userData.Gender,
+        Password: userData.Password,
+        Phone: userData.Phone,
       },
       ['id', 'fullname', 'dob', 'email', 'gender', 'password', 'phone'],
     );
   }
-  async createUser(id: number, userData: User) {
+  async createUser(userData: User): Promise<UserDto> {
     return await knex<User>('user').insert(
       {
-        fullname: userData.fullname,
-        dob: userData.dob,
-        email: userData.email,
-        gender: userData.gender,
-        password: userData.password,
-        phone: userData.phone,
+        Fullname: userData.Fullname,
+        Dob: userData.Dob,
+        Email: userData.Email,
+        Gender: userData.Gender,
+        Password: userData.Password,
+        Phone: userData.Phone,
       },
-      ['id', 'fullname', 'dob', 'email', 'gender', 'password', 'phone'],
+      ['Fullname', 'Dob', 'Email', 'Gender', 'Phone'],
     );
   }
 
@@ -91,6 +92,9 @@ class DatabaseService {
     return await knex<Event>('event').select('*').innerJoin<Place>('place', 'event.PlaceID', 'place.PlaceID').where('event.PlaceId', pid);
     // return await knex<Event>('event').select('*').innerJoin('place', 'event.PlaceID', 'place.PlaceID').where('event.PlaceID', pid);
     //return await knex.raw('SELECT * FROM event INNER JOIN place on event.PlaceID = place.PlaceID where event.PlaceID = ?', pid);
+  }
+  async getNumberOfUsers(): Promise<number> {
+    return await knex<User>('user').count({ id: 'ID' })
   }
 }
 
