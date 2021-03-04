@@ -95,3 +95,20 @@
 2021-03-03 18:13:33 info: [0mGET /api-docs/swagger-ui-init.js [36m304[0m 1.334 ms - -[0m
 2021-03-03 18:14:16 error: StatusCode : 400, Message : Email must be an email, Password must be a string
 2021-03-03 18:14:16 info: [0mPOST /login [33m400[0m 2.848 ms - 63[0m
+2021-03-03 21:30:57 info: 🚀 App listening on the port 3000
+2021-03-03 21:31:16 info: [0mGET /api-docs [36m301[0m 5.105 ms - 183[0m
+2021-03-03 21:31:16 info: [0mGET /api-docs/ [32m200[0m 43.187 ms - -[0m
+2021-03-03 21:31:16 info: [0mGET /api-docs/swagger-ui-init.js [32m200[0m 0.660 ms - -[0m
+2021-03-03 21:31:16 info: [0mGET /api-docs/swagger-ui.css [32m200[0m 37.939 ms - -[0m
+2021-03-03 21:31:16 info: [0mGET /api-docs/swagger-ui-bundle.js [32m200[0m 11.321 ms - -[0m
+2021-03-03 21:31:16 info: [0mGET /api-docs/swagger-ui-standalone-preset.js [32m200[0m 41.655 ms - -[0m
+2021-03-03 21:31:17 info: [0mGET /api-docs/favicon-32x32.png [32m200[0m 0.860 ms - 628[0m
+2021-03-03 21:31:40 error: StatusCode : 400, Message : Email must be an email, Password must be a string
+2021-03-03 21:31:40 info: [0mPOST /login [33m400[0m 123.703 ms - 63[0m
+2021-03-03 21:33:22 info: [0mGET /api-docs/swagger-ui.css [36m304[0m 0.879 ms - -[0m
+2021-03-03 21:33:22 info: [0mGET /api-docs/swagger-ui.css.map [32m200[0m 44.104 ms - -[0m
+2021-03-03 21:33:22 info: [0mGET /api-docs/swagger-ui-standalone-preset.js.map [32m200[0m 85.724 ms - -[0m
+2021-03-03 21:33:22 info: [0mGET /api-docs/swagger-ui-bundle.js.map [32m200[0m 40.526 ms - -[0m
+2021-03-03 21:33:34 error: StatusCode : 400, Message : Email must be an email, Password must be a string
+2021-03-03 21:33:34 info: [0mPOST /login [33m400[0m 3.262 ms - 63[0m
+2021-03-03 23:06:13 info: 🚀 App listening on the port 3000

@@ -151,3 +151,5 @@ Error: listen EADDRINUSE: address already in use :::3000
     at Module.m._compile (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:1056:23)
     at Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
     at Object.require.extensions.<computed> [as .ts] (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:1059:12)
+2021-03-03 21:31:40 error: StatusCode : 400, Message : Email must be an email, Password must be a string
+2021-03-03 21:33:34 error: StatusCode : 400, Message : Email must be an email, Password must be a string

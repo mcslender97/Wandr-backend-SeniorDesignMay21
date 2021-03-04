@@ -17,9 +17,9 @@ paths:
             schema:
               type: object
               properties:
-                email:
+                Email:
                   type: string
-                password:
+                Password:
                   type: string
       responses:
         200:
@@ -323,8 +323,8 @@ components:
     users:
       type: object
       required:
-          - email
-          - password
+          - Email
+          - Password
           
       properties:
         ID:
@@ -349,7 +349,19 @@ components:
         Pfp:
           type: object
         
-       
+    loginUser:
+      type: object
+      required:
+          - Email
+          - Password
+      properties:
+        Email:
+          type: string
+          description: user Email
+        Password:
+          type: string
+          description: user Password
+         
     place:
       type: object
       required:

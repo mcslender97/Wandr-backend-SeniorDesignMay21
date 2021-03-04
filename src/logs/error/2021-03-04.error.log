@@ -1,0 +1,20 @@
+2021-03-04 13:10:43 error: StatusCode : 400, Message : Email must be an email, Password must be a string
+2021-03-04 13:13:21 error: StatusCode : 400, Message : Email must be an email, Password must be a string
+2021-03-04 13:16:20 error: StatusCode : 500, Message : Undefined binding(s) detected when compiling FIRST. Undefined column(s): [email] query: select * from `user` where `email` = ? limit ?
+2021-03-04 13:16:56 error: StatusCode : 400, Message : Unexpected token h in JSON at position 13
+2021-03-04 13:17:09 error: StatusCode : 500, Message : Undefined binding(s) detected when compiling FIRST. Undefined column(s): [email] query: select * from `user` where `email` = ? limit ?
+2021-03-04 13:17:23 error: StatusCode : 500, Message : Undefined binding(s) detected when compiling SELECT. Undefined column(s): [email] query: select * from `user` where `email` = ?
+2021-03-04 13:17:24 error: StatusCode : 500, Message : Undefined binding(s) detected when compiling SELECT. Undefined column(s): [email] query: select * from `user` where `email` = ?
+2021-03-04 13:17:25 error: StatusCode : 500, Message : Undefined binding(s) detected when compiling SELECT. Undefined column(s): [email] query: select * from `user` where `email` = ?
+2021-03-04 13:17:32 error: StatusCode : 500, Message : Undefined binding(s) detected when compiling SELECT. Undefined column(s): [Email] query: select * from `user` where `Email` = ?
+2021-03-04 13:17:33 error: StatusCode : 500, Message : Undefined binding(s) detected when compiling SELECT. Undefined column(s): [Email] query: select * from `user` where `Email` = ?
+2021-03-04 13:17:34 error: StatusCode : 500, Message : Undefined binding(s) detected when compiling SELECT. Undefined column(s): [Email] query: select * from `user` where `Email` = ?
+2021-03-04 13:17:35 error: StatusCode : 500, Message : Undefined binding(s) detected when compiling SELECT. Undefined column(s): [Email] query: select * from `user` where `Email` = ?
+2021-03-04 13:25:06 error: StatusCode : 500, Message : Undefined binding(s) detected when compiling FIRST. Undefined column(s): [Email] query: select * from `user` where `Email` = ? limit ?
+2021-03-04 13:26:00 error: StatusCode : 500, Message : Undefined binding(s) detected when compiling FIRST. Undefined column(s): [Email] query: select * from `user` where `Email` = ? limit ?
+2021-03-04 13:27:10 error: StatusCode : 500, Message : Undefined binding(s) detected when compiling FIRST. Undefined column(s): [Email] query: select * from `user` where `Email` = ? limit ?
+2021-03-04 13:27:57 error: StatusCode : 500, Message : Undefined binding(s) detected when compiling FIRST. Undefined column(s): [Email] query: select * from `user` where `Email` = ? limit ?
+2021-03-04 13:28:11 error: StatusCode : 500, Message : Undefined binding(s) detected when compiling FIRST. Undefined column(s): [Email] query: select * from `user` where `Email` = ? limit ?
+2021-03-04 13:32:41 error: StatusCode : 500, Message : Undefined binding(s) detected when compiling FIRST. Undefined column(s): [Email] query: select * from `user` where `Email` = ? limit ?
+2021-03-04 13:33:16 error: StatusCode : 500, Message : Undefined binding(s) detected when compiling FIRST. Undefined column(s): [Email] query: select * from `user` where `Email` = ? limit ?
+2021-03-04 13:35:34 error: StatusCode : 500, Message : Undefined binding(s) detected when compiling FIRST. Undefined column(s): [Email] query: select * from `user` where `Email` = ? limit ?

@@ -6,7 +6,7 @@ import { User } from '../interfaces/users.interface';
 import { Place } from '../interfaces/places.interface';
 import { Event } from '../interfaces/events.interface';
 import UsersController from '../controllers/users.controller';
-import { UserDto } from '../dtos/users.dto';
+import { LoginUserDto, UserDto } from '../dtos/users.dto';
 
 const knex = Knex({
   client: 'mysql',
@@ -23,7 +23,7 @@ class DatabaseService {
     return await knex<User>('user').where('id', id).first();
   }
   async findUserByEmail(email: string) {
-    return await knex<User>('user').where('email', email).first();
+    return await knex<User>('user').where('Email', email).first();
   }
   
   // async findEventByPlace(place: Place){
@@ -46,7 +46,7 @@ class DatabaseService {
         Password: userData.Password,
         Phone: userData.Phone,
       },
-      ['id', 'fullname', 'dob', 'email', 'gender', 'password', 'phone'],
+      ['ID', 'Fullname', 'Dob', 'Email', 'Gender', 'Password', 'Phone'],
     );
   }
   async createUser(userData: User): Promise<UserDto> {

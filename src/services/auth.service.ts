@@ -31,9 +31,11 @@ class AuthService {
   }
 
   public async login(userData: LoginUserDto): Promise<{ user: { token: TokenData } & UserDto }> {
+    console.log(userData)
     if (isEmpty(userData)) throw new HttpException(400, "You're not userData");
-
+    
     const findUser: User = await this.db.findUserByEmail(userData.Email)
+    
     if (!findUser) throw new HttpException(409, `You're email ${userData.Email} not found`);
     console.log(findUser);
 
