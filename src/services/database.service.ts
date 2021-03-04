@@ -45,6 +45,7 @@ class DatabaseService {
         Gender: userData.Gender,
         Password: userData.Password,
         Phone: userData.Phone,
+        Username: userData.Username
       },
       ['ID', 'Fullname', 'Dob', 'Email', 'Gender', 'Password', 'Phone'],
     );
@@ -58,8 +59,10 @@ class DatabaseService {
         Gender: userData.Gender,
         Password: userData.Password,
         Phone: userData.Phone,
+        Username: userData.Username
+        
       },
-      ['Fullname', 'Dob', 'Email', 'Gender', 'Phone'],
+      ['Fullname', 'Dob', 'Email', 'Gender', 'Phone','User'],
     );
   }
 
@@ -84,8 +87,9 @@ class DatabaseService {
     return await knex<Place>('place').where('location', location);
   }
   async showPlaceByLocationSearchQuery(query: string) {
-    const regexQuery: string = query.concat('%');
-    return await knex<Place>('place').where('location', 'like ', regexQuery);
+    
+    
+    return await knex<Place>('place').where('location', "like", "%"+query+"%");
 
   }
   async showEventByPlace(pid: number) {
