@@ -6,9 +6,68 @@ info:
   version: '0.1'
 
 paths:
+# [POST] login
+  /login:
+    post:
+      requestBody:
+        description: Email and Password
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Email:
+                  type: string
+                Password:
+                  type: string
+      responses:
+        200:
+          description: 'OK'
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/users"
+# [POST] users
+  /signup:              
+    post:
+      summary: Account registration
+      requestBody:
+        description: user data
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Email:
+                  type: string
+                Password:
+                  type: string
+                Fullname:
+                  type: string
+                Username:
+                  type: string
+                Phone:
+                  type: string
+                Gender:
+                  type: string
+                Dob:
+                  type: string
+      responses:
+        201:
+          description: 'Created'
+        400:
+          description: 'Bad Request'
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
 # [GET] users
   /users:
     get:
+      security:
+        - bearerAuth: []
       tags:
       - users
       summary: Find All Users
@@ -27,31 +86,13 @@ paths:
         500:
           description: 'Server Error'
 
-# [POST] users
-    post:
-      tags:
-      - users
-      summary: Add User
-      requestBody:
-        description: user data
-        required: true
-        content:
-          appliction/json:     
-            schema:
-              $ref:  "#/components/schemas/users"
-      responses:
-        201:
-          description: 'Created'
-        400:
-          description: 'Bad Request'
-        409:
-          description: 'Conflict'
-        500:
-          description: 'Server Error'
+
 
 # [GET] users/id
   /users/{id}:
     get:
+      security:
+        - bearerAuth: []
       tags:
       - users
       summary: Find User By Id
@@ -80,6 +121,8 @@ paths:
 
 # [PUT] users/id
     put:
+      security:
+        - bearerAuth: []
       tags:
       - users
       summary: Update User By Id
@@ -111,6 +154,8 @@ paths:
 
 # [DELETE] users/id
     delete:
+      security:
+        - bearerAuth: []
       tags:
       - users
       summary: Delete User By Id
@@ -133,6 +178,8 @@ paths:
 # [GET] events
   /events:
     get:
+      security:
+        - bearerAuth: []
       tags:
       - events
       summary: Find All events
@@ -154,6 +201,8 @@ paths:
 # [GET] event/id
   /events/{id}:
     get:
+      security:
+        - bearerAuth: []
       tags:
         - events
       summary: Get event by Id
@@ -182,6 +231,8 @@ paths:
 # [GET] places
   /places:
     get:
+      security:
+        - bearerAuth: []
       tags:
       - places
       summary: Find All places
@@ -200,8 +251,10 @@ paths:
         500:
           description: 'Server Error'  
 # [GET] places
-  /places?q={query}:
+  /places/search:
     get:
+      security:
+        - bearerAuth: []
       tags:
       - places
       summary: Find Places with location query search
@@ -231,6 +284,8 @@ paths:
 # [GET] places/id
   /places/{id}:
     get:
+      security:
+        - bearerAuth: []
       tags:
         - places
       summary: Get place by Id
@@ -258,6 +313,8 @@ paths:
 # [GET] events of a place
   /places/{id}/events:
     get:
+      security:
+        - bearerAuth: []
       tags:
         - places
       summary: Get events of a place by place ID
@@ -290,12 +347,17 @@ paths:
           description: 'Server Error'  
 # definitions
 components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
   schemas:
     users:
       type: object
       required:
-          - email
-          - password
+          - Email
+          - Password
           
       properties:
         ID:
@@ -320,7 +382,19 @@ components:
         Pfp:
           type: object
         
-       
+    loginUser:
+      type: object
+      required:
+          - Email
+          - Password
+      properties:
+        Email:
+          type: string
+          description: user Email
+        Password:
+          type: string
+          description: user Password
+         
     place:
       type: object
       required:
@@ -389,4 +463,3 @@ components:
         UserID:
           type: integer
          
-

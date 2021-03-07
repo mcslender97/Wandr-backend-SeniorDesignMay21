@@ -32,19 +32,19 @@ class UserService {
     if (isEmpty(userData)) throw new HttpException(400, "You're not userData");
 
     // const findUser: User = (await this.db.getAllUser()).find(user => user.email === userData.email);
-    const findUser = await this.db.findUserByEmail(userData.email);
-    if (!(findUser === null)) throw new HttpException(409, `You're email ${userData.email} already exists`);
+    const findUser = await this.db.findUserByEmail(userData.Email);
+    if (!(findUser === null)) throw new HttpException(409, `You're email ${userData.Email} already exists`);
 
-    const hashedPassword = await bcrypt.hash(userData.password, 10);
+    const hashedPassword = await bcrypt.hash(userData.Password, 10);
     const createUserData: User = {
-      id: this.users.length + 1,
+      ID: this.users.length + 1,
       ...userData,
-      password: hashedPassword,
-      dob: null,
-      fullname: '',
-      gender: '',
-      phone: null,
-      email: '',
+      Password: hashedPassword,
+      Dob: null,
+      Fullname: '',
+      Gender: '',
+      Phone: null,
+      Email: '',
     };
 
     return createUserData;
@@ -58,7 +58,7 @@ class UserService {
     const findUser: User = await this.db.findUserByID(userId);
     if (!findUser) throw new HttpException(409, "You're not user");
 
-    const hashedPassword = await bcrypt.hash(userData.password, 10);
+    const hashedPassword = await bcrypt.hash(userData.Password, 10);
     // const updateUserData: User[] = this.users.map((user: User) => {
     //   if (user.id === findUser.id) user = { id: userId, ...userData, password: hashedPassword, dob: null,fullname: "",gender: "",phone: null,email: ""};
     //   return user;
@@ -72,7 +72,7 @@ class UserService {
     const findUser: User = this.users.find(user => user.id === userId);
     if (!findUser) throw new HttpException(409, "You're not user");
 
-    const deleteUserData: User[] = this.users.filter((user: { id: number }) => user.id !== findUser.id);
+    const deleteUserData: User[] = this.users.filter((user: { id: number }) => user.id !== findUser.ID);
     return deleteUserData;
   }
 }

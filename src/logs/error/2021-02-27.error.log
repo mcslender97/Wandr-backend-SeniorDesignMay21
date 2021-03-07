@@ -1,0 +1,110 @@
+2021-02-27 11:36:12 error: uncaughtException: a is not defined
+ReferenceError: a is not defined
+    at App.initializeMiddlewares (D:\Flutter project\wandr-backend\src\app.ts:55:18)
+    at new App (D:\Flutter project\wandr-backend\src\app.ts:24:10)
+    at Object.<anonymous> (D:\Flutter project\wandr-backend\src\server.ts:12:13)
+    at Module._compile (internal/modules/cjs/loader.js:1063:30)
+    at Module.m._compile (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:1056:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:1059:12)
+    at Module.load (internal/modules/cjs/loader.js:928:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:769:14)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)
+2021-02-27 11:36:24 error: StatusCode : 404, Message : Authentication token missing
+2021-02-27 11:37:24 error: uncaughtException: authMiddleware is not defined
+ReferenceError: authMiddleware is not defined
+    at PlacesRoute.initializeRoutes (D:\Flutter project\wandr-backend\src\routes\places.route.ts:17:21)
+    at new PlacesRoute (D:\Flutter project\wandr-backend\src\routes\places.route.ts:13:10)
+    at Object.<anonymous> (D:\Flutter project\wandr-backend\src\server.ts:12:94)
+    at Module._compile (internal/modules/cjs/loader.js:1063:30)
+    at Module.m._compile (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:1056:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:1059:12)
+    at Module.load (internal/modules/cjs/loader.js:928:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:769:14)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)
+2021-02-27 11:37:37 error: StatusCode : 404, Message : Authentication token missing
+2021-02-27 11:37:38 error: StatusCode : 404, Message : Authentication token missing
+2021-02-27 11:38:31 error: StatusCode : 404, Message : Authentication token missing
+2021-02-27 11:49:23 error: uncaughtException: swaggerJSDoc is not defined
+ReferenceError: swaggerJSDoc is not defined
+    at App.initializeSwagger (D:\Flutter project\wandr-backend\src\app.ts:85:19)
+    at new App (D:\Flutter project\wandr-backend\src\app.ts:26:10)
+    at Object.<anonymous> (D:\Flutter project\wandr-backend\src\server.ts:12:13)
+    at Module._compile (internal/modules/cjs/loader.js:1063:30)
+    at Module.m._compile (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:1056:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:1059:12)
+    at Module.load (internal/modules/cjs/loader.js:928:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:769:14)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)
+2021-02-27 11:49:43 error: uncaughtException: specs is not defined
+ReferenceError: specs is not defined
+    at App.initializeSwagger (D:\Flutter project\wandr-backend\src\app.ts:85:64)
+    at new App (D:\Flutter project\wandr-backend\src\app.ts:26:10)
+    at Object.<anonymous> (D:\Flutter project\wandr-backend\src\server.ts:12:13)
+    at Module._compile (internal/modules/cjs/loader.js:1063:30)
+    at Module.m._compile (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:1056:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:1059:12)
+    at Module.load (internal/modules/cjs/loader.js:928:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:769:14)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)
+2021-02-27 11:50:14 error: uncaughtException: Cannot read property 'app' of undefined
+TypeError: Cannot read property 'app' of undefined
+    at App.initializeSwagger (D:\Flutter project\wandr-backend\src\app.ts:86:10)
+    at new App (D:\Flutter project\wandr-backend\src\app.ts:27:10)
+    at Object.<anonymous> (D:\Flutter project\wandr-backend\src\server.ts:12:13)
+    at Module._compile (internal/modules/cjs/loader.js:1063:30)
+    at Module.m._compile (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:1056:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:1059:12)
+    at Module.load (internal/modules/cjs/loader.js:928:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:769:14)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)
+2021-02-27 11:50:21 error: uncaughtException: The "path" argument must be of type string or an instance of Buffer or URL. Received undefined
+TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string or an instance of Buffer or URL. Received undefined
+    at Object.openSync (fs.js:468:10)
+    at Object.readFileSync (fs.js:377:35)
+    at Function.Utils.getStringFromFile (D:\Flutter project\wandr-backend\node_modules\yamljs\lib\Utils.js:284:19)
+    at Object.Yaml.parseFile (D:\Flutter project\wandr-backend\node_modules\yamljs\lib\Yaml.js:46:21)
+    at Object.Yaml.load (D:\Flutter project\wandr-backend\node_modules\yamljs\lib\Yaml.js:78:17)
+    at App.initializeSwagger (D:\Flutter project\wandr-backend\src\app.ts:85:10)
+    at new App (D:\Flutter project\wandr-backend\src\app.ts:27:10)
+    at Object.<anonymous> (D:\Flutter project\wandr-backend\src\server.ts:12:13)
+    at Module._compile (internal/modules/cjs/loader.js:1063:30)
+    at Module.m._compile (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:1056:23)
+2021-02-27 11:50:29 error: uncaughtException: specs is not defined
+ReferenceError: specs is not defined
+    at App.initializeSwagger (D:\Flutter project\wandr-backend\src\app.ts:86:64)
+    at new App (D:\Flutter project\wandr-backend\src\app.ts:27:10)
+    at Object.<anonymous> (D:\Flutter project\wandr-backend\src\server.ts:12:13)
+    at Module._compile (internal/modules/cjs/loader.js:1063:30)
+    at Module.m._compile (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:1056:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:1059:12)
+    at Module.load (internal/modules/cjs/loader.js:928:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:769:14)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)
+2021-02-27 11:50:55 error: uncaughtException: specs is not defined
+ReferenceError: specs is not defined
+    at App.initializeSwagger (D:\Flutter project\wandr-backend\src\app.ts:66:64)
+    at new App (D:\Flutter project\wandr-backend\src\app.ts:27:10)
+    at Object.<anonymous> (D:\Flutter project\wandr-backend\src\server.ts:12:13)
+    at Module._compile (internal/modules/cjs/loader.js:1063:30)
+    at Module.m._compile (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:1056:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:1059:12)
+    at Module.load (internal/modules/cjs/loader.js:928:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:769:14)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)
+2021-02-27 12:16:27 error: StatusCode : 404, Message : Authentication token missing
+2021-02-27 12:17:54 error: StatusCode : 404, Message : Authentication token missing
+2021-02-27 12:18:13 error: StatusCode : 404, Message : Authentication token missing
+2021-02-27 12:19:34 error: StatusCode : 404, Message : Authentication token missing
+2021-02-27 12:19:53 error: StatusCode : 401, Message : Wrong authentication token
+2021-02-27 12:20:32 error: StatusCode : 401, Message : Wrong authentication token
+2021-02-27 12:20:53 error: StatusCode : 401, Message : Wrong authentication token
+2021-02-27 12:21:23 error: StatusCode : 401, Message : Wrong authentication token
+2021-02-27 12:22:11 error: StatusCode : 401, Message : Wrong authentication token
+2021-02-27 12:22:34 error: StatusCode : 401, Message : Wrong authentication token

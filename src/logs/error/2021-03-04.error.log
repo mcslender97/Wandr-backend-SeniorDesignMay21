@@ -1,0 +1,46 @@
+2021-03-04 13:10:43 error: StatusCode : 400, Message : Email must be an email, Password must be a string
+2021-03-04 13:13:21 error: StatusCode : 400, Message : Email must be an email, Password must be a string
+2021-03-04 13:16:20 error: StatusCode : 500, Message : Undefined binding(s) detected when compiling FIRST. Undefined column(s): [email] query: select * from `user` where `email` = ? limit ?
+2021-03-04 13:16:56 error: StatusCode : 400, Message : Unexpected token h in JSON at position 13
+2021-03-04 13:17:09 error: StatusCode : 500, Message : Undefined binding(s) detected when compiling FIRST. Undefined column(s): [email] query: select * from `user` where `email` = ? limit ?
+2021-03-04 13:17:23 error: StatusCode : 500, Message : Undefined binding(s) detected when compiling SELECT. Undefined column(s): [email] query: select * from `user` where `email` = ?
+2021-03-04 13:17:24 error: StatusCode : 500, Message : Undefined binding(s) detected when compiling SELECT. Undefined column(s): [email] query: select * from `user` where `email` = ?
+2021-03-04 13:17:25 error: StatusCode : 500, Message : Undefined binding(s) detected when compiling SELECT. Undefined column(s): [email] query: select * from `user` where `email` = ?
+2021-03-04 13:17:32 error: StatusCode : 500, Message : Undefined binding(s) detected when compiling SELECT. Undefined column(s): [Email] query: select * from `user` where `Email` = ?
+2021-03-04 13:17:33 error: StatusCode : 500, Message : Undefined binding(s) detected when compiling SELECT. Undefined column(s): [Email] query: select * from `user` where `Email` = ?
+2021-03-04 13:17:34 error: StatusCode : 500, Message : Undefined binding(s) detected when compiling SELECT. Undefined column(s): [Email] query: select * from `user` where `Email` = ?
+2021-03-04 13:17:35 error: StatusCode : 500, Message : Undefined binding(s) detected when compiling SELECT. Undefined column(s): [Email] query: select * from `user` where `Email` = ?
+2021-03-04 13:25:06 error: StatusCode : 500, Message : Undefined binding(s) detected when compiling FIRST. Undefined column(s): [Email] query: select * from `user` where `Email` = ? limit ?
+2021-03-04 13:26:00 error: StatusCode : 500, Message : Undefined binding(s) detected when compiling FIRST. Undefined column(s): [Email] query: select * from `user` where `Email` = ? limit ?
+2021-03-04 13:27:10 error: StatusCode : 500, Message : Undefined binding(s) detected when compiling FIRST. Undefined column(s): [Email] query: select * from `user` where `Email` = ? limit ?
+2021-03-04 13:27:57 error: StatusCode : 500, Message : Undefined binding(s) detected when compiling FIRST. Undefined column(s): [Email] query: select * from `user` where `Email` = ? limit ?
+2021-03-04 13:28:11 error: StatusCode : 500, Message : Undefined binding(s) detected when compiling FIRST. Undefined column(s): [Email] query: select * from `user` where `Email` = ? limit ?
+2021-03-04 13:32:41 error: StatusCode : 500, Message : Undefined binding(s) detected when compiling FIRST. Undefined column(s): [Email] query: select * from `user` where `Email` = ? limit ?
+2021-03-04 13:33:16 error: StatusCode : 500, Message : Undefined binding(s) detected when compiling FIRST. Undefined column(s): [Email] query: select * from `user` where `Email` = ? limit ?
+2021-03-04 13:35:34 error: StatusCode : 500, Message : Undefined binding(s) detected when compiling FIRST. Undefined column(s): [Email] query: select * from `user` where `Email` = ? limit ?
+2021-03-04 14:17:19 error: StatusCode : 404, Message : Authentication token missing
+2021-03-04 14:17:45 error: StatusCode : 404, Message : Authentication token missing
+2021-03-04 14:18:14 error: StatusCode : 404, Message : Authentication token missing
+2021-03-04 14:18:28 error: StatusCode : 404, Message : Authentication token missing
+2021-03-04 14:18:29 error: StatusCode : 404, Message : Authentication token missing
+2021-03-04 14:18:29 error: StatusCode : 404, Message : Authentication token missing
+2021-03-04 14:18:29 error: StatusCode : 404, Message : Authentication token missing
+2021-03-04 14:18:30 error: StatusCode : 404, Message : Authentication token missing
+2021-03-04 14:18:47 error: StatusCode : 404, Message : Authentication token missing
+2021-03-04 14:18:51 error: StatusCode : 404, Message : Authentication token missing
+2021-03-04 14:25:27 error: StatusCode : 500, Message : The operator "like " is not permitted
+2021-03-04 14:25:36 error: StatusCode : 500, Message : The operator "like " is not permitted
+2021-03-04 14:28:33 error: StatusCode : 500, Message : The operator "like " is not permitted
+2021-03-04 14:29:01 error: StatusCode : 500, Message : The operator "like " is not permitted
+2021-03-04 14:29:55 error: StatusCode : 500, Message : The operator "ilike " is not permitted
+2021-03-04 14:30:12 error: StatusCode : 500, Message : select * from `place` where `location` ilike 'Ha%' - ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ilike 'Ha%'' at line 1
+2021-03-04 14:53:39 error: StatusCode : 400, Message : Phone must be a valid phone number
+2021-03-04 14:53:52 error: StatusCode : 400, Message : Phone must be a valid phone number
+2021-03-04 14:54:17 error: StatusCode : 500, Message : insert into `user` (`Dob`, `Email`, `Fullname`, `Gender`, `Password`, `Phone`) values ('', 'dvamain@gmail.com', 'Hana Song', 'Female', '$2b$10$Wc8YcrXdqMGDALFl3OYwAu5x4x96JgMbBYtfU1KQVOgw6XHp0oPZS', '+18134223334') - ER_TRUNCATED_WRONG_VALUE: Incorrect date value: '' for column 'Dob' at row 1
+2021-03-04 14:57:32 error: StatusCode : 500, Message : insert into `user` (`Dob`, `Email`, `Fullname`, `Gender`, `Password`, `Phone`) values ('1998-25-11', 'dvamain@gmail.com', 'Hana Song', 'Female', '$2b$10$t9XrwbjlDjK19QRuRlKA/uwi/3lLHW.Sb5WR4pSQDIZigYX3J.0lW', '+18134223334') - ER_TRUNCATED_WRONG_VALUE: Incorrect date value: '1998-25-11' for column 'Dob' at row 1
+2021-03-04 14:59:24 error: StatusCode : 500, Message : insert into `user` (`Dob`, `Email`, `Fullname`, `Gender`, `Password`, `Phone`) values ('1998/25/11', 'dvamain@gmail.com', 'Hana Song', 'Female', '$2b$10$6FHSTzb6LLKCV4WgXZS12OjHWrR1hAccRfoOWHhnbVtfb8eOA7ynC', '+18134223334') - ER_TRUNCATED_WRONG_VALUE: Incorrect date value: '1998/25/11' for column 'Dob' at row 1
+2021-03-04 15:00:12 error: StatusCode : 400, Message : Unexpected number in JSON at position 172
+2021-03-04 15:00:39 error: StatusCode : 500, Message : insert into `user` (`Dob`, `Email`, `Fullname`, `Gender`, `Password`, `Phone`) values ('1998-25-11', 'dvamain@gmail.com', 'Hana Song', 'Female', '$2b$10$etMbLd/nm9ybC/sAVWDaKu3b/toIkjfZJpke74k0zrVDXC1XKLQ6K', '+18134223334') - ER_TRUNCATED_WRONG_VALUE: Incorrect date value: '1998-25-11' for column 'Dob' at row 1
+2021-03-04 15:01:06 error: StatusCode : 500, Message : insert into `user` (`Dob`, `Email`, `Fullname`, `Gender`, `Password`, `Phone`) values ('1998-11-21', 'dvamain@gmail.com', 'Hana Song', 'Female', '$2b$10$kdWU6I5sgWXXo/kpzNlbrulR1MtASYcCTLyUHD8EbZtWWD3K0Px52', '+18134223334') - ER_NO_DEFAULT_FOR_FIELD: Field 'Username' doesn't have a default value
+2021-03-04 15:01:33 error: StatusCode : 500, Message : insert into `user` (`Dob`, `Email`, `Fullname`, `Gender`, `Password`, `Phone`) values ('1998-11-21', 'dvamain@gmail.com', 'Hana Song', 'Female', '$2b$10$u/9tUihOG8x7Dvu4NEGGHeW5E1XGMen154Dweu70L1VnxynynF0Hi', '+18134223334') - ER_NO_DEFAULT_FOR_FIELD: Field 'Username' doesn't have a default value
+2021-03-04 15:16:22 error: StatusCode : 500, Message : insert into `user` (`Dob`, `Email`, `Fullname`, `Gender`, `Password`, `Phone`) values ('1998-11-21', 'dvamain@gmail.com', 'Hana Song', 'Female', '$2b$10$AJfov5wo24ZzrpqaGOcm6.HacfTtyhM8PtK9i7m47IWuB6aibxU7K', '+18134223334') - ER_NO_DEFAULT_FOR_FIELD: Field 'Username' doesn't have a default value

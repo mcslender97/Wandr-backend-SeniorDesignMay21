@@ -6,10 +6,11 @@ import hpp from 'hpp';
 import morgan from 'morgan';
 import compression from 'compression';
 import swaggerUi from 'swagger-ui-express';
-import swaggerJSDoc from 'swagger-jsdoc';
+import * as yaml from 'yamljs';
 import Routes from './interfaces/routes.interface';
 import errorMiddleware from './middlewares/error.middleware';
 import { logger, stream } from './utils/logger';
+import authMiddleware from './middlewares/auth.middleware';
 
 class App {
   public app: express.Application;
@@ -61,20 +62,8 @@ class App {
   }
 
   private initializeSwagger() {
-    const options = {
-      swaggerDefinition: {
-        components: {},
-        info: {
-          title: 'REST API',
-          version: '1.0.0',
-          description: 'Example docs',
-        },
-      },
-      apis: ['swagger.yaml'],
-    };
-
-    const specs = swaggerJSDoc(options);
-    this.app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
+    const swaggerDocument = yaml.load('swagger.yaml');
+    this.app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
   }
 
   private initializeErrorHandling() {

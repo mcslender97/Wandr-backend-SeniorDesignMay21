@@ -3,7 +3,7 @@ import App from '../app';
 import { User } from '../interfaces/users.interface';
 import userModel from '../models/users.model';
 import UserRoute from '../routes/users.route';
-import { CreateUserDto } from '../dtos/users.dto';
+import { CreateUserDto, LoginUserDto } from '../dtos/users.dto';
 
 afterAll(async () => {
   await new Promise<void>(resolve => setTimeout(() => resolve(), 500));
@@ -23,7 +23,7 @@ describe('Testing Users', () => {
   describe('[GET] /users/:id', () => {
     it('response statusCode 200 / findOne', () => {
       const userId = 1;
-      const findUser: User = userModel.find(user => user.id === userId);
+      const findUser: User = userModel.find(user => user.ID === userId);
       const usersRoute = new UserRoute();
       const app = new App([usersRoute]);
 
@@ -33,9 +33,9 @@ describe('Testing Users', () => {
 
   describe('[POST] /users', () => {
     it('response statusCode 201 / created', async () => {
-      const userData: CreateUserDto = {
-        email: 'lkm@gmail.com',
-        password: 'q1w2e3r4',
+      const userData: LoginUserDto = {
+        Email: 'lkm@gmail.com',
+        Password: 'q1w2e3r4',
       };
       const usersRoute = new UserRoute();
       const app = new App([usersRoute]);
@@ -47,9 +47,9 @@ describe('Testing Users', () => {
   describe('[PUT] /users/:id', () => {
     it('response statusCode 200 / updated', async () => {
       const userId = 1;
-      const userData: CreateUserDto = {
-        email: 'lim@gmail.com',
-        password: '1q2w3e4r',
+      const userData: LoginUserDto = {
+        Email: 'lim@gmail.com',
+        Password: '1q2w3e4r',
       };
       const usersRoute = new UserRoute();
       const app = new App([usersRoute]);
@@ -61,7 +61,7 @@ describe('Testing Users', () => {
   describe('[DELETE] /users/:id', () => {
     it('response statusCode 200 / deleted', () => {
       const userId = 1;
-      const deleteUser: User[] = userModel.filter(user => user.id !== userId);
+      const deleteUser: User[] = userModel.filter(user => user.ID !== userId);
       const usersRoute = new UserRoute();
       const app = new App([usersRoute]);
 

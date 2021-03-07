@@ -6,6 +6,7 @@ import { User } from '../interfaces/users.interface';
 import { Place } from '../interfaces/places.interface';
 import { Event } from '../interfaces/events.interface';
 import UsersController from '../controllers/users.controller';
+import { LoginUserDto, UserDto } from '../dtos/users.dto';
 
 const knex = Knex({
   client: 'mysql',
@@ -22,7 +23,7 @@ class DatabaseService {
     return await knex<User>('user').where('id', id).first();
   }
   async findUserByEmail(email: string) {
-    return await knex<User>('user').where('email', email).first();
+    return await knex<User>('user').where('Email', email).first();
   }
   
   // async findEventByPlace(place: Place){
@@ -38,27 +39,30 @@ class DatabaseService {
   async updateUserByID(id: number, userData: User) {
     return await knex<User>('user').where('id', id).update(
       {
-        fullname: userData.fullname,
-        dob: userData.dob,
-        email: userData.email,
-        gender: userData.gender,
-        password: userData.password,
-        phone: userData.phone,
+        Fullname: userData.Fullname,
+        Dob: userData.Dob,
+        Email: userData.Email,
+        Gender: userData.Gender,
+        Password: userData.Password,
+        Phone: userData.Phone,
+        Username: userData.Username
       },
-      ['id', 'fullname', 'dob', 'email', 'gender', 'password', 'phone'],
+      ['ID', 'Fullname', 'Dob', 'Email', 'Gender', 'Password', 'Phone'],
     );
   }
-  async createUser(id: number, userData: User) {
+  async createUser(userData: User): Promise<UserDto> {
     return await knex<User>('user').insert(
       {
-        fullname: userData.fullname,
-        dob: userData.dob,
-        email: userData.email,
-        gender: userData.gender,
-        password: userData.password,
-        phone: userData.phone,
+        Fullname: userData.Fullname,
+        Dob: userData.Dob,
+        Email: userData.Email,
+        Gender: userData.Gender,
+        Password: userData.Password,
+        Phone: userData.Phone,
+        Username: userData.Username
+        
       },
-      ['id', 'fullname', 'dob', 'email', 'gender', 'password', 'phone'],
+      ['Fullname', 'Dob', 'Email', 'Gender', 'Phone','User'],
     );
   }
 
@@ -83,14 +87,18 @@ class DatabaseService {
     return await knex<Place>('place').where('location', location);
   }
   async showPlaceByLocationSearchQuery(query: string) {
-    const regexQuery: string = query.concat('%');
-    return await knex<Place>('place').where('location', 'like ', regexQuery);
+    
+    
+    return await knex<Place>('place').where('location', "like", "%"+query+"%");
 
   }
   async showEventByPlace(pid: number) {
-    return await knex<Event>('event').select('*').innerJoin('place', 'event.PlaceID', 'place.PlaceID').where('event.PlaceId', pid);
+    return await knex<Event>('event').select('*').innerJoin<Place>('place', 'event.PlaceID', 'place.PlaceID').where('event.PlaceId', pid);
     // return await knex<Event>('event').select('*').innerJoin('place', 'event.PlaceID', 'place.PlaceID').where('event.PlaceID', pid);
     //return await knex.raw('SELECT * FROM event INNER JOIN place on event.PlaceID = place.PlaceID where event.PlaceID = ?', pid);
+  }
+  async getNumberOfUsers(): Promise<number> {
+    return await knex<User>('user').count({ id: 'ID' })
   }
 }
 
