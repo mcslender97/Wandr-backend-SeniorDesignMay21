@@ -1,0 +1,28 @@
+2021-03-07 14:17:07 error: StatusCode : 409, Message : You're password not matching
+2021-03-07 14:36:19 error: StatusCode : 409, Message : You're password not matching
+2021-03-07 14:36:25 error: StatusCode : 409, Message : You're password not matching
+2021-03-07 14:36:30 error: StatusCode : 409, Message : You're password not matching
+2021-03-07 14:54:51 error: uncaughtException: ⨯ Unable to compile TypeScript:
+[96msrc/services/auth.service.ts[0m:[93m45[0m:[93m5[0m - [91merror[0m[90m TS1109: [0mExpression expected.
+
+[7m45[0m     const tokenData = this.createToken(findUser);
+[7m  [0m [91m    ~~~~~[0m
+
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/services/auth.service.ts[0m:[93m45[0m:[93m5[0m - [91merror[0m[90m TS1109: [0mExpression expected.
+
+[7m45[0m     const tokenData = this.createToken(findUser);
+[7m  [0m [91m    ~~~~~[0m
+
+    at createTSError (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:513:12)
+    at reportTSError (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:517:19)
+    at getOutput (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:955:34)
+    at Object.compile (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:968:32)
+    at Module.m._compile (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:1056:42)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\Flutter project\wandr-backend\node_modules\ts-node\src\index.ts:1059:12)
+    at Module.load (internal/modules/cjs/loader.js:928:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:769:14)
+    at Module.require (internal/modules/cjs/loader.js:952:19)
+2021-03-07 16:06:16 error: StatusCode : 409, Message : You're password not matching
+2021-03-07 16:06:22 error: StatusCode : 409, Message : You're email hanzoman@gmail.com not found

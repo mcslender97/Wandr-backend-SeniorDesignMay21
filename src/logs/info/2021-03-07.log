@@ -1,0 +1,63 @@
+2021-03-07 14:12:32 info: 🚀 App listening on the port 3000
+2021-03-07 14:12:42 info: [0mGET /api-docs/ [36m304[0m 13.281 ms - -[0m
+2021-03-07 14:12:42 info: [0mGET /api-docs/swagger-ui-init.js [32m200[0m 6.503 ms - -[0m
+2021-03-07 14:12:42 info: [0mGET /api-docs/swagger-ui.css [32m200[0m 25.148 ms - -[0m
+2021-03-07 14:12:42 info: [0mGET /api-docs/swagger-ui-standalone-preset.js [32m200[0m 17.674 ms - -[0m
+2021-03-07 14:12:42 info: [0mGET /api-docs/swagger-ui-bundle.js [32m200[0m 18.910 ms - -[0m
+2021-03-07 14:13:26 info: [0mPOST /login [32m200[0m 143.267 ms - 443[0m
+2021-03-07 14:15:26 info: [0mGET /api-docs/ [36m304[0m 2.844 ms - -[0m
+2021-03-07 14:15:26 info: [0mGET /api-docs/swagger-ui.css [36m304[0m 7.848 ms - -[0m
+2021-03-07 14:15:26 info: [0mGET /api-docs/swagger-ui-bundle.js [36m304[0m 7.348 ms - -[0m
+2021-03-07 14:15:26 info: [0mGET /api-docs/swagger-ui-init.js [36m304[0m 1.348 ms - -[0m
+2021-03-07 14:15:26 info: [0mGET /api-docs/swagger-ui-standalone-preset.js [36m304[0m 16.115 ms - -[0m
+2021-03-07 14:15:27 info: [0mGET /api-docs/favicon-32x32.png [32m200[0m 1.935 ms - 628[0m
+2021-03-07 14:16:51 info: [0mPOST /login [32m200[0m 129.899 ms - 443[0m
+2021-03-07 14:17:07 error: StatusCode : 409, Message : You're password not matching
+2021-03-07 14:17:07 info: [0mPOST /login [33m409[0m 141.556 ms - 42[0m
+2021-03-07 14:17:31 info: [0mGET /users [32m200[0m 8.372 ms - 243[0m
+2021-03-07 14:23:04 info: 🚀 App listening on the port 3000
+2021-03-07 14:25:47 info: 🚀 App listening on the port 3000
+2021-03-07 14:30:33 info: 🚀 App listening on the port 3000
+2021-03-07 14:36:19 error: StatusCode : 409, Message : You're password not matching
+2021-03-07 14:36:19 info: [0mPOST /login [33m409[0m 195.951 ms - 42[0m
+2021-03-07 14:36:25 error: StatusCode : 409, Message : You're password not matching
+2021-03-07 14:36:25 info: [0mPOST /login [33m409[0m 134.728 ms - 42[0m
+2021-03-07 14:36:30 error: StatusCode : 409, Message : You're password not matching
+2021-03-07 14:36:30 info: [0mPOST /login [33m409[0m 99.466 ms - 42[0m
+2021-03-07 14:36:35 info: [0mPOST /login [32m200[0m 152.821 ms - 443[0m
+2021-03-07 14:36:59 info: [0mGET /users [36m304[0m 7.879 ms - -[0m
+2021-03-07 14:44:54 info: 🚀 App listening on the port 3000
+2021-03-07 14:46:52 info: 🚀 App listening on the port 3000
+2021-03-07 14:48:06 info: 🚀 App listening on the port 3000
+2021-03-07 14:48:23 info: [0mGET /api-docs/ [36m304[0m 12.614 ms - -[0m
+2021-03-07 14:48:23 info: [0mGET /api-docs/swagger-ui.css [36m304[0m 7.160 ms - -[0m
+2021-03-07 14:48:23 info: [0mGET /api-docs/swagger-ui-bundle.js [36m304[0m 7.470 ms - -[0m
+2021-03-07 14:48:23 info: [0mGET /api-docs/swagger-ui-init.js [36m304[0m 1.580 ms - -[0m
+2021-03-07 14:48:23 info: [0mGET /api-docs/swagger-ui-standalone-preset.js [36m304[0m 8.336 ms - -[0m
+2021-03-07 14:50:50 info: 🚀 App listening on the port 3000
+2021-03-07 14:52:40 info: 🚀 App listening on the port 3000
+2021-03-07 15:02:51 info: 🚀 App listening on the port 3000
+2021-03-07 15:15:27 info: 🚀 App listening on the port 3000
+2021-03-07 15:20:49 info: 🚀 App listening on the port 3000
+2021-03-07 15:22:15 info: 🚀 App listening on the port 3000
+2021-03-07 15:22:29 info: 🚀 App listening on the port 3000
+2021-03-07 15:23:02 info: [0mGET /api-docs/ [36m304[0m 18.983 ms - -[0m
+2021-03-07 15:23:02 info: [0mGET /api-docs/swagger-ui.css [36m304[0m 11.928 ms - -[0m
+2021-03-07 15:23:02 info: [0mGET /api-docs/swagger-ui-bundle.js [36m304[0m 10.323 ms - -[0m
+2021-03-07 15:23:02 info: [0mGET /api-docs/swagger-ui-init.js [36m304[0m 1.943 ms - -[0m
+2021-03-07 15:23:02 info: [0mGET /api-docs/swagger-ui-standalone-preset.js [36m304[0m 9.961 ms - -[0m
+2021-03-07 15:23:03 info: [0mGET /api-docs/favicon-32x32.png [36m304[0m 1.240 ms - -[0m
+2021-03-07 15:23:36 info: [0mPOST /login [32m200[0m 150.578 ms - 339[0m
+2021-03-07 16:03:03 info: [0mGET /api-docs/ [36m304[0m 2.807 ms - -[0m
+2021-03-07 16:03:04 info: [0mGET /api-docs/swagger-ui.css [36m304[0m 6.322 ms - -[0m
+2021-03-07 16:03:04 info: [0mGET /api-docs/swagger-ui-bundle.js [36m304[0m 5.715 ms - -[0m
+2021-03-07 16:03:04 info: [0mGET /api-docs/swagger-ui-init.js [36m304[0m 1.764 ms - -[0m
+2021-03-07 16:03:04 info: [0mGET /api-docs/swagger-ui-standalone-preset.js [36m304[0m 14.705 ms - -[0m
+2021-03-07 16:03:04 info: [0mGET /api-docs/favicon-32x32.png [32m200[0m 9.002 ms - 628[0m
+2021-03-07 16:03:50 info: [0mPOST /login [32m200[0m 100.361 ms - 339[0m
+2021-03-07 16:05:52 info: [0mGET /users/1 [32m200[0m 6.847 ms - 241[0m
+2021-03-07 16:06:05 info: [0mGET /events/1 [32m200[0m 7.455 ms - 141[0m
+2021-03-07 16:06:16 error: StatusCode : 409, Message : You're password not matching
+2021-03-07 16:06:16 info: [0mPOST /login [33m409[0m 127.953 ms - 42[0m
+2021-03-07 16:06:22 error: StatusCode : 409, Message : You're email hanzoman@gmail.com not found
+2021-03-07 16:06:22 info: [0mPOST /login [33m409[0m 5.249 ms - 55[0m

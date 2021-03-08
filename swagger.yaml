@@ -250,7 +250,7 @@ paths:
                       $ref: "#/components/schemas/place"
         500:
           description: 'Server Error'  
-# [GET] places
+# [GET] places by searching for address
   /places/search:
     get:
       security:
@@ -262,6 +262,37 @@ paths:
       - name: q
         in: query
         description: location name
+        required: true
+        schema:
+          type: string
+          format: string
+          minimum: 3
+      responses:
+        200:
+          description: 'OK'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  places:  
+                    type: array
+                    items: 
+                      $ref: "#/components/schemas/place"
+        500:
+          description: 'Server Error'
+# [GET] places by searching for address
+  /places/city?q=:
+    get:
+      security:
+        - bearerAuth: []
+      tags:
+      - places
+      summary: Find Places with city query search
+      parameters:
+      - name: q
+        in: query
+        description: city name
         required: true
         schema:
           type: string

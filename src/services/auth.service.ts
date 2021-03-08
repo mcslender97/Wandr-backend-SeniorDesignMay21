@@ -31,20 +31,28 @@ class AuthService {
   }
 
   public async login(userData: LoginUserDto): Promise<{ user: { token: TokenData } & UserDto }> {
-    console.log(userData)
+    
     if (isEmpty(userData)) throw new HttpException(400, "You're not userData");
     
     const findUser: User = await this.db.findUserByEmail(userData.Email)
     
     if (!findUser) throw new HttpException(409, `You're email ${userData.Email} not found`);
-    console.log(findUser);
+    
 
     const isPasswordMatching: boolean = await bcrypt.compare(userData.Password, findUser.Password);
     if (!isPasswordMatching) throw new HttpException(409, "You're password not matching");
-
+    
     const tokenData = this.createToken(findUser);
 
-    const user = Object.assign({token: tokenData}, findUser)
+    const user: UserDto & { token: TokenData } = {
+      Dob: findUser.Dob,
+      Email: findUser.Email,
+      Fullname: findUser.Fullname,
+      Gender: findUser.Gender,
+      ID: findUser.ID,
+      Phone: findUser.Phone,
+      token: tokenData,
+    }
 
     return { user };
   }
@@ -61,7 +69,7 @@ class AuthService {
   public createToken(user: User): TokenData {
     const dataStoredInToken: DataStoredInToken = { id: user.ID };
     const secret: string = process.env.JWT_SECRET;
-    const expiresIn: number = 60 * 60;
+    const expiresIn: number = 60 * 262800;//6 months in minutes
 
     return { expiresIn, token: jwt.sign(dataStoredInToken, secret, { expiresIn }) };
   }
