@@ -1,8 +1,9 @@
 import bcrypt from 'bcrypt';
+import { CreateEventDto } from '../dtos/events.dto';
 //import { CreateEventDto } from '../dtos/events.dto';
 import HttpException from '../exceptions/HttpException';
 import { Event } from '../interfaces/events.interface';
-//import eventModel from '../models/events.model';
+
 import { isEmpty } from '../utils/util';
 import DatabaseService from './database.service';
 
@@ -28,24 +29,19 @@ class EventService {
     return event;
   }
 
-//   public async createEvent(eventData: CreateEventDto): Promise<Event> {
-//     if (isEmpty(eventData)) throw new HttpException(400, "You're not eventData");  
-//     const findEvent = await this.db.findEventByEmail(eventData.email);
-//     if (!(findEvent === null)) throw new HttpException(409, `You're email ${eventData.email} already exists`);
-//     const hashedPassword = await bcrypt.hash(eventData.password, 10);
-//     const createEventData: Event = {
-//       id: this.events.length + 1,
-//       ...eventData,
-//       password: hashedPassword,
-//       dob: null,
-//       fullname: '',
-//       gender: '',
-//       phone: null,
-//       email: '',
-//     };
+  public async createEvent(eventData: CreateEventDto): Promise<Event> {
+    if (isEmpty(eventData)) throw new HttpException(400, "You're not eventData");  
+    const findEvent = await this.db.findEventByID(eventData.EventId);
+    if (!(findEvent === null)) throw new HttpException(409, `You're Event already exists`);
+    
+    const createEventData: Event = {
+      EventId: this.events.length + 1,
+      ...eventData
+  
+    };
 
-//     return createEventData;
-//   }
+    return createEventData;
+  }
 
 //   public async updateEvent(eventId: number, eventData: Event): Promise<Event[]> {
 //     if (isEmpty(eventData)) throw new HttpException(400, "You're not eventData");
@@ -61,13 +57,13 @@ class EventService {
 //     return updateEventData;
 //   }
 
-//   public async deleteEvent(eventId: number): Promise<Event[]> {
-//     const findEvent: Event = this.events.find(event => event.id === eventId);
-//     if (!findEvent) throw new HttpException(409, "You're not event");
+  public async deleteEvent(EventId: number): Promise<Event> {
+    const findEvent: Event = await this.db.findEventByID(EventId);
+    if (!findEvent) throw new HttpException(409, "You're not event");
 
-//     const deleteEventData: Event[] = this.events.filter((event: { id: number }) => event.id !== findEvent.id);
-//     return deleteEventData;
-//   }
+    const deleteEventData: Event = this.events.filter((event: { id: number }) => event.id !== findEvent.id);
+    return deleteEventData;
+  }
  }
 
 export default EventService;

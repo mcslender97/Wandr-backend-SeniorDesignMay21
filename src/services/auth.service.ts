@@ -24,9 +24,6 @@ class AuthService {
       ...userData,
       Password: hashedPassword,
     };
-
-    
-
     return await this.db.createUser(createUserData);
   }
 

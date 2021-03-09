@@ -7,6 +7,7 @@ import { Place } from '../interfaces/places.interface';
 import { Event } from '../interfaces/events.interface';
 import UsersController from '../controllers/users.controller';
 import { LoginUserDto, UserDto } from '../dtos/users.dto';
+import { CreateEventDto } from '../dtos/events.dto';
 
 const knex = Knex({
   client: 'mysql',
@@ -75,6 +76,32 @@ class DatabaseService {
   }
   async findEventByPlace(placeName: string) {
     return await knex<Event>('event').where('place', placeName).first();
+  }
+  async createEvent(eventID: number, eventData: Event): Promise<CreateEventDto> {
+    return await knex<Event>('event').where('EventId', eventID).update(
+      {
+        EventId: eventData.EventId,
+        Title: eventData.Title,
+        CreatedAt: eventData.CreatedAt,
+        EventTime: eventData.EventTime,
+        PlaceID: eventData.PlaceID,
+        UserID: eventData.UserID
+    }, 
+    );
+
+  }
+  async deleteEventByID(eventID: number, eventData: Event){
+    return await knex<Event>('event').where('EventId', eventID).del();
+  }
+  async upDateEvent(eventData: Event): Promise<CreateEventDto> {
+    return await knex<Event>('event').insert({
+      EventId: eventData.EventId,
+      Title: eventData.Title,
+      CreatedAt: eventData.CreatedAt,
+      EventTime: eventData.EventTime,
+      PlaceID: eventData.PlaceID,
+      UserID: eventData.UserID
+    })
   }
   async getAllPlaces() {
     return await knex<Place>('place');
