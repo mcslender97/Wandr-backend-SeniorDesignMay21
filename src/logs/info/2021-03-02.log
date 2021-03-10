@@ -1,7 +1,0 @@
-2021-03-02 09:51:29 info: 🚀 App listening on the port 3000
-2021-03-02 09:51:33 info: [0mGET /api-docs/ [36m304[0m 8.153 ms - -[0m
-2021-03-02 09:51:33 info: [0mGET /api-docs/swagger-ui.css [36m304[0m 7.384 ms - -[0m
-2021-03-02 09:51:33 info: [0mGET /api-docs/swagger-ui-bundle.js [36m304[0m 7.579 ms - -[0m
-2021-03-02 09:51:33 info: [0mGET /api-docs/swagger-ui-init.js [36m304[0m 0.942 ms - -[0m
-2021-03-02 09:51:33 info: [0mGET /api-docs/swagger-ui-standalone-preset.js [36m304[0m 5.317 ms - -[0m
-2021-03-02 09:51:45 info: [0mGET /places?q=Han [36m304[0m 4.254 ms - -[0m

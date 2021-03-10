@@ -1,9 +1,0 @@
-2021-02-22 22:11:01 info: 🚀 App listening on the port 3000
-2021-02-22 22:11:10 info: [0mGET / [32m200[0m 3.815 ms - 17[0m
-2021-02-22 22:11:10 info: [0mGET /favicon.ico [33m404[0m 1.825 ms - 150[0m
-2021-02-22 22:11:16 info: [0mGET /places [32m200[0m 2.246 ms - 117[0m
-2021-02-22 22:11:30 info: [0mGET /places/search?q=Ha [32m200[0m 8.595 ms - 117[0m
-2021-02-22 22:11:34 info: [0mGET /places/search?q=d [32m200[0m 1.532 ms - 2[0m
-2021-02-22 22:11:39 info: [0mGET /places/search?q=ha [32m200[0m 1.507 ms - 117[0m
-2021-02-22 22:11:43 info: [0mGET /places/search?q=na [32m200[0m 1.553 ms - 2[0m
-2021-02-22 22:12:37 info: [0mGET /places/search?q=Ha [36m304[0m 1.420 ms - -[0m
