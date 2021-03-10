@@ -1,6 +1,0 @@
-2021-02-11 11:00:49 info: 🚀 App listening on the port 3000
-2021-02-11 11:08:17 error: StatusCode : 500, Message : select * from `user` where `id` = 1 limit 1 - ER_NO_SUCH_TABLE: Table 'wandr1.user' doesn't exist
-2021-02-11 11:08:17 info: [0mGET /users/1 [31m500[0m 173.048 ms - 111[0m
-2021-02-11 11:08:17 info: [0mGET /favicon.ico [33m404[0m 2.827 ms - 150[0m
-2021-02-11 11:28:45 info: [0mGET /users/1 [32m200[0m 9.592 ms - 21[0m
-2021-02-11 11:28:47 info: [0mGET /users/1 [36m304[0m 5.476 ms - -[0m

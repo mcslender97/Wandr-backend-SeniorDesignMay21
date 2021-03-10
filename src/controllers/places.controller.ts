@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
+import { Query } from 'mysql';
 //import { CreatePlaceDto } from '../dtos/places.dto';
 import { Event } from '../interfaces/events.interface';
 
