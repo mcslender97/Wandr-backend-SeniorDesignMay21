@@ -93,7 +93,7 @@ class DatabaseService {
   async deleteEventByID(eventID: number, eventData: Event){
     return await knex<Event>('event').where('EventId', eventID).del();
   }
-  async upDateEvent(eventData: Event): Promise<CreateEventDto> {
+  async updateEvent(eventData: Event): Promise<CreateEventDto> {
     return await knex<Event>('event').insert({
       EventId: eventData.EventId,
       Title: eventData.Title,
@@ -114,10 +114,7 @@ class DatabaseService {
     return await knex<Place>('place').where('location', location);
   }
   async showPlaceByLocationSearchQuery(query: string) {
-    
-    
     return await knex<Place>('place').where('location', "like", "%"+query+"%");
-
   }
   async showEventByPlace(pid: number) {
     return await knex<Event>('event').select('*').innerJoin<Place>('place', 'event.PlaceID', 'place.PlaceID').where('event.PlaceId', pid);
@@ -126,6 +123,16 @@ class DatabaseService {
   }
   async getNumberOfUsers(): Promise<number> {
     return await knex<User>('user').count({ id: 'ID' })
+  }
+  // async getEventsOfADay(): Promise<Event[]{
+  //   return await knex<Event>('event').where
+  // }
+  async createUser_Event() {
+    return await knex('user_event').insert({
+      ID:,
+        EventId:,
+      UserID:,
+      JoinedAt:
   }
 }
 

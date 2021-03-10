@@ -7,9 +7,11 @@ import { Event } from '../interfaces/events.interface';
 import { isEmpty } from '../utils/util';
 import DatabaseService from './database.service';
 
+
 class EventService {
   // public events = eventModel;
   public events;
+  private date = new Date()
   private db = new DatabaseService();
   constructor() {
     this.events = this.db.getAllEvents();
@@ -20,6 +22,7 @@ class EventService {
     const events = await this.db.getAllEvents();
     return events;
   }
+  
 
   public async findEventById(eventID: number): Promise<Event> {
     // const findEvent: Event = this.events.find(event => event.id === eventId);
@@ -29,33 +32,32 @@ class EventService {
     return event;
   }
 
-  public async createEvent(eventData: CreateEventDto): Promise<Event> {
+  public async createEvent(userID: number, eventData: CreateEventDto): Promise<Event> {
     if (isEmpty(eventData)) throw new HttpException(400, "You're not eventData");  
-    const findEvent = await this.db.findEventByID(eventData.EventId);
-    if (!(findEvent === null)) throw new HttpException(409, `You're Event already exists`);
+    // const findEvent = await this.db.findEventByID(eventData.EventId); check if event is duplicate?
+    // if (!(findEvent === null)) throw new HttpException(409, `You're Event already exists`);
     
     const createEventData: Event = {
       EventId: this.events.length + 1,
-      ...eventData
+      ...eventData,
+      CreatedAt: this.date.toISOString(),
+      UserID: userID
   
     };
 
     return createEventData;
   }
 
-//   public async updateEvent(eventId: number, eventData: Event): Promise<Event[]> {
-//     if (isEmpty(eventData)) throw new HttpException(400, "You're not eventData");
+  public async updateEvent(eventId: number, eventData: Event): Promise<Event> {
+    if (isEmpty(eventData)) throw new HttpException(400, "You're not eventData");
 
     
-//     const findEvent: Event = await this.db.findEventByID(eventId);
-//     if (!findEvent) throw new HttpException(409, "You're not event");
+    const findEvent: Event = await this.db.findEventByID(eventId);
+    if (!findEvent) throw new HttpException(409, "You're not event");
+    const updateEventData: Event = await this.db.updateEvent(eventData);
 
-//     const hashedPassword = await bcrypt.hash(eventData.password, 10);
-
-//     const updateEventData: Event[] = await this.db.updateEventByID(eventId, eventData);
-
-//     return updateEventData;
-//   }
+    return updateEventData;
+  }
 
   public async deleteEvent(EventId: number): Promise<Event> {
     const findEvent: Event = await this.db.findEventByID(EventId);

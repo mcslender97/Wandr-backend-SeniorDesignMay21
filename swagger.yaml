@@ -228,6 +228,81 @@ paths:
         500:
           description: 'Server Error'
 
+# [POST] event
+    post:
+      security:
+        - bearerAuth: []
+      tags:
+        - events
+      summary: Create new event 
+      requestBody:
+        description: Event data
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Title:
+                  type: string
+                CreatedAt:
+                  type: string
+                EventTime:
+                  type: string
+                PlaceID:
+                  type: string
+                UserID:
+                  type: string
+      responses:
+        200:
+          description: 'OK'
+          content:
+              application/json:
+                schema:
+                  type: object
+                  $ref: "#/components/schemas/event"
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
+# [PUT] event
+    put:
+      security:
+        - bearerAuth: []
+      tags:
+        - events
+      summary: Update new event 
+      requestBody:
+        description: Event data
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Title:
+                  type: string
+                CreatedAt:
+                  type: string
+                EventTime:
+                  type: string
+                PlaceID:
+                  type: string
+                UserID:
+                  type: string
+      responses:
+        200:
+          description: 'OK'
+          content:
+              application/json:
+                schema:
+                  type: object
+                  $ref: "#/components/schemas/event"
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
+
 # [GET] places
   /places:
     get:
@@ -481,13 +556,13 @@ components:
     event:
       type: object
       properties:
-        id:
+        Id:
           type: integer
-        title:
+        Title:
           type: string
-        createdAt:
+        CreatedAt:
           type: string
-        eventTime:
+        EventTime:
           type: string
         PlaceID:
           type: integer      
