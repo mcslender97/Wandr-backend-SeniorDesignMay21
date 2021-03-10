@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt';
-import { CreateEventDto } from '../dtos/events.dto';
+import { CreateEventDto, UpdateEventDto } from '../dtos/events.dto';
 //import { CreateEventDto } from '../dtos/events.dto';
 import HttpException from '../exceptions/HttpException';
 import { Event } from '../interfaces/events.interface';
@@ -48,13 +48,13 @@ class EventService {
     return createEventData;
   }
 
-  public async updateEvent(eventId: number, eventData: Event): Promise<Event> {
+  public async updateEvent(eventId: number, eventData: Event): Promise<UpdateEventDto> {
     if (isEmpty(eventData)) throw new HttpException(400, "You're not eventData");
 
     
     const findEvent: Event = await this.db.findEventByID(eventId);
     if (!findEvent) throw new HttpException(409, "You're not event");
-    const updateEventData: Event = await this.db.updateEvent(eventData);
+    const updateEventData: UpdateEventDto = await this.db.updateEvent(eventId,eventData);
 
     return updateEventData;
   }

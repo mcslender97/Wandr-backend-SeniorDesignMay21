@@ -1,6 +1,7 @@
 import bcrypt from 'bcrypt';
 import { CreateUserDto } from '../dtos/users.dto';
 import HttpException from '../exceptions/HttpException';
+import { userEvent } from '../interfaces/userEvent.interface';
 import { User } from '../interfaces/users.interface';
 import userModel from '../models/users.model';
 import { isEmpty } from '../utils/util';
@@ -50,7 +51,7 @@ class UserService {
     return createUserData;
   }
 
-  public async updateUser(userId: number, userData: User): Promise<User[]> {
+  public async updateUser(userId: number, userData: User): Promise<User> {
     if (isEmpty(userData)) throw new HttpException(400, "You're not userData");
 
     // const findUser: User = this.users.find(user => user.id === userId);
@@ -63,7 +64,7 @@ class UserService {
     //   if (user.id === findUser.id) user = { id: userId, ...userData, password: hashedPassword, dob: null,fullname: "",gender: "",phone: null,email: ""};
     //   return user;
     // });
-    const updateUserData: User[] = await this.db.updateUserByID(userId, userData);
+    const updateUserData: User = await this.db.updateUserByID(userId, userData);
 
     return updateUserData;
   }
@@ -74,6 +75,12 @@ class UserService {
 
     const deleteUserData: User[] = this.users.filter((user: { id: number }) => user.id !== findUser.ID);
     return deleteUserData;
+  }
+  public async joinEvent(userId: number, eventID: number)
+  {
+    const userEventData: userEvent = {
+        
+      }
   }
 }
 

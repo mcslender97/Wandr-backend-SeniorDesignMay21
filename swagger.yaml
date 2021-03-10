@@ -245,13 +245,11 @@ paths:
               properties:
                 Title:
                   type: string
-                CreatedAt:
+                EventStartTime:
                   type: string
-                EventTime:
+                EventEndTime:
                   type: string
                 PlaceID:
-                  type: string
-                UserID:
                   type: string
       responses:
         200:
@@ -282,13 +280,9 @@ paths:
               properties:
                 Title:
                   type: string
-                CreatedAt:
+                EventStartTime:
                   type: string
-                EventTime:
-                  type: string
-                PlaceID:
-                  type: string
-                UserID:
+                EventEndTime:
                   type: string
       responses:
         200:
@@ -562,7 +556,9 @@ components:
           type: string
         CreatedAt:
           type: string
-        EventTime:
+        EventStartTime:
+          type: string
+        EventEndTime:
           type: string
         PlaceID:
           type: integer      

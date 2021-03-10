@@ -7,7 +7,8 @@ import { Place } from '../interfaces/places.interface';
 import { Event } from '../interfaces/events.interface';
 import UsersController from '../controllers/users.controller';
 import { LoginUserDto, UserDto } from '../dtos/users.dto';
-import { CreateEventDto } from '../dtos/events.dto';
+import { CreateEventDto, UpdateEventDto } from '../dtos/events.dto';
+import { userEvent } from '../interfaces/userEvent.interface';
 
 const knex = Knex({
   client: 'mysql',
@@ -48,7 +49,7 @@ class DatabaseService {
         Phone: userData.Phone,
         Username: userData.Username
       },
-      ['ID', 'Fullname', 'Dob', 'Email', 'Gender', 'Password', 'Phone'],
+      ['ID', 'Fullname', 'Dob', 'Email', 'Gender', 'Password', 'Phone','Username'],
     );
   }
   async createUser(userData: User): Promise<UserDto> {
@@ -77,28 +78,27 @@ class DatabaseService {
   async findEventByPlace(placeName: string) {
     return await knex<Event>('event').where('place', placeName).first();
   }
-  async createEvent(eventID: number, eventData: Event): Promise<CreateEventDto> {
+  async updateEvent(eventID: number, eventData: Event): Promise<UpdateEventDto> {
     return await knex<Event>('event').where('EventId', eventID).update(
       {
         EventId: eventData.EventId,
         Title: eventData.Title,
-        CreatedAt: eventData.CreatedAt,
-        EventTime: eventData.EventTime,
-        PlaceID: eventData.PlaceID,
-        UserID: eventData.UserID
-    }, 
+        EventStartTime: eventData.EventStartTime,
+        EventEndTime: eventData.EventEndTime,
+      }, 
     );
 
   }
   async deleteEventByID(eventID: number, eventData: Event){
     return await knex<Event>('event').where('EventId', eventID).del();
   }
-  async updateEvent(eventData: Event): Promise<CreateEventDto> {
+  async createEvent(eventData: Event): Promise<CreateEventDto> {
     return await knex<Event>('event').insert({
       EventId: eventData.EventId,
       Title: eventData.Title,
       CreatedAt: eventData.CreatedAt,
-      EventTime: eventData.EventTime,
+      EventStartTime: eventData.EventStartTime,
+      EventEndTime: eventData.EventEndTime,
       PlaceID: eventData.PlaceID,
       UserID: eventData.UserID
     })
@@ -127,12 +127,13 @@ class DatabaseService {
   // async getEventsOfADay(): Promise<Event[]{
   //   return await knex<Event>('event').where
   // }
-  async createUser_Event() {
+  async createUser_Event(user_eventdata: userEvent) {
     return await knex('user_event').insert({
-      ID:,
-        EventId:,
-      UserID:,
-      JoinedAt:
+      ID: user_eventdata.id,
+      EventId: user_eventdata.EventID,
+      UserID: user_eventdata.UserID,
+      JoinedAt: user_eventdata.joinedAt
+    })
   }
 }
 
