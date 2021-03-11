@@ -4,6 +4,7 @@ import { CreateEventDto, UpdateEventDto } from '../dtos/events.dto';
 
 import { Event } from '../interfaces/events.interface';
 import EventService from '../services/events.service';
+import {  RequestWithUser } from '../interfaces/auth.interface';
 
 class EventsController {
     public eventService = new EventService();
@@ -31,10 +32,10 @@ class EventsController {
   };
 
   
-    public createEvent = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    public createEvent = async (req: RequestWithUser, res: Response, next: NextFunction): Promise<void> => {
       try {
         const eventData: CreateEventDto = req.body;
-        const userID = req.
+        const userID = req.user.ID
         const createEventData: Event = await this.eventService.createEvent(userID,eventData);
         res.status(201).json({ data: createEventData, message: 'created' });
       } catch (error) {

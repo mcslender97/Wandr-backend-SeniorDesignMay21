@@ -197,37 +197,6 @@ paths:
                       $ref: "#/components/schemas/event"
         500:
           description: 'Server Error'
-
-# [GET] event/id
-  /events/{id}:
-    get:
-      security:
-        - bearerAuth: []
-      tags:
-        - events
-      summary: Get event by Id
-      parameters:
-      - name: id
-        in: path
-        description: event id
-        required: true
-        schema:
-          type: integer
-          format: int64
-          minimum: 1
-      responses:
-        200:
-          description: 'OK'
-          content:
-              application/json:
-                schema:
-                  type: object
-                  $ref: "#/components/schemas/event"
-        409:
-          description: 'Conflict'
-        500:
-          description: 'Server Error'
-
 # [POST] event
     post:
       security:
@@ -263,7 +232,6 @@ paths:
           description: 'Conflict'
         500:
           description: 'Server Error'
-# [PUT] event
     put:
       security:
         - bearerAuth: []
@@ -296,6 +264,39 @@ paths:
           description: 'Conflict'
         500:
           description: 'Server Error'
+# [GET] event/id
+  /events/{id}:
+    get:
+      security:
+        - bearerAuth: []
+      tags:
+        - events
+      summary: Get event by Id
+      parameters:
+      - name: id
+        in: path
+        description: event id
+        required: true
+        schema:
+          type: integer
+          format: int64
+          minimum: 1
+      responses:
+        200:
+          description: 'OK'
+          content:
+              application/json:
+                schema:
+                  type: object
+                  $ref: "#/components/schemas/event"
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
+
+
+# [PUT] event
+
 
 # [GET] places
   /places:
