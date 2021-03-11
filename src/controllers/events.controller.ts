@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
-import { CreateEventDto } from '../dtos/events.dto';
+import { request } from 'https';
+import { CreateEventDto, UpdateEventDto } from '../dtos/events.dto';
 
 import { Event } from '../interfaces/events.interface';
 import EventService from '../services/events.service';
@@ -33,7 +34,7 @@ class EventsController {
     public createEvent = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
       try {
         const eventData: CreateEventDto = req.body;
-        const userID: number(req.params.id)
+        const userID = req.
         const createEventData: Event = await this.eventService.createEvent(userID,eventData);
         res.status(201).json({ data: createEventData, message: 'created' });
       } catch (error) {
@@ -45,7 +46,7 @@ class EventsController {
       try {
         const eventId = Number(req.params.id);
         const eventData: Event = req.body;
-        const updateEventData: Event = await this.eventService.updateEvent(eventId, eventData);
+        const updateEventData: UpdateEventDto = await this.eventService.updateEvent(eventId, eventData);
   
         res.status(200).json({ data: updateEventData, message: 'updated' });
       } catch (error) {

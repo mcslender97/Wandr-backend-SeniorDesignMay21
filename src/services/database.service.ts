@@ -9,6 +9,7 @@ import UsersController from '../controllers/users.controller';
 import { LoginUserDto, UserDto } from '../dtos/users.dto';
 import { CreateEventDto, UpdateEventDto } from '../dtos/events.dto';
 import { userEvent } from '../interfaces/userEvent.interface';
+import { City } from '../interfaces/cities.interfaces';
 
 const knex = Knex({
   client: 'mysql',
@@ -38,7 +39,7 @@ class DatabaseService {
   async deleteUserByID(id: number) {
     await knex<User>('user').where('id', id).del();
   }
-  async updateUserByID(id: number, userData: User) {
+  async updateUserByID(id: number, userData: User): Promise<User> {
     return await knex<User>('user').where('id', id).update(
       {
         Fullname: userData.Fullname,
@@ -49,7 +50,7 @@ class DatabaseService {
         Phone: userData.Phone,
         Username: userData.Username
       },
-      ['ID', 'Fullname', 'Dob', 'Email', 'Gender', 'Password', 'Phone','Username'],
+      [ 'Fullname', 'Dob', 'Email', 'Gender', 'Password', 'Phone','Username'],
     );
   }
   async createUser(userData: User): Promise<UserDto> {
@@ -89,7 +90,7 @@ class DatabaseService {
     );
 
   }
-  async deleteEventByID(eventID: number, eventData: Event){
+  async deleteEventByID(eventID: number){
     return await knex<Event>('event').where('EventId', eventID).del();
   }
   async createEvent(eventData: Event): Promise<CreateEventDto> {
@@ -115,6 +116,9 @@ class DatabaseService {
   }
   async showPlaceByLocationSearchQuery(query: string) {
     return await knex<Place>('place').where('location', "like", "%"+query+"%");
+  }
+  async showCitiesBySearchQuery(query: string) {
+    return await knex<City>('city').where('name', "like", "%"+query+"%");
   }
   async showEventByPlace(pid: number) {
     return await knex<Event>('event').select('*').innerJoin<Place>('place', 'event.PlaceID', 'place.PlaceID').where('event.PlaceId', pid);

@@ -445,6 +445,36 @@ paths:
           description: 'Conflict'
         500:
           description: 'Server Error'  
+  /cities/?q=:
+    get:
+      security:
+        - bearerAuth: []
+      tags:
+      - cities
+      summary: Find City with query search
+      parameters:
+      - name: q
+        in: query
+        description: city name
+        required: true
+        schema:
+          type: string
+          format: string
+          minimum: 2
+      responses:
+        200:
+          description: 'OK'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  places:  
+                    type: array
+                    items: 
+                      $ref: "#/components/schemas/city"
+        500:
+          description: 'Server Error'  
 # definitions
 components:
   securitySchemes:
@@ -502,20 +532,22 @@ components:
         - location
         - type
       properties:
-        id:
+        PlaceID:
           type: integer
           description: place id
-        name:
+        Name:
           type: string
-        placeType:
+        Type:
           type: string
           description: Activity type of the Place
-        description:
+        Description:
           type: string
           description: Information of the Place
-        location:
+        Location:
           type: string
           description: Address of the place
+        CityID:
+          type: integer
     usereventgroup:
       type: object
       required:
@@ -550,7 +582,7 @@ components:
     event:
       type: object
       properties:
-        Id:
+        EventId:
           type: integer
         Title:
           type: string
@@ -564,4 +596,17 @@ components:
           type: integer      
         UserID:
           type: integer
-         
+    city:
+      type: object
+      properties:
+        CityID:
+          type: integer
+        Name:
+          type: string
+        StateProvince:
+          type: string
+        Country:
+          type: string
+        CountryCode:
+          type: string
+   

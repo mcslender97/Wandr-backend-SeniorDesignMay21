@@ -59,12 +59,15 @@ class EventService {
     return updateEventData;
   }
 
-  public async deleteEvent(EventId: number): Promise<Event> {
+  public async deleteEvent(EventId: number): Promise<boolean> {
     const findEvent: Event = await this.db.findEventByID(EventId);
     if (!findEvent) throw new HttpException(409, "You're not event");
 
-    const deleteEventData: Event = this.events.filter((event: { id: number }) => event.id !== findEvent.id);
-    return deleteEventData;
+    const deleteEventData: number = await this.db.deleteEventByID(EventId)
+    if (deleteEventData === 0) {
+      return false
+    }
+    return true;
   }
  }
 
