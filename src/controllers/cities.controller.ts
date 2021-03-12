@@ -19,6 +19,16 @@ class CitiesController
         } catch (error) {
           next(error);
         }
-      };
+  };
+  public getPlacesOfACity = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const cityid = Number(req.params.id);
+      const findAllEventsData: Event[] = await this.citiesService.showEventsInAPlace(cityid);
+        res.status(200).json(findAllEventsData);
+        console.log("findFromPlace")
+    } catch (error) {
+      next(error);
+    }
+  };
 }
 export default CitiesController

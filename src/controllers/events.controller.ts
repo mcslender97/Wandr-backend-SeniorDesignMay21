@@ -41,7 +41,17 @@ class EventsController {
       } catch (error) {
         next(error);
       }
-    };
+  };
+  public joinEvent = async (req: RequestWithUser, res: Response, next: NextFunction): Promise<void> => {
+    try {
+       
+      const userID = req.user.ID
+      const createEventData: Event = await this.eventService.joinEvent(userID,eventData);
+      res.status(201).json({ data: createEventData, message: 'created' });
+    } catch (error) {
+      next(error);
+    }
+  };
   
     public updateEvent = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
       try {

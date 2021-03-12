@@ -110,7 +110,9 @@ class DatabaseService {
   async findPlaceByID(id: number) {
     return await knex('place').where('PlaceID', id).first();
   }
-
+  async showPlaceByCityID(cityid: number) {
+    return await knex<Place>('place').select('*').innerJoin<City>('city', 'place.CityID', 'city.CityID').where('place.CityID', cityid);
+  }
   async findPlaceByLocation(location: string) {
     return await knex<Place>('place').where('location', location);
   }
@@ -131,12 +133,11 @@ class DatabaseService {
   // async getEventsOfADay(): Promise<Event[]{
   //   return await knex<Event>('event').where
   // }
-  async createUser_Event(user_eventdata: userEvent) {
+  async createUser_Event(userid: number, eventid: number, timestamp: string): Promise<userEvent> {
     return await knex('user_event').insert({
-      ID: user_eventdata.id,
-      EventId: user_eventdata.EventID,
-      UserID: user_eventdata.UserID,
-      JoinedAt: user_eventdata.joinedAt
+      EventId: eventid,
+      UserID: userid,
+      JoinedAt: timestamp
     })
   }
 }

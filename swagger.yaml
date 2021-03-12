@@ -293,6 +293,35 @@ paths:
           description: 'Conflict'
         500:
           description: 'Server Error'
+  # [GET] event/id
+  /events/{id}/join:
+    post:
+      security:
+        - bearerAuth: []
+      tags:
+        - events
+      summary: Join an event
+      parameters:
+      - name: id
+        in: path
+        description: event id
+        required: true
+        schema:
+          type: integer
+          format: int64
+          minimum: 1
+      responses:
+        200:
+          description: 'OK'
+          content:
+              application/json:
+                schema:
+                  type: object
+                  $ref: "#/components/schemas/event"
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
 
 
 # [PUT] event
@@ -351,7 +380,7 @@ paths:
                       $ref: "#/components/schemas/place"
         500:
           description: 'Server Error'
-# [GET] places by searching for address
+# [GET] places by searching for city
   /places/city?q=:
     get:
       security:
@@ -411,6 +440,7 @@ paths:
           description: 'Conflict'
         500:
           description: 'Server Error'  
+
 # [GET] events of a place
   /places/{id}/events:
     get:
@@ -475,7 +505,39 @@ paths:
                     items: 
                       $ref: "#/components/schemas/city"
         500:
-          description: 'Server Error'  
+          description: 'Server Error'
+  /cities/{cityid}/places:
+    get:
+      security:
+        - bearerAuth: []
+      tags:
+      - cities
+      summary: Get Events in a city
+      parameters:
+      - name: cityid
+        in: path
+        description: city id
+        required: true
+        schema:
+          type: integer
+          format: int64
+          minimum: 1
+      responses:
+        200:
+          description: 'OK'
+          content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    events:  
+                      type: array
+                      items:
+                        allOf:
+                          - $ref: "#/components/schemas/place"
+                          - $ref: "#/components/schemas/city"
+        500:
+          description: 'Server Error'        
 # definitions
 components:
   securitySchemes:

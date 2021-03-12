@@ -1,8 +1,6 @@
 import { IsString } from "class-validator";
 
-export class CreateEventDto{
-    
-    
+export class CreateEventDto{       
     @IsString()
     Title: string;   
     EventStartTime: string; // type of date in SQL
@@ -14,4 +12,14 @@ export class UpdateEventDto{
     Title: string
     EventStartTime: string; // type of date in SQL
     EventEndTime: string; 
+}
+export class CreateUserEventDto{
+    EventId: number;
+    UserID: number;
+}
+export class UserEventDto{
+    ID: number
+    EventId: number;
+    UserID: number;
+    JoinedAt: string;
 }

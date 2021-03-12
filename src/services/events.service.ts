@@ -3,6 +3,7 @@ import { CreateEventDto, UpdateEventDto } from '../dtos/events.dto';
 //import { CreateEventDto } from '../dtos/events.dto';
 import HttpException from '../exceptions/HttpException';
 import { Event } from '../interfaces/events.interface';
+import { userEvent } from '../interfaces/userEvent.interface';
 
 import { isEmpty } from '../utils/util';
 import DatabaseService from './database.service';
@@ -69,6 +70,12 @@ class EventService {
     }
     return true;
   }
- }
+  public async joinEvent(UserID: number, EventId: number): Promise<userEvent>{
+    const findEvent: Event = await this.db.findEventByID(EventId);
+    if (!findEvent) throw new HttpException(409, "You're not event");
+    const userEvent = await this.db.createUser_Event(UserID, EventId, this.date.toISOString())
+    return userEvent;
+  }
+}
 
 export default EventService;

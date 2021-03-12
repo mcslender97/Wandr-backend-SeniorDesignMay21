@@ -22,7 +22,7 @@ class CitiesRoute implements Route {
     this.router.get(`${this.path}`, this.citiesController.getCitiesBySearchQuery);
     // this.router.get(`${this.path}/:id(\\d+)`, this.placesController.getPlaceById);
     // this.router.get(`${this.path}/search`, this.placesController.getPlacesBySearchQuery); //search places route
-    // this.router.get(`${this.path}/:id(\\d+)/events`, this.placesController.getEventsOfAPlace);
+    this.router.get(`${this.path}/:id(\\d+)/places`, this.citiesController.getPlacesOfACity);
     
 
 //     this.router.post(`${this.path}`, validationMiddleware(CreatePlaceDto, 'body'), this.placesController.createPlace);
