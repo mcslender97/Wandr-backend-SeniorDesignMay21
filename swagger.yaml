@@ -197,7 +197,73 @@ paths:
                       $ref: "#/components/schemas/event"
         500:
           description: 'Server Error'
-
+# [POST] event
+    post:
+      security:
+        - bearerAuth: []
+      tags:
+        - events
+      summary: Create new event 
+      requestBody:
+        description: Event data
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Title:
+                  type: string
+                EventStartTime:
+                  type: string
+                EventEndTime:
+                  type: string
+                PlaceID:
+                  type: string
+      responses:
+        200:
+          description: 'OK'
+          content:
+              application/json:
+                schema:
+                  type: object
+                  $ref: "#/components/schemas/event"
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
+    put:
+      security:
+        - bearerAuth: []
+      tags:
+        - events
+      summary: Update new event 
+      requestBody:
+        description: Event data
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Title:
+                  type: string
+                EventStartTime:
+                  type: string
+                EventEndTime:
+                  type: string
+      responses:
+        200:
+          description: 'OK'
+          content:
+              application/json:
+                schema:
+                  type: object
+                  $ref: "#/components/schemas/event"
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
 # [GET] event/id
   /events/{id}:
     get:
@@ -227,6 +293,39 @@ paths:
           description: 'Conflict'
         500:
           description: 'Server Error'
+  # [GET] event/id
+  /events/{id}/join:
+    post:
+      security:
+        - bearerAuth: []
+      tags:
+        - events
+      summary: Join an event
+      parameters:
+      - name: id
+        in: path
+        description: event id
+        required: true
+        schema:
+          type: integer
+          format: int64
+          minimum: 1
+      responses:
+        200:
+          description: 'OK'
+          content:
+              application/json:
+                schema:
+                  type: object
+                  $ref: "#/components/schemas/event"
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
+
+
+# [PUT] event
+
 
 # [GET] places
   /places:
@@ -281,7 +380,7 @@ paths:
                       $ref: "#/components/schemas/place"
         500:
           description: 'Server Error'
-# [GET] places by searching for address
+# [GET] places by searching for city
   /places/city?q=:
     get:
       security:
@@ -341,6 +440,7 @@ paths:
           description: 'Conflict'
         500:
           description: 'Server Error'  
+
 # [GET] events of a place
   /places/{id}/events:
     get:
@@ -376,6 +476,68 @@ paths:
           description: 'Conflict'
         500:
           description: 'Server Error'  
+  /cities/?q=:
+    get:
+      security:
+        - bearerAuth: []
+      tags:
+      - cities
+      summary: Find City with query search
+      parameters:
+      - name: q
+        in: query
+        description: city name
+        required: true
+        schema:
+          type: string
+          format: string
+          minimum: 2
+      responses:
+        200:
+          description: 'OK'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  places:  
+                    type: array
+                    items: 
+                      $ref: "#/components/schemas/city"
+        500:
+          description: 'Server Error'
+  /cities/{cityid}/places:
+    get:
+      security:
+        - bearerAuth: []
+      tags:
+      - cities
+      summary: Get Events in a city
+      parameters:
+      - name: cityid
+        in: path
+        description: city id
+        required: true
+        schema:
+          type: integer
+          format: int64
+          minimum: 1
+      responses:
+        200:
+          description: 'OK'
+          content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    events:  
+                      type: array
+                      items:
+                        allOf:
+                          - $ref: "#/components/schemas/place"
+                          - $ref: "#/components/schemas/city"
+        500:
+          description: 'Server Error'        
 # definitions
 components:
   securitySchemes:
@@ -433,20 +595,22 @@ components:
         - location
         - type
       properties:
-        id:
+        PlaceID:
           type: integer
           description: place id
-        name:
+        Name:
           type: string
-        placeType:
+        Type:
           type: string
           description: Activity type of the Place
-        description:
+        Description:
           type: string
           description: Information of the Place
-        location:
+        Location:
           type: string
           description: Address of the place
+        CityID:
+          type: integer
     usereventgroup:
       type: object
       required:
@@ -481,16 +645,31 @@ components:
     event:
       type: object
       properties:
-        id:
+        EventId:
           type: integer
-        title:
+        Title:
           type: string
-        createdAt:
+        CreatedAt:
           type: string
-        eventTime:
+        EventStartTime:
+          type: string
+        EventEndTime:
           type: string
         PlaceID:
           type: integer      
         UserID:
           type: integer
-         
+    city:
+      type: object
+      properties:
+        CityID:
+          type: integer
+        Name:
+          type: string
+        StateProvince:
+          type: string
+        Country:
+          type: string
+        CountryCode:
+          type: string
+   
