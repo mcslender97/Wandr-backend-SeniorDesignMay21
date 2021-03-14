@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt';
-import { CreateEventDto, UpdateEventDto } from '../dtos/events.dto';
+import { CreateEventDto, GenerateEventDto, UpdateEventDto } from '../dtos/events.dto';
 //import { CreateEventDto } from '../dtos/events.dto';
 import HttpException from '../exceptions/HttpException';
 import { Event } from '../interfaces/events.interface';
@@ -38,15 +38,16 @@ class EventService {
     // const findEvent = await this.db.findEventByID(eventData.EventId); check if event is duplicate?
     // if (!(findEvent === null)) throw new HttpException(409, `You're Event already exists`);
     
-    const createEventData: Event = {
-      EventId: this.events.length + 1,
+    const createEventData: GenerateEventDto = {
+      
       ...eventData,
-      CreatedAt: this.date.toISOString(),
+      CreatedAt: this.date.toJSON().slice(0, 19).replace('T', ' '),
       UserID: userID
   
     };
-
-    return createEventData;
+    const createEvent = await this.db.createEvent(createEventData);
+    console.log(createEvent)
+    return this.db.findEventByID(createEvent[0]);
   }
 
   public async updateEvent(eventId: number, eventData: Event): Promise<UpdateEventDto> {
