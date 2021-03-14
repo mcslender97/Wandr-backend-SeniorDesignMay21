@@ -75,12 +75,6 @@ class UserService {
     const deleteUserData: User[] = this.users.filter((user: { id: number }) => user.id !== findUser.ID);
     return deleteUserData;
   }
-  // public async joinEvent(userId: number, eventID: number)
-  // {
-  //   const userEventData: userEvent = {
-        
-  //     }
-  // }
 }
 
 export default UserService;

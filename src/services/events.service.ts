@@ -56,16 +56,18 @@ class EventService {
 
 //     const hashedPassword = await bcrypt.hash(eventData.password, 10);
 
-  public async deleteEvent(EventId: number): Promise<boolean> {
-    const findEvent: Event = await this.db.findEventByID(EventId);
-    if (!findEvent) throw new HttpException(409, "You're not event");
+//     const updateEventData: Event[] = await this.db.updateEventByID(eventId, eventData);
 
-    const deleteEventData: number = await this.db.deleteEventByID(EventId)
-    if (deleteEventData === 0) {
-      return false
-    }
-    return true;
-  }
+//     return updateEventData;
+//   }
+
+//   public async deleteEvent(eventId: number): Promise<Event[]> {
+//     const findEvent: Event = this.events.find(event => event.id === eventId);
+//     if (!findEvent) throw new HttpException(409, "You're not event");
+
+//     const deleteEventData: Event[] = this.events.filter((event: { id: number }) => event.id !== findEvent.id);
+//     return deleteEventData;
+//   }
  }
 
 export default EventService;

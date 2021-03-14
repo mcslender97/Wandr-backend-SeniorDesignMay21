@@ -3,7 +3,6 @@ export interface Place {
   name: string;
   type: string; //timestamp
   description: string;
-  location: string;
-  CityID: number; // type of date in SQL
+  location: string; // type of date in SQL
   //FK?
 }

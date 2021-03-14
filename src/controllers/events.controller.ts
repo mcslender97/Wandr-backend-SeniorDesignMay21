@@ -1,7 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
-import { request } from 'https';
-import { CreateEventDto, UpdateEventDto } from '../dtos/events.dto';
-
+//import { CreateEventDto } from '../dtos/events.dto';
 import { Event } from '../interfaces/events.interface';
 import EventService from '../services/events.service';
 
@@ -32,22 +30,16 @@ class EventsController {
   };
 
   
-    public createEvent = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-      try {
-        const eventData: CreateEventDto = req.body;
-        const userID = req.
-        const createEventData: Event = await this.eventService.createEvent(userID,eventData);
-        res.status(201).json({ data: createEventData, message: 'created' });
-      } catch (error) {
-        next(error);
-      }
-    };
+    // public createEvent = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    //   try {
+    //     const eventData: CreateEventDto = req.body;
+    //     const createEventData: Event = await this.eventService.createEvent(eventData);
   
-    public updateEvent = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-      try {
-        const eventId = Number(req.params.id);
-        const eventData: Event = req.body;
-        const updateEventData: UpdateEventDto = await this.eventService.updateEvent(eventId, eventData);
+    //     res.status(201).json({ data: createEventData, message: 'created' });
+    //   } catch (error) {
+    //     next(error);
+    //   }
+    // };
   
     // public updateEvent = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     //   try {
