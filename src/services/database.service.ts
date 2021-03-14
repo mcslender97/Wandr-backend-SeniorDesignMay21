@@ -7,6 +7,9 @@ import { Place } from '../interfaces/places.interface';
 import { Event } from '../interfaces/events.interface';
 import UsersController from '../controllers/users.controller';
 import { LoginUserDto, UserDto } from '../dtos/users.dto';
+import { CreateEventDto, UpdateEventDto } from '../dtos/events.dto';
+import { userEvent } from '../interfaces/userEvent.interface';
+import { City } from '../interfaces/cities.interfaces';
 
 const knex = Knex({
   client: 'mysql',
@@ -36,7 +39,7 @@ class DatabaseService {
   async deleteUserByID(id: number) {
     await knex<User>('user').where('id', id).del();
   }
-  async updateUserByID(id: number, userData: User) {
+  async updateUserByID(id: number, userData: User): Promise<User> {
     return await knex<User>('user').where('id', id).update(
       {
         Fullname: userData.Fullname,
@@ -47,7 +50,7 @@ class DatabaseService {
         Phone: userData.Phone,
         Username: userData.Username
       },
-      ['ID', 'Fullname', 'Dob', 'Email', 'Gender', 'Password', 'Phone'],
+      [ 'Fullname', 'Dob', 'Email', 'Gender', 'Password', 'Phone','Username'],
     );
   }
   async createUser(userData: User): Promise<UserDto> {
@@ -76,6 +79,31 @@ class DatabaseService {
   async findEventByPlace(placeName: string) {
     return await knex<Event>('event').where('place', placeName).first();
   }
+  async updateEvent(eventID: number, eventData: Event): Promise<UpdateEventDto> {
+    return await knex<Event>('event').where('EventId', eventID).update(
+      {
+        EventId: eventData.EventId,
+        Title: eventData.Title,
+        EventStartTime: eventData.EventStartTime,
+        EventEndTime: eventData.EventEndTime,
+      }, 
+    );
+
+  }
+  async deleteEventByID(eventID: number){
+    return await knex<Event>('event').where('EventId', eventID).del();
+  }
+  async createEvent(eventData: Event): Promise<CreateEventDto> {
+    return await knex<Event>('event').insert({
+      EventId: eventData.EventId,
+      Title: eventData.Title,
+      CreatedAt: eventData.CreatedAt,
+      EventStartTime: eventData.EventStartTime,
+      EventEndTime: eventData.EventEndTime,
+      PlaceID: eventData.PlaceID,
+      UserID: eventData.UserID
+    })
+  }
   async getAllPlaces() {
     return await knex<Place>('place');
   }
@@ -91,6 +119,9 @@ class DatabaseService {
     
     return await knex<Place>('place').where('location', "like", "%"+query+"%");
 
+  }
+  async showCitiesBySearchQuery(query: string) {
+    return await knex<City>('city').where('name', "like", "%"+query+"%");
   }
   async showEventByPlace(pid: number) {
     return await knex<Event>('event').select('*').innerJoin<Place>('place', 'event.PlaceID', 'place.PlaceID').where('event.PlaceId', pid);

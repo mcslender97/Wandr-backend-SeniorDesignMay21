@@ -19,8 +19,8 @@ class EventsRoute implements Route {
 
     this.router.get(`${this.path}`, this.eventsController.getEvents);
     this.router.get(`${this.path}/:id(\\d+)`, this.eventsController.getEventById);
-//     this.router.post(`${this.path}`, validationMiddleware(CreateEventDto, 'body'), this.eventsController.createEvent);
-//     this.router.put(`${this.path}/:id(\\d+)`, validationMiddleware(CreateEventDto, 'body', true), this.eventsController.updateEvent);
+    // this.router.post(`${this.path}`, validationMiddleware(CreateEventDto, 'body'), this.eventsController.createEvent);
+    this.router.put(`${this.path}/:id(\\d+)`, validationMiddleware(UpdateEventDto, 'body', true), this.eventsController.updateEvent);
 //     this.router.delete(`${this.path}/:id(\\d+)`, this.eventsController.deleteEvent);
     }
 }
