@@ -29,17 +29,11 @@ class AuthService {
   }
 
   public async login(userData: LoginUserDto): Promise<{ user: { token: TokenData } & UserDto }> {
-    
     if (isEmpty(userData)) throw new HttpException(400, "You're not userData");
-    
     const findUser: User = await this.db.findUserByEmail(userData.Email)
-    
-    if (!findUser) throw new HttpException(409, `You're email ${userData.Email} not found`);
-    
-
+    if (!findUser) throw new HttpException(409, `You're email ${userData.Email} not found`); 
     const isPasswordMatching: boolean = await bcrypt.compare(userData.Password, findUser.Password);
-    if (!isPasswordMatching) throw new HttpException(409, "You're password not matching");
-    
+    if (!isPasswordMatching) throw new HttpException(409, "You're password not matching");    
     const tokenData = this.createToken(findUser);
 
     const user: UserDto & { token: TokenData } = {

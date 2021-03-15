@@ -132,13 +132,23 @@ class DatabaseService {
   // async getEventsOfADay(): Promise<Event[]{
   //   return await knex<Event>('event').where
   // }
-  async createUser_Event(userid: number, eventid: number, timestamp: string): Promise<userEvent> {
+  async createUser_Event(userid: number, eventid: number, timestamp: string) {
     return await knex('user_event').insert({
       EventId: eventid,
       UserID: userid,
       JoinedAt: timestamp
     })
   }
+  async getUser_EventByID(userEventID: number): Promise<userEvent> {
+    return await knex<userEvent>('user_event').where('ID', userEventID).first();
+  }
+  // async getUser_EventWithUserIDAndEventID(userID: number, eventID: number) {
+  //   return await knex<userEvent>('user_event').where({
+  //     'EventId': eventID,
+  //     'UserID': userID
+  //   }).select('*');
+  // }
+
 }
 
 export default DatabaseService;

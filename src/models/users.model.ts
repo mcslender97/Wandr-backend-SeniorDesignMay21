@@ -5,6 +5,7 @@ import { User } from '../interfaces/users.interface';
 const userModel: User[] = [
  
   //{email: dvamain@gmail.com, password: nerfthis!}
+  //{email: genjimain@gmail.com, password: madamada}
 ];
 
 export default userModel;
