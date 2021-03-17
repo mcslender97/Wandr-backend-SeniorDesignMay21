@@ -38,7 +38,7 @@ class EventsController {
         const eventData: CreateEventDto = req.body;
         const userID = req.user.ID
         const createEventData: Event = await this.eventService.createEvent(userID,eventData);
-        res.status(201).json({ data: createEventData, message: 'created' });
+        res.status(201).json(createEventData);
       } catch (error) {
         next(error);
       }
@@ -49,7 +49,7 @@ class EventsController {
       const userID = req.user.ID
       const eventID = Number(req.params.id)
       const joinEventData: userEvent = await this.eventService.joinEvent(userID,eventID);
-      res.status(201).json({ data: joinEventData, message: 'created' });
+      res.status(201).json(joinEventData);
     } catch (error) {
       next(error);
     }
@@ -61,7 +61,7 @@ class EventsController {
         const eventData: Event = req.body;
         const updateEventData: UpdateEventDto = await this.eventService.updateEvent(eventId, eventData);
   
-        res.status(200).json({ data: updateEventData, message: 'updated' });
+        res.status(200).json(updateEventData);
       } catch (error) {
         next(error);
       }

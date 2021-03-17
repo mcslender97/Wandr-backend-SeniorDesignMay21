@@ -293,7 +293,7 @@ paths:
           description: 'Conflict'
         500:
           description: 'Server Error'
-  # [POST] event/id/join
+  # [POST] event/id/join Join an event
   /events/{id}/join:
     post:
       security:
@@ -317,7 +317,7 @@ paths:
               application/json:
                 schema:
                   type: object
-                  $ref: "#/components/schemas/event"
+                  $ref: "#/components/schemas/usereventgroup"
         409:
           description: 'Conflict'
         500:
@@ -670,4 +670,5 @@ components:
           type: string
         CountryCode:
           type: string
+
    
