@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt';
-import { CreateEventDto, GenerateEventDto, UpdateEventDto } from '../dtos/events.dto';
+import { CreateEventDto, UpdateEventDto } from '../dtos/events.dto';
 //import { CreateEventDto } from '../dtos/events.dto';
 import HttpException from '../exceptions/HttpException';
 import { Event } from '../interfaces/events.interface';
@@ -38,16 +38,15 @@ class EventService {
     // const findEvent = await this.db.findEventByID(eventData.EventId); check if event is duplicate?
     // if (!(findEvent === null)) throw new HttpException(409, `You're Event already exists`);
     
-    const createEventData: GenerateEventDto = {
-      
+    const createEventData: Event = {
+      EventId: this.events.length + 1,
       ...eventData,
-      CreatedAt: this.date.toJSON().slice(0, 19).replace('T', ' '),
+      CreatedAt: this.date.toISOString(),
       UserID: userID
   
     };
-    const createEvent = await this.db.createEvent(createEventData);
-    console.log(createEvent)
-    return this.db.findEventByID(createEvent[0]);
+
+    return createEventData;
   }
 
   public async updateEvent(eventId: number, eventData: Event): Promise<UpdateEventDto> {
@@ -73,21 +72,10 @@ class EventService {
   }
   public async joinEvent(UserID: number, EventId: number): Promise<userEvent>{
     const findEvent: Event = await this.db.findEventByID(EventId);
-    //todo: check for duplicate event
-
     if (!findEvent) throw new HttpException(409, "You're not event");
-    const findUserEvent: userEvent = await this.db.getUser_EventWithUserIDAndEventID(UserID, EventId);
-    if (findUserEvent) throw new HttpException(409, `You already joined the event`);
-
-    const userEvent = await this.db.createUser_Event(UserID, EventId, this.date.toJSON().slice(0, 19).replace('T', ' '))
-    return this.db.getUser_EventByID(userEvent[0]);
+    const userEvent = await this.db.createUser_Event(UserID, EventId, this.date.toISOString())
+    return userEvent;
   }
-  // public async leaveEvent(UserID: number, EventId: number): Promise<userEvent>{
-  //   const findEvent: Event = await this.db.findEventByID(EventId);
-  //   if (!findEvent) throw new HttpException(409, "You're not event");
-  //   const userEvent = await this.db.createUser_Event(UserID, EventId, this.date.toJSON().slice(0, 19).replace('T', ' '))
-  //   return userEvent;
-  // }
 }
 
 export default EventService;

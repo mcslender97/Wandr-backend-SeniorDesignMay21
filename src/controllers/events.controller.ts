@@ -5,7 +5,6 @@ import { CreateEventDto, UpdateEventDto } from '../dtos/events.dto';
 import { Event } from '../interfaces/events.interface';
 import EventService from '../services/events.service';
 import {  RequestWithUser } from '../interfaces/auth.interface';
-import { userEvent } from '../interfaces/userEvent.interface';
 
 class EventsController {
     public eventService = new EventService();
@@ -38,7 +37,7 @@ class EventsController {
         const eventData: CreateEventDto = req.body;
         const userID = req.user.ID
         const createEventData: Event = await this.eventService.createEvent(userID,eventData);
-        res.status(201).json(createEventData);
+        res.status(201).json({ data: createEventData, message: 'created' });
       } catch (error) {
         next(error);
       }
@@ -47,9 +46,8 @@ class EventsController {
     try {
        
       const userID = req.user.ID
-      const eventID = Number(req.params.id)
-      const joinEventData: userEvent = await this.eventService.joinEvent(userID,eventID);
-      res.status(201).json(joinEventData);
+      const createEventData: Event = await this.eventService.joinEvent(userID,eventData);
+      res.status(201).json({ data: createEventData, message: 'created' });
     } catch (error) {
       next(error);
     }
@@ -61,7 +59,7 @@ class EventsController {
         const eventData: Event = req.body;
         const updateEventData: UpdateEventDto = await this.eventService.updateEvent(eventId, eventData);
   
-        res.status(200).json(updateEventData);
+        res.status(200).json({ data: updateEventData, message: 'updated' });
       } catch (error) {
         next(error);
       }
