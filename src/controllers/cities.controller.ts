@@ -5,6 +5,7 @@ import { Event } from '../interfaces/events.interface';
 
 import { City } from '../interfaces/cities.interfaces';
 import CitiesService from '../services/cities.service';
+import { Place } from '../interfaces/places.interface';
 
 class CitiesController
 {
@@ -23,8 +24,8 @@ class CitiesController
   public getPlacesOfACity = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
       const cityid = Number(req.params.id);
-      const findAllEventsData: Event[] = await this.citiesService.showEventsInAPlace(cityid);
-        res.status(200).json(findAllEventsData);
+      const placesData: Place[] = await this.citiesService.showPlacesInACity(cityid);
+        res.status(200).json(placesData);
         console.log("findFromPlace")
     } catch (error) {
       next(error);

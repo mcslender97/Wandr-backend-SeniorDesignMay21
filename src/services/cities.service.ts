@@ -13,7 +13,7 @@ class CitiesService{
         //   const events: Event[] = this.events;
         const places = await this.db.showPlaceByCityID(cityid);
         return places;
-      }
+    }
 
 }
 export default CitiesService
