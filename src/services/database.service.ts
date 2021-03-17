@@ -142,12 +142,12 @@ class DatabaseService {
   async getUser_EventByID(userEventID: number): Promise<userEvent> {
     return await knex<userEvent>('user_event').where('ID', userEventID).first();
   }
-  // async getUser_EventWithUserIDAndEventID(userID: number, eventID: number) {
-  //   return await knex<userEvent>('user_event').where({
-  //     'EventId': eventID,
-  //     'UserID': userID
-  //   }).select('*');
-  // }
+  async getUser_EventWithUserIDAndEventID(userID: number, eventID: number): Promise<userEvent> {
+    return await knex<userEvent>('user_event').where({
+      'EventId': eventID,
+      'UserID': userID
+    }).first();
+  }
 
 }
 

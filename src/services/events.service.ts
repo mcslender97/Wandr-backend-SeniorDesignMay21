@@ -74,7 +74,11 @@ class EventService {
   public async joinEvent(UserID: number, EventId: number): Promise<userEvent>{
     const findEvent: Event = await this.db.findEventByID(EventId);
     //todo: check for duplicate event
+
     if (!findEvent) throw new HttpException(409, "You're not event");
+    const findUserEvent: userEvent = await this.db.getUser_EventWithUserIDAndEventID(UserID, EventId);
+    if (findUserEvent) throw new HttpException(409, `You already joined the event`);
+
     const userEvent = await this.db.createUser_Event(UserID, EventId, this.date.toJSON().slice(0, 19).replace('T', ' '))
     return this.db.getUser_EventByID(userEvent[0]);
   }
