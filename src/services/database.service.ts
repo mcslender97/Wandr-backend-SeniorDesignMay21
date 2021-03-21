@@ -22,6 +22,7 @@ const knex = Knex({
 });
 
 class DatabaseService {
+  
   async findUserByID(id: number) {
     return await knex<User>('user').where('id', id).first();
   }

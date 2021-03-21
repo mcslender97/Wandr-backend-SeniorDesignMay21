@@ -13,3 +13,5 @@ validateEnv();
 const app = new App([new IndexRoute(), new UsersRoute(), new AuthRoute(), new EventsRoute(), new PlacesRoute(), new CitiesRoute()]);
 
 app.listen();
+
+//automate: run SQL file here
