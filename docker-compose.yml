@@ -24,6 +24,10 @@ services:
     restart: "unless-stopped"
     networks:
       - backend
+  db:
+    image: mariadb
+    volumes:
+      - ./
 
 networks:
   backend:
