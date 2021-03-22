@@ -8,9 +8,11 @@ import PlacesRoute from './routes/places.route';
 import CitiesRoute from './routes/cities.route';
 import validateEnv from './utils/validateEnv';
 
+
 validateEnv();
 
 const app = new App([new IndexRoute(), new UsersRoute(), new AuthRoute(), new EventsRoute(), new PlacesRoute(), new CitiesRoute()]);
+
 
 app.listen();
 

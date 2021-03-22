@@ -10,6 +10,7 @@ import { CreateUserDto, LoginUserDto, UserDto } from '../dtos/users.dto';
 import { CreateEventDto, GenerateEventDto, UpdateEventDto } from '../dtos/events.dto';
 import { userEvent } from '../interfaces/userEvent.interface';
 import { City } from '../interfaces/cities.interfaces';
+import fs from "fs"
 
 const knex = Knex({
   client: 'mysql',
@@ -18,11 +19,19 @@ const knex = Knex({
     user: config.mysql.user,
     password: config.mysql.password,
     database: config.mysql.database,
+    multipleStatements: true
   },
 });
 
 class DatabaseService {
-  
+  async importSQLDBQuery() {
+    exports.seed = function(knex, Promise) {
+      var sql = fs.readFileSync('./wandrBackend.session.sql').toString();
+      return knex.raw('DROP DATABASE wandr1')
+         .then(() => knex.raw('CREATE DATABASE wandr1'))
+         .then(() => knex.raw(sql))
+  };
+  }
   async findUserByID(id: number) {
     return await knex<User>('user').where('id', id).first();
   }
