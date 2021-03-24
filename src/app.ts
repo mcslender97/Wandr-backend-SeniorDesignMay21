@@ -11,27 +11,24 @@ import Routes from './interfaces/routes.interface';
 import errorMiddleware from './middlewares/error.middleware';
 import { logger, stream } from './utils/logger';
 import authMiddleware from './middlewares/auth.middleware';
-import DatabaseService from "./services/database.service"
+import DatabaseService from './services/database.service';
 
 class App {
   public app: express.Application;
   public port: string | number;
   public env: string;
   private db: DatabaseService;
-  
 
   constructor(routes: Routes[]) {
     this.app = express();
     this.port = process.env.PORT || 3000;
     this.env = process.env.NODE_ENV || 'development';
     this.db = new DatabaseService();
-    
 
     this.initializeMiddlewares();
     this.initializeRoutes(routes);
     this.initializeSwagger();
     this.initializeErrorHandling();
-    this.initializeSQLDatabase
   }
 
   public listen() {
@@ -43,9 +40,7 @@ class App {
   public getServer() {
     return this.app;
   }
-  public initializeSQLDatabase() {
-    return this.db.importSQLDBQuery();
-  }
+
 
   private initializeMiddlewares() {
     if (this.env === 'production') {
