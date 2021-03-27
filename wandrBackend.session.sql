@@ -20,7 +20,6 @@
 -- Table structure for table `city`
 --
 
-DROP TABLE IF EXISTS `city`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `city` (
@@ -48,7 +47,7 @@ UNLOCK TABLES;
 -- Table structure for table `event`
 --
 
-DROP TABLE IF EXISTS `event`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `event` (
@@ -81,7 +80,6 @@ UNLOCK TABLES;
 -- Table structure for table `eventmessages`
 --
 
-DROP TABLE IF EXISTS `eventmessages`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `eventmessages` (
@@ -108,7 +106,6 @@ UNLOCK TABLES;
 -- Table structure for table `place`
 --
 
-DROP TABLE IF EXISTS `place`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `place` (
@@ -118,6 +115,7 @@ CREATE TABLE `place` (
   `Description` varchar(255) NOT NULL,
   `Location` varchar(1024) NOT NULL,
   `CityID` int NOT NULL,
+  `PictureURI` varchar(1024) NULL,
   PRIMARY KEY (`PlaceID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -136,7 +134,7 @@ UNLOCK TABLES;
 -- Table structure for table `private_chatgroup`
 --
 
-DROP TABLE IF EXISTS `private_chatgroup`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `private_chatgroup` (
@@ -160,7 +158,7 @@ UNLOCK TABLES;
 -- Table structure for table `private_user_chatgroup`
 --
 
-DROP TABLE IF EXISTS `private_user_chatgroup`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `private_user_chatgroup` (
@@ -190,7 +188,7 @@ UNLOCK TABLES;
 -- Table structure for table `privatemessage`
 --
 
-DROP TABLE IF EXISTS `privatemessage`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `privatemessage` (
@@ -220,7 +218,7 @@ UNLOCK TABLES;
 -- Table structure for table `user`
 --
 
-DROP TABLE IF EXISTS `user`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `user` (
@@ -251,7 +249,7 @@ UNLOCK TABLES;
 -- Table structure for table `user_event`
 --
 
-DROP TABLE IF EXISTS `user_event`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `user_event` (
@@ -266,6 +264,7 @@ CREATE TABLE `user_event` (
   CONSTRAINT `FKUser_Event526452` FOREIGN KEY (`EventId`) REFERENCES `event` (`EventId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
 
 --
 -- Dumping data for table `user_event`
