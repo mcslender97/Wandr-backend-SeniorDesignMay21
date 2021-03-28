@@ -17,10 +17,12 @@ function init() {
     })
     .catch(e => {
       console.error(e);
-      console.log('Retrying in 5 seconds');
-      setTimeout(() => {
-        init();
-      }, 5000);
+      if (e.toString().includes("ECONNREFUSED")) {
+        console.log('Retrying in 5 seconds');
+        setTimeout(() => {
+          init();
+        }, 5000);
+      }
     });
 }
 

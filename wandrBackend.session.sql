@@ -119,8 +119,6 @@ CREATE TABLE `place` (
   PRIMARY KEY (`PlaceID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-ALTER TABLE `wandr1`.`place` 
-ADD COLUMN `PictureURI` VARCHAR(1024) NULL AFTER `CityID`;
 
 --
 -- Dumping data for table `place`

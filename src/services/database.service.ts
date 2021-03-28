@@ -25,8 +25,13 @@ const knex = Knex({
 
 class DatabaseService {
   async importSQLDBQuery() {
-    var sql = fs.readFileSync('./wandrBackend.session.sql').toString();
-    return knex.raw(sql);
+    try {
+      await knex<User>('user').first();
+    } catch (e) {
+      var sql = fs.readFileSync('./wandrBackend.session.sql').toString();
+      return knex.raw(sql);
+    }
+    return true;
   }
   async findUserByID(id: number) {
     return await knex<User>('user').where('id', id).first();
