@@ -119,6 +119,8 @@ CREATE TABLE `place` (
   PRIMARY KEY (`PlaceID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+ALTER TABLE `wandr1`.`place` 
+ADD COLUMN `PictureURI` VARCHAR(1024) NULL AFTER `CityID`;
 
 --
 -- Dumping data for table `place`
@@ -126,7 +128,7 @@ CREATE TABLE `place` (
 
 LOCK TABLES `place` WRITE;
 /*!40000 ALTER TABLE `place` DISABLE KEYS */;
-INSERT INTO `place` VALUES (1,'Hanamura Temple','Temple','Have a big bell','1 Hanamura Str, Tokyo Japan',2),(2,'Walmart Supercenter Erie','Shopping','Walmart shopping center ','2711 Elm Str,Erie, PA, USA',1),(3,'Erie Art Museum','Museum','Dedicated to promotion and advancement of visual arts','20 E 5th Str, Erie, PA, USA',1);
+INSERT INTO `place` VALUES (1,'Hanamura Temple','Temple','Have a big bell','1 Hanamura Str, Tokyo Japan',2,''),(2,'Walmart Supercenter Erie','Shopping','Walmart shopping center ','2711 Elm Str,Erie, PA, USA',1,''),(3,'Erie Art Museum','Museum','Dedicated to promotion and advancement of visual arts','20 E 5th Str, Erie, PA, USA',1,'');
 /*!40000 ALTER TABLE `place` ENABLE KEYS */;
 UNLOCK TABLES;
 

@@ -5,5 +5,5 @@ export interface Place {
   description: string;
   location: string;
   CityID: number; // type of date in SQL
-  //FK?
+  PictureURI: string;//PICTURE URI
 }

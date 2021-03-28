@@ -609,6 +609,9 @@ components:
           description: Address of the place
         CityID:
           type: integer
+        PictureURI:
+          type: string
+          description: URI of main picture of the place
     usereventgroup:
       type: object
       required:

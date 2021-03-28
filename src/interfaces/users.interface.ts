@@ -6,6 +6,6 @@ export interface User {
   Gender: string;
   Email: string;
   Password: string;
-  Username: string
+  Username: string;
   //profile picture type here
 }
