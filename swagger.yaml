@@ -177,6 +177,37 @@ paths:
           description: 'Conflict'
         500:
           description: 'Server Error'
+  # [GET] events that users/id joined        
+  /users/{id}/joinedEvents/:
+    get:
+      security:
+        - bearerAuth: []
+      tags:
+      - users
+      summary: Get Events that User Joined
+      parameters:
+      - in: path
+        name: id
+        description: User Id
+        required: true
+        schema:
+          type : integer
+          format: int64
+          minimum: 1
+      responses:
+        200:
+          description: 'OK'
+          content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    type: array
+                    $ref: "#/components/schemas/event"
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
 # [GET] events
   /events:
     get:

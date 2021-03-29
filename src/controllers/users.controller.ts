@@ -28,6 +28,17 @@ class UsersController {
       next(error);
     }
   };
+  public getEventsJoinedByUser = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const userId = Number(req.params.id);
+      const findOneUserJoinedEventData: User = await this.userService.findEventedJoinedOfUserById(userId);
+
+      res.status(200).json(findOneUserJoinedEventData);
+      console.log('findOne')
+    } catch (error) {
+      next(error);
+    }
+  };
 
 
   public updateUser = async (req: Request, res: Response, next: NextFunction): Promise<void> => {

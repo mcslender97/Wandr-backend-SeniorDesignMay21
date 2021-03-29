@@ -39,6 +39,7 @@ class DatabaseService {
   async findUserByEmail(email: string) {
     return await knex<User>('user').where('Email', email).first();
   }
+  
 
   // async findEventByPlace(place: Place){
   //     //return await knex<
@@ -153,6 +154,9 @@ class DatabaseService {
         UserID: userID,
       })
       .first();
+  }
+  async getEventsJoinedOfAUser(userid: number) {
+    return await knex<Event>('event').select('*').innerJoin<userEvent>('user_event', 'event.EventId', 'user_event.EventId').where('user_event.UserID', userid);
   }
 }
 
