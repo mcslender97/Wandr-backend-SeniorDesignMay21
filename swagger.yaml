@@ -68,12 +68,12 @@ paths:
         500:
           description: 'Server Error'
 # [GET] users
-  /users:
+  /user:
     get:
       security:
         - bearerAuth: []
       tags:
-      - users
+      - user
       summary: Find All Users
       responses:
         200:
@@ -91,12 +91,12 @@ paths:
 
 
 # [GET] users/id
-  /users/{id}:
+  /user/{id}:
     get:
       security:
         - bearerAuth: []
       tags:
-      - users
+      - user
       summary: Find User By Id
       parameters:
       - in: path
@@ -121,12 +121,12 @@ paths:
         500:
           description: 'Server Error'
 
-# [PUT] users/id
+# [PUT] user/id
     put:
       security:
         - bearerAuth: []
       tags:
-      - users
+      - user
       summary: Update User By Id
       parameters:
       - name: id
@@ -154,12 +154,12 @@ paths:
         500:
           description: 'Server Error'
 
-# [DELETE] users/id
+# [DELETE] user/id
     delete:
       security:
         - bearerAuth: []
       tags:
-      - users
+      - user
       summary: Delete User By Id
       parameters:
       - name: id
@@ -177,23 +177,14 @@ paths:
           description: 'Conflict'
         500:
           description: 'Server Error'
-  # [GET] events that users/id joined        
-  /users/{id}/joinedEvents/:
+  # [GET] events that current user joined        
+  /user/joinedEvents/:
     get:
       security:
         - bearerAuth: []
       tags:
-      - users
-      summary: Get Events that User Joined
-      parameters:
-      - in: path
-        name: id
-        description: User Id
-        required: true
-        schema:
-          type : integer
-          format: int64
-          minimum: 1
+      - user
+      summary: Get Events that Current User Joined
       responses:
         200:
           description: 'OK'
@@ -320,6 +311,34 @@ paths:
                 schema:
                   type: object
                   $ref: "#/components/schemas/event"
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
+  /events/{id}/usersJoined:
+    get:
+      security:
+        - bearerAuth: []
+      tags:
+        - events
+      summary: Get all users in an event
+      parameters:
+      - name: id
+        in: path
+        description: event id
+        required: true
+        schema:
+          type: integer
+          format: int64
+          minimum: 1
+      responses:
+        200:
+          description: 'OK'
+          content:
+              application/json:
+                schema:
+                  type: object
+                  $ref: "#/components/schemas/usereventgroup"
         409:
           description: 'Conflict'
         500:

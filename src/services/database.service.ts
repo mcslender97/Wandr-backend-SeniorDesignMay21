@@ -156,7 +156,7 @@ class DatabaseService {
       .first();
   }
   async getEventsJoinedOfAUser(userid: number) {
-    return await knex<Event>('event').select('*').innerJoin<userEvent>('user_event', 'event.EventId', 'user_event.EventId').where('user_event.UserID', userid);
+    return await knex<Event>('event').select('event.*').innerJoin<userEvent>('user_event', 'event.EventId', 'user_event.EventId').where('user_event.UserID', userid);
   }
 }
 

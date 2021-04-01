@@ -28,7 +28,7 @@ class UserService {
 
     return user;
   }
-  public async findEventedJoinedOfUserById(userId: number): Promise<(Event & userEvent)[]> {
+  public async findEventedJoinedOfUserById(userId: number): Promise<Event[]> {
     //   const events: Event[] = this.events;
     const events = await this.db.getEventsJoinedOfAUser(userId);
     return events;

@@ -43,7 +43,7 @@ class EventService {
       ...eventData,
       CreatedAt: this.date.toJSON().slice(0, 19).replace('T', ' '),
       UserID: userID
-  
+      //todo: have event creator automatically join an event they created?
     };
     const createEvent = await this.db.createEvent(createEventData);
     console.log(createEvent)
