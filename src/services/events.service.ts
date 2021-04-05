@@ -39,14 +39,19 @@ class EventService {
     // if (!(findEvent === null)) throw new HttpException(409, `You're Event already exists`);
     
     const createEventData: GenerateEventDto = {
-      
       ...eventData,
       CreatedAt: this.date.toJSON().slice(0, 19).replace('T', ' '),
-      UserID: userID
-      //todo: have event creator automatically join an event they created?
+      UserID: userID  
     };
+    if (createEventData.EventEndTime <= createEventData.EventStartTime) {
+      throw new HttpException(422, "Event end date and time must be after event start date and time");
+    }
+    if (createEventData.EventStartTime <= createEventData.CreatedAt) {
+      throw new HttpException(422,  "Event start date must be before the current date and time")
+    }
     const createEvent = await this.db.createEvent(createEventData);
-    console.log(createEvent)
+    const joinCreatedEvent = await this.joinEvent(createEvent[0].UserID, createEvent[0].EventID);
+    //console.log(createEvent)
     return this.db.findEventByID(createEvent[0]);
   }
 

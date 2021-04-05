@@ -670,12 +670,11 @@ components:
       properties:
         id:
           type: integer
-        event :
-          type: object
-          $ref: "#/components/schemas/event"
-        user:
-          type: object
-          $ref: "#/components/schemas/users"
+        eventid :
+          type: integer
+
+        userid:
+          type: integer
         joinedAt:
           type: string
     eventMessages:
