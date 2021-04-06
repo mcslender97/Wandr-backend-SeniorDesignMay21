@@ -50,8 +50,9 @@ class EventService {
       throw new HttpException(422,  "Event start date must be before the current date and time")
     }
     const createEvent = await this.db.createEvent(createEventData);
-    const joinCreatedEvent = await this.joinEvent(createEvent[0].UserID, createEvent[0].EventID);
-    //console.log(createEvent)
+    //const joinCreatedEvent = await this.joinEvent(createEvent[0].UserID, createEvent[0].EventId);
+    //if (!joinCreatedEvent) throw new HttpException(409, "Cannot add user to the created event, no event created.")
+    //console.log(joinCreatedEvent)
     return this.db.findEventByID(createEvent[0]);
   }
 
