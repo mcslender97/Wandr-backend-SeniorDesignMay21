@@ -36,7 +36,11 @@ class PlaceService {
     const events = await this.db.showEventByPlace(pid);
     return events;
   }
-
+  public async showEventsInAPlaceAtADate(date: string): Promise<(Event & Place)[]> {
+    //   const events: Event[] = this.events;
+    const events = await this.db.showEventByPlaceInADate(date);
+    return events;
+  }
 //   public async createPlace(placeData: CreatePlaceDto): Promise<Place> {
 //     if (isEmpty(placeData)) throw new HttpException(400, "You're not placeData");  
 //     const findPlace = await this.db.findPlaceByEmail(placeData.email);
@@ -77,6 +81,6 @@ class PlaceService {
 //     const deletePlaceData: Place[] = this.places.filter((place: { id: number }) => place.id !== findPlace.id);
 //     return deletePlaceData;
 //   }
- }
+}
 
 export default PlaceService;
