@@ -158,11 +158,11 @@ class DatabaseService {
   async getEventsJoinedOfAUser(userid: number) {
     return await knex<Event>('event').select('event.*').innerJoin<userEvent>('user_event', 'event.EventId', 'user_event.EventId').where('user_event.UserID', userid);
   }
-  async showEventByPlaceInADate(date: string) {//YYYY-MM-DD
+  async showEventByPlaceInADate(pid: number, date: string) {//YYYY-MM-DD
     //convert date to datetime
     const mySQLDateFrom = date.concat(' 00:00:00');
     const mySQLDateTo = date.concat(' 23:59:59');
-    return await knex<Event>('event').select('*').innerJoin<Place>('place', 'event.PlaceID', 'place.PlaceID').where('event.EventStartTime','>=', mySQLDateFrom).where('event.EventEndTime','<=',mySQLDateTo);
+    return await knex<Event>('event').select('*').innerJoin<Place>('place', 'event.PlaceID', 'place.PlaceID').where('event.PlaceId', pid).where('event.EventStartTime','>=', mySQLDateFrom).where('event.EventEndTime','<=',mySQLDateTo);
   }
 }
 

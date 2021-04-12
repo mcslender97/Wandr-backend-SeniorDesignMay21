@@ -50,7 +50,19 @@ class PlacesController {
       } catch (error) {
         next(error);
       }
-    };
+  };
+  public getEventsOfAPlaceInADate = async (req: Request, res: Response, next: NextFunction): Promise<void> => {//?date=YYYY-MM-DD
+    try {
+      const pid = Number(req.params.id);
+      let date = req.query.date.toString();
+
+      const findAllEventsData: Event[] = await this.placeService.showEventsInAPlaceAtADate(pid, date);
+        res.status(200).json(findAllEventsData);
+        console.log("findFromPlace")
+    } catch (error) {
+      next(error);
+    }
+  };
     // public createPlace = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     //   try {
     //     const placeData: CreatePlaceDto = req.body;

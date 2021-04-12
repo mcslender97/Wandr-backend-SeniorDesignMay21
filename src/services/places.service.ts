@@ -36,9 +36,9 @@ class PlaceService {
     const events = await this.db.showEventByPlace(pid);
     return events;
   }
-  public async showEventsInAPlaceAtADate(date: string): Promise<(Event & Place)[]> {
+  public async showEventsInAPlaceAtADate(pid: number, date: string): Promise<(Event & Place)[]> {
     //   const events: Event[] = this.events;
-    const events = await this.db.showEventByPlaceInADate(date);
+    const events = await this.db.showEventByPlaceInADate(pid, date);
     return events;
   }
 //   public async createPlace(placeData: CreatePlaceDto): Promise<Place> {
