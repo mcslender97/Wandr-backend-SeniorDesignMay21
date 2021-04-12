@@ -45,8 +45,18 @@ class EventService {
       UserID: userID
   
     };
-
-    return createEventData;
+    if (createEventData.EventEndTime <= createEventData.EventStartTime) {
+      throw new HttpException(422, "Event end date and time must be after event start date and time");
+    }
+    if (createEventData.EventStartTime <= createEventData.CreatedAt) {
+      throw new HttpException(422,  "Event start date must be before the current date and time")
+    }
+    const createEvent = await this.db.createEvent(createEventData);
+    const joinCreatedEvent = await this.joinEvent(userID, createEvent[0]);
+    if (!joinCreatedEvent) throw new HttpException(409, "Cannot add user to the created event, no event created.")
+    console.log(joinCreatedEvent)
+    
+    return this.db.findEventByID(createEvent[0]);
   }
 
   public async updateEvent(eventId: number, eventData: Event): Promise<UpdateEventDto> {
