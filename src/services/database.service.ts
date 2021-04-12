@@ -10,6 +10,7 @@ import { LoginUserDto, UserDto } from '../dtos/users.dto';
 import { CreateEventDto, UpdateEventDto } from '../dtos/events.dto';
 import { userEvent } from '../interfaces/userEvent.interface';
 import { City } from '../interfaces/cities.interfaces';
+import fs from 'fs';
 
 const knex = Knex({
   client: 'mysql',
@@ -18,10 +19,20 @@ const knex = Knex({
     user: config.mysql.user,
     password: config.mysql.password,
     database: config.mysql.database,
+    multipleStatements: true,
   },
 });
 
 class DatabaseService {
+  async importSQLDBQuery() {
+    try {
+      await knex<User>('user').first();
+    } catch (e) {
+      var sql = fs.readFileSync('./wandrBackend.session.sql').toString();
+      return knex.raw(sql);
+    }
+    return true;
+  }
   async findUserByID(id: number) {
     return await knex<User>('user').where('id', id).first();
   }
@@ -29,6 +40,7 @@ class DatabaseService {
     return await knex<User>('user').where('Email', email).first();
   }
   
+
   // async findEventByPlace(place: Place){
   //     //return await knex<
   //     return await knex<Event>('event').where("place", place );
@@ -48,28 +60,24 @@ class DatabaseService {
         Gender: userData.Gender,
         Password: userData.Password,
         Phone: userData.Phone,
-        Username: userData.Username
+        Username: userData.Username,
       },
-      [ 'Fullname', 'Dob', 'Email', 'Gender', 'Password', 'Phone','Username'],
+      ['Fullname', 'Dob', 'Email', 'Gender', 'Password', 'Phone', 'Username'],
     );
   }
-  async createUser(userData: User): Promise<UserDto> {
-    return await knex<User>('user').insert(
-      {
-        Fullname: userData.Fullname,
-        Dob: userData.Dob,
-        Email: userData.Email,
-        Gender: userData.Gender,
-        Password: userData.Password,
-        Phone: userData.Phone,
-        Username: userData.Username
-        
-      },
-      ['Fullname', 'Dob', 'Email', 'Gender', 'Phone','User'],
-    );
+  async createUser(userData: CreateUserDto) {
+    return await knex<User>('user').insert({
+      Fullname: userData.Fullname,
+      Dob: userData.Dob,
+      Email: userData.Email,
+      Gender: userData.Gender,
+      Password: userData.Password,
+      Phone: userData.Phone,
+      Username: userData.Username,
+    });
   }
 
-// function for search data from 2 tables to get events in 1 place: use inner join query
+  // function for search data from 2 tables to get events in 1 place: use inner join query
   async getAllEvents() {
     return await knex<Event>('event');
   }
@@ -80,29 +88,25 @@ class DatabaseService {
     return await knex<Event>('event').where('place', placeName).first();
   }
   async updateEvent(eventID: number, eventData: Event): Promise<UpdateEventDto> {
-    return await knex<Event>('event').where('EventId', eventID).update(
-      {
-        EventId: eventData.EventId,
-        Title: eventData.Title,
-        EventStartTime: eventData.EventStartTime,
-        EventEndTime: eventData.EventEndTime,
-      }, 
-    );
-
+    return await knex<Event>('event').where('EventId', eventID).update({
+      EventId: eventData.EventId,
+      Title: eventData.Title,
+      EventStartTime: eventData.EventStartTime,
+      EventEndTime: eventData.EventEndTime,
+    });
   }
-  async deleteEventByID(eventID: number){
+  async deleteEventByID(eventID: number) {
     return await knex<Event>('event').where('EventId', eventID).del();
   }
   async createEvent(eventData: Event): Promise<CreateEventDto> {
     return await knex<Event>('event').insert({
-      EventId: eventData.EventId,
       Title: eventData.Title,
       CreatedAt: eventData.CreatedAt,
       EventStartTime: eventData.EventStartTime,
       EventEndTime: eventData.EventEndTime,
       PlaceID: eventData.PlaceID,
-      UserID: eventData.UserID
-    })
+      UserID: eventData.UserID,
+    });
   }
   async getAllPlaces() {
     return await knex<Place>('place');
@@ -117,10 +121,10 @@ class DatabaseService {
     return await knex<Place>('place').where('location', location);
   }
   async showPlaceByLocationSearchQuery(query: string) {
-    return await knex<Place>('place').where('location', "like", "%"+query+"%");
+    return await knex<Place>('place').where('location', 'like', '%' + query + '%');
   }
   async showCitiesBySearchQuery(query: string) {
-    return await knex<City>('city').where('name', "like", "%"+query+"%");
+    return await knex<City>('city').where('name', 'like', '%' + query + '%');
   }
   async showEventByPlace(pid: number) {
     return await knex<Event>('event').select('*').innerJoin<Place>('place', 'event.PlaceID', 'place.PlaceID').where('event.PlaceId', pid);
@@ -128,7 +132,7 @@ class DatabaseService {
     //return await knex.raw('SELECT * FROM event INNER JOIN place on event.PlaceID = place.PlaceID where event.PlaceID = ?', pid);
   }
   async getNumberOfUsers(): Promise<number> {
-    return await knex<User>('user').count({ id: 'ID' })
+    return await knex<User>('user').count({ id: 'ID' });
   }
   // async getEventsOfADay(): Promise<Event[]{
   //   return await knex<Event>('event').where
@@ -137,8 +141,28 @@ class DatabaseService {
     return await knex('user_event').insert({
       EventId: eventid,
       UserID: userid,
-      JoinedAt: timestamp
-    })
+      JoinedAt: timestamp,
+    });
+  }
+  async getUser_EventByID(userEventID: number): Promise<userEvent> {
+    return await knex<userEvent>('user_event').where('ID', userEventID).first();
+  }
+  async getUser_EventWithUserIDAndEventID(userID: number, eventID: number): Promise<userEvent> {
+    return await knex<userEvent>('user_event')
+      .where({
+        EventId: eventID,
+        UserID: userID,
+      })
+      .first();
+  }
+  async getEventsJoinedOfAUser(userid: number) {
+    return await knex<Event>('event').select('event.*').innerJoin<userEvent>('user_event', 'event.EventId', 'user_event.EventId').where('user_event.UserID', userid);
+  }
+  async showEventByPlaceInADate(pid: number, date: string) {//YYYY-MM-DD
+    //convert date to datetime
+    const mySQLDateFrom = date.concat(' 00:00:00');
+    const mySQLDateTo = date.concat(' 23:59:59');
+    return await knex<Event>('event').select('*').innerJoin<Place>('place', 'event.PlaceID', 'place.PlaceID').where('event.PlaceId', pid).where('event.EventStartTime','>=', mySQLDateFrom).where('event.EventEndTime','<=',mySQLDateTo);
   }
 }
 

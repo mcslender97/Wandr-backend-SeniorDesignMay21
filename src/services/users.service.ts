@@ -6,7 +6,7 @@ import { User } from '../interfaces/users.interface';
 import userModel from '../models/users.model';
 import { isEmpty } from '../utils/util';
 import DatabaseService from './database.service';
-
+import { Event } from '../interfaces/events.interface';
 class UserService {
   // public users = userModel;
   public users;
@@ -27,6 +27,11 @@ class UserService {
     // if (!findUser) throw new HttpException(409, "You're not user");
 
     return user;
+  }
+  public async findEventedJoinedOfUserById(userId: number): Promise<Event[]> {
+    //   const events: Event[] = this.events;
+    const events = await this.db.getEventsJoinedOfAUser(userId);
+    return events;
   }
 
   public async createUser(userData: CreateUserDto): Promise<User> {
@@ -76,6 +81,8 @@ class UserService {
     const deleteUserData: User[] = this.users.filter((user: { id: number }) => user.id !== findUser.ID);
     return deleteUserData;
   }
+
+  
   // public async joinEvent(userId: number, eventID: number)
   // {
   //   const userEventData: userEvent = {

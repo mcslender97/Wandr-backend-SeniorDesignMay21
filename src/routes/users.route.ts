@@ -6,7 +6,7 @@ import authMiddleware from '../middlewares/auth.middleware';
 import validationMiddleware from '../middlewares/validation.middleware';
 
 class UsersRoute implements Route {
-  public path = '/users';
+  public path = '/user';
   public router = Router();
   public usersController = new UsersController();
 
@@ -19,7 +19,7 @@ class UsersRoute implements Route {
 
     this.router.get(`${this.path}`, this.usersController.getUsers);
     this.router.get(`${this.path}/:id(\\d+)`, this.usersController.getUserById);
-    this.router.post(`${this.path}`, validationMiddleware(CreateUserDto, 'body'), this.usersController.createUser);
+    this.router.get(`${this.path}/joinedEvents`, this.usersController.getEventsJoinedByUser);
     this.router.put(`${this.path}/:id(\\d+)`, validationMiddleware(CreateUserDto, 'body', true), this.usersController.updateUser);
     this.router.delete(`${this.path}/:id(\\d+)`, this.usersController.deleteUser);
   }

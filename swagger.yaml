@@ -64,12 +64,12 @@ paths:
         500:
           description: 'Server Error'
 # [GET] users
-  /users:
+  /user:
     get:
       security:
         - bearerAuth: []
       tags:
-      - users
+      - user
       summary: Find All Users
       responses:
         200:
@@ -89,12 +89,12 @@ paths:
 
 
 # [GET] users/id
-  /users/{id}:
+  /user/{id}:
     get:
       security:
         - bearerAuth: []
       tags:
-      - users
+      - user
       summary: Find User By Id
       parameters:
       - in: path
@@ -119,12 +119,12 @@ paths:
         500:
           description: 'Server Error'
 
-# [PUT] users/id
+# [PUT] user/id
     put:
       security:
         - bearerAuth: []
       tags:
-      - users
+      - user
       summary: Update User By Id
       parameters:
       - name: id
@@ -152,12 +152,12 @@ paths:
         500:
           description: 'Server Error'
 
-# [DELETE] users/id
+# [DELETE] user/id
     delete:
       security:
         - bearerAuth: []
       tags:
-      - users
+      - user
       summary: Delete User By Id
       parameters:
       - name: id
@@ -171,6 +171,28 @@ paths:
       responses:
         200:
           description: 'OK'
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
+  # [GET] events that current user joined        
+  /user/joinedEvents/:
+    get:
+      security:
+        - bearerAuth: []
+      tags:
+      - user
+      summary: Get Events that Current User Joined
+      responses:
+        200:
+          description: 'OK'
+          content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    type: array
+                    $ref: "#/components/schemas/event"
         409:
           description: 'Conflict'
         500:
@@ -293,7 +315,35 @@ paths:
           description: 'Conflict'
         500:
           description: 'Server Error'
-  # [GET] event/id
+  /events/{id}/usersJoined:
+    get:
+      security:
+        - bearerAuth: []
+      tags:
+        - events
+      summary: Get all users in an event
+      parameters:
+      - name: id
+        in: path
+        description: event id
+        required: true
+        schema:
+          type: integer
+          format: int64
+          minimum: 1
+      responses:
+        200:
+          description: 'OK'
+          content:
+              application/json:
+                schema:
+                  type: object
+                  $ref: "#/components/schemas/usereventgroup"
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
+  # [POST] event/id/join Join an event
   /events/{id}/join:
     post:
       security:
@@ -611,6 +661,9 @@ components:
           description: Address of the place
         CityID:
           type: integer
+        PictureURI:
+          type: string
+          description: URI of main picture of the place
     usereventgroup:
       type: object
       required:
@@ -619,12 +672,11 @@ components:
       properties:
         id:
           type: integer
-        event :
-          type: object
-          $ref: "#/components/schemas/event"
-        user:
-          type: object
-          $ref: "#/components/schemas/users"
+        eventid :
+          type: integer
+
+        userid:
+          type: integer
         joinedAt:
           type: string
     eventMessages:

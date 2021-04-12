@@ -38,12 +38,10 @@ class EventService {
     // const findEvent = await this.db.findEventByID(eventData.EventId); check if event is duplicate?
     // if (!(findEvent === null)) throw new HttpException(409, `You're Event already exists`);
     
-    const createEventData: Event = {
-      EventId: this.events.length + 1,
+    const createEventData: GenerateEventDto = {
       ...eventData,
-      CreatedAt: this.date.toISOString(),
-      UserID: userID
-  
+      CreatedAt: this.date.toJSON().slice(0, 19).replace('T', ' '),
+      UserID: userID  
     };
     if (createEventData.EventEndTime <= createEventData.EventStartTime) {
       throw new HttpException(422, "Event end date and time must be after event start date and time");

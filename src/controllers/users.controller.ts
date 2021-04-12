@@ -1,7 +1,9 @@
 import { NextFunction, Request, Response } from 'express';
 import { CreateUserDto } from '../dtos/users.dto';
 import { User } from '../interfaces/users.interface';
+import { Event } from '../interfaces/events.interface'
 import userService from '../services/users.service';
+import { RequestWithUser } from '../interfaces/auth.interface';
 
 class UsersController {
   public userService = new userService();
@@ -23,6 +25,17 @@ class UsersController {
       const findOneUserData: User = await this.userService.findUserById(userId);
 
       res.status(200).json(findOneUserData);
+      console.log('findOne')
+    } catch (error) {
+      next(error);
+    }
+  };
+  public getEventsJoinedByUser = async (req: RequestWithUser, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const userId = req.user.ID;
+      const findOneUserJoinedEventData: Event[] = await this.userService.findEventedJoinedOfUserById(userId);
+
+      res.status(200).json(findOneUserJoinedEventData);
       console.log('findOne')
     } catch (error) {
       next(error);
