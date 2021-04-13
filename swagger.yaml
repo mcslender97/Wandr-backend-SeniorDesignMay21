@@ -238,8 +238,10 @@ paths:
                   type: string
                 EventStartTime:
                   type: string
+                  description: Start time of event. Format "YYYY-MM-DD HH:MM:SS"
                 EventEndTime:
                   type: string
+                  description: End time of event. Format "YYYY-MM-DD HH:MM:SS"
                 PlaceID:
                   type: string
       responses:

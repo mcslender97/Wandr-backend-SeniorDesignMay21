@@ -128,15 +128,12 @@ class DatabaseService {
   }
   async showEventByPlace(pid: number) {
     return await knex<Event>('event').select('*').innerJoin<Place>('place', 'event.PlaceID', 'place.PlaceID').where('event.PlaceId', pid);
-    // return await knex<Event>('event').select('*').innerJoin('place', 'event.PlaceID', 'place.PlaceID').where('event.PlaceID', pid);
-    //return await knex.raw('SELECT * FROM event INNER JOIN place on event.PlaceID = place.PlaceID where event.PlaceID = ?', pid);
+  
   }
   async getNumberOfUsers(): Promise<number> {
     return await knex<User>('user').count({ id: 'ID' });
   }
-  // async getEventsOfADay(): Promise<Event[]{
-  //   return await knex<Event>('event').where
-  // }
+
   async createUser_Event(userid: number, eventid: number, timestamp: string) {
     return await knex('user_event').insert({
       EventId: eventid,
