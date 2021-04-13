@@ -12,28 +12,33 @@ class AuthService {
   
   private db = new DatabaseService();
   public users = userModel;
-  public async signup(userData: CreateUserDto) {
+  public async signup(userData: CreateUserDto): Promise<UserDto> {
     if (isEmpty(userData)) throw new HttpException(400, "You're not userData");
 
     const findUser: User = await this.db.findUserByEmail(userData.Email);
     if (findUser) throw new HttpException(409, `You're email ${userData.Email} already exists`);
 
     const hashedPassword = await bcrypt.hash(userData.Password, 10);
-    const createUserData: CreateUserDto = {
+    const createUserData: User = {
+      ID: this.users.length + 1,
       ...userData,
       Password: hashedPassword,
     };
-    const createdUser = await this.db.createUser(createUserData);
-    console.log(createdUser);
-    return await this.db.findUserByID(createdUser[0]);
+    return await this.db.createUser(createUserData);
   }
 
   public async login(userData: LoginUserDto): Promise<{ user: { token: TokenData } & UserDto }> {
+    
     if (isEmpty(userData)) throw new HttpException(400, "You're not userData");
+    
     const findUser: User = await this.db.findUserByEmail(userData.Email)
-    if (!findUser) throw new HttpException(409, `You're email ${userData.Email} not found`); 
+    
+    if (!findUser) throw new HttpException(409, `You're email ${userData.Email} not found`);
+    
+
     const isPasswordMatching: boolean = await bcrypt.compare(userData.Password, findUser.Password);
-    if (!isPasswordMatching) throw new HttpException(409, "You're password not matching");    
+    if (!isPasswordMatching) throw new HttpException(409, "You're password not matching");
+    
     const tokenData = this.createToken(findUser);
 
     const user: UserDto & { token: TokenData } = {

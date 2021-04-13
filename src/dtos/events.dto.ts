@@ -8,16 +8,6 @@ export class CreateEventDto{
     PlaceID: number;//FK? for Place
 
 }
-export class GenerateEventDto{       
-    @IsString()
-    Title: string;   
-    EventStartTime: string; // type of date in SQL
-    EventEndTime: string;
-    CreatedAt: string;
-    PlaceID: number;//FK? for Place
-    UserID: number;
-
-}
 export class UpdateEventDto{
     Title: string
     EventStartTime: string; // type of date in SQL

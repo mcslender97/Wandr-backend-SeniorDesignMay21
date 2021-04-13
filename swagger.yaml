@@ -27,7 +27,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/loginResponse"
+                $ref: "#/components/schemas/users"
 # [POST] users
   /signup:              
     post:
@@ -57,10 +57,6 @@ paths:
       responses:
         201:
           description: 'Created'
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/signupResponse"
         400:
           description: 'Bad Request'
         409:
@@ -81,10 +77,12 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  type: array
-                  $ref: "#/components/schemas/users"
+                type: object
+                properties:
+                  users:  
+                    type: array
+                    items: 
+                      $ref: "#/components/schemas/users"
         500:
           description: 'Server Error'
 
@@ -211,12 +209,14 @@ paths:
         200:
           description: 'OK'
           content:
-              application/json:
-                schema:
-                  type: array
-                  items:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  users:  
                     type: array
-                    $ref: "#/components/schemas/event"
+                    items: 
+                      $ref: "#/components/schemas/event"
         500:
           description: 'Server Error'
 # [POST] event
@@ -367,7 +367,7 @@ paths:
               application/json:
                 schema:
                   type: object
-                  $ref: "#/components/schemas/usereventgroup"
+                  $ref: "#/components/schemas/event"
         409:
           description: 'Conflict'
         500:
@@ -389,12 +389,14 @@ paths:
         200:
           description: 'OK'
           content:
-              application/json:
-                schema:
-                  type: array
-                  items:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  places:  
                     type: array
-                    $ref: "#/components/schemas/place"
+                    items: 
+                      $ref: "#/components/schemas/place"
         500:
           description: 'Server Error'  
 # [GET] places by searching for address
@@ -418,15 +420,47 @@ paths:
         200:
           description: 'OK'
           content:
-              application/json:
-                schema:
-                  type: array
-                  items:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  places:  
                     type: array
-                    $ref: "#/components/schemas/place"
+                    items: 
+                      $ref: "#/components/schemas/place"
         500:
           description: 'Server Error'
-
+# [GET] places by searching for city
+  /places/city?q=:
+    get:
+      security:
+        - bearerAuth: []
+      tags:
+      - places
+      summary: Find Places with city query search
+      parameters:
+      - name: q
+        in: query
+        description: city name
+        required: true
+        schema:
+          type: string
+          format: string
+          minimum: 3
+      responses:
+        200:
+          description: 'OK'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  places:  
+                    type: array
+                    items: 
+                      $ref: "#/components/schemas/place"
+        500:
+          description: 'Server Error'  
 # [GET] places/id
   /places/{id}:
     get:
@@ -480,11 +514,14 @@ paths:
           content:
               application/json:
                 schema:
-                  type: array
-                  items:
-                    allOf:
-                      - $ref: "#/components/schemas/event" 
-                      - $ref: "#/components/schemas/place"   
+                  type: object
+                  properties:
+                    events:  
+                      type: array
+                      items:
+                        allOf:
+                          - $ref: "#/components/schemas/event"
+                          - $ref: "#/components/schemas/place"
         409:
           description: 'Conflict'
         500:
@@ -548,22 +585,23 @@ paths:
         200:
           description: 'OK'
           content:
-              application/json:
-                schema:
-                  type: array
-                  items:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  places:  
                     type: array
-                    $ref: "#/components/schemas/city"
+                    items: 
+                      $ref: "#/components/schemas/city"
         500:
           description: 'Server Error'
-          
   /cities/{cityid}/places:
     get:
       security:
         - bearerAuth: []
       tags:
       - cities
-      summary: Get Places in a city
+      summary: Get Events in a city
       parameters:
       - name: cityid
         in: path
@@ -579,11 +617,14 @@ paths:
           content:
               application/json:
                 schema:
-                  type: array
-                  items:
-                    allOf:
-                      - $ref: "#/components/schemas/place" 
-                      - $ref: "#/components/schemas/city"    
+                  type: object
+                  properties:
+                    events:  
+                      type: array
+                      items:
+                        allOf:
+                          - $ref: "#/components/schemas/place"
+                          - $ref: "#/components/schemas/city"
         500:
           description: 'Server Error'        
 # definitions
@@ -594,52 +635,12 @@ components:
       scheme: bearer
       bearerFormat: JWT
   schemas:
-    loginResponse:
-      type: object
-      required: 
-        - Email
-        - Password
-      properties:
-        data:
-          type: object
-          properties:
-            Dob:
-              type: string
-            Email: 
-              type: string
-            Fullname: 
-              type: string
-            Gender:
-              type: string
-            ID:
-              type: number
-            Phone:
-              type: number
-            token:
-              type: object
-              properties:
-                expiresIn:
-                  type: number
-                token:
-                  type: string
-        message:
-          type: string
-    signupResponse:
-      type: object
-      required: 
-        - Email
-        - Password
-      properties:
-        data:
-          type: object
-          $ref: "#/components/schemas/users"
-        message:
-          type: string
     users:
       type: object
       required:
-        - Email
-        - Password    
+          - Email
+          - Password
+          
       properties:
         ID:
           type: integer
@@ -662,6 +663,7 @@ components:
           type: string
         Pfp:
           type: object
+        
     loginUser:
       type: object
       required:
@@ -673,7 +675,8 @@ components:
           description: user Email
         Password:
           type: string
-          description: user Password      
+          description: user Password
+         
     place:
       type: object
       required:
@@ -760,5 +763,4 @@ components:
           type: string
         CountryCode:
           type: string
-
    
