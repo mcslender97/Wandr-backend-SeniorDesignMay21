@@ -26,9 +26,9 @@ class EventService {
   
 
   public async findEventById(eventID: number): Promise<Event> {
-    // const findEvent: Event = this.events.find(event => event.id === eventId);
+    
     const event = await this.db.findEventByID(eventID);
-    // if (!findEvent) throw new HttpException(409, "You're not event");
+    // if (!findEvent) throw new HttpException(409, "No event found");
 
     return event;
   }
@@ -92,7 +92,7 @@ class EventService {
   // public async leaveEvent(UserID: number, EventId: number): Promise<userEvent>{
   //   const findEvent: Event = await this.db.findEventByID(EventId);
   //   if (!findEvent) throw new HttpException(409, "You're not event");
-  //   const userEvent = await this.db.createUser_Event(UserID, EventId, this.date.toJSON().slice(0, 19).replace('T', ' '))
+  //   const userEvent = await this.db.removeUser_Event(UserID, EventId, this.date.toJSON().slice(0, 19).replace('T', ' '))
   //   return userEvent;
   // }
 }
