@@ -727,9 +727,9 @@ components:
           type: string
         content:
           type: string
-        userEvent:
-          type: object
-          $ref: "#/components/schemas/usereventgroup"
+        User_Event_ID:
+          type: integer
+        
     event:
       type: object
       properties:
