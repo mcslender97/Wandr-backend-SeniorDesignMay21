@@ -22,7 +22,7 @@ class PlacesRoute implements Route {
     this.router.get(`${this.path}/:id(\\d+)`, this.placesController.getPlaceById);
     this.router.get(`${this.path}/search`, this.placesController.getPlacesBySearchQuery); //search places route
     this.router.get(`${this.path}/:id(\\d+)/events`, this.placesController.getEventsOfAPlace);
-    this.router.get(`${this.path}/:id(\\d+)/events`, this.placesController.getEventsOfAPlaceInADate);
+    this.router.get(`${this.path}/:id(\\d+)/events/bydate`, this.placesController.getEventsOfAPlaceInADate);
     
     
 

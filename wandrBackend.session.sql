@@ -72,7 +72,7 @@ CREATE TABLE `event` (
 
 LOCK TABLES `event` WRITE;
 /*!40000 ALTER TABLE `event` DISABLE KEYS */;
-INSERT INTO `event` VALUES (1,'Archery practice','2021-01-01 17:00:00','2021-01-02 12:00:00','0000-00-00 00:00:00',1,1),(2,'West 8th Str community grocery shopping','2021-02-24 00:31:00','2021-02-28 16:00:00','0000-00-00 00:00:00',2,1);
+INSERT INTO `event` VALUES (1,'Archery practice','2021-01-01 17:00:00','2021-01-02 12:00:00','2021-01-02 14:00:00',1,1),(2,'West 8th Str community grocery shopping','2021-02-24 00:31:00','2021-02-28 16:00:00','2021-02-28 17:00:00',2,1);
 /*!40000 ALTER TABLE `event` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -272,6 +272,7 @@ CREATE TABLE `user_event` (
 
 LOCK TABLES `user_event` WRITE;
 /*!40000 ALTER TABLE `user_event` DISABLE KEYS */;
+INSERT INTO `user_event` VALUES (1,1,1,'2021-01-01 17:00:00'),(2,2,2,'2021-02-24 00:31:00');
 /*!40000 ALTER TABLE `user_event` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
