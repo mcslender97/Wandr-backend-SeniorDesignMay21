@@ -243,7 +243,7 @@ paths:
                 PlaceID:
                   type: string
       responses:
-        200:
+        201:
           description: 'OK'
           content:
               application/json:
@@ -275,7 +275,7 @@ paths:
                 EventEndTime:
                   type: string
       responses:
-        200:
+        201:
           description: 'OK'
           content:
               application/json:
@@ -474,6 +474,44 @@ paths:
           type: integer
           format: int64
           minimum: 1
+      responses:
+        200:
+          description: 'OK'
+          content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    allOf:
+                      - $ref: "#/components/schemas/event" 
+                      - $ref: "#/components/schemas/place"   
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'  
+  /places/{id}/events/bydate?date=:
+    get:
+      security:
+        - bearerAuth: []
+      tags:
+        - places
+      summary: Get events of a place by place ID and date
+      parameters:
+      - name: id
+        in: path
+        description: place id
+        required: true
+        schema:
+          type: integer
+          format: int64
+          minimum: 1
+      - name: date
+        in: query
+        description: Date format YYYY-MM-DD
+        required: true
+        schema:
+          type: string
+          format: YYYY-MM-DD
       responses:
         200:
           description: 'OK'

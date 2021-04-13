@@ -162,7 +162,7 @@ class DatabaseService {
     //convert date to datetime
     const mySQLDateFrom = date.concat(' 00:00:00');
     const mySQLDateTo = date.concat(' 23:59:59');
-    return await knex<Event>('event').select('*').innerJoin<Place>('place', 'event.PlaceID', 'place.PlaceID').where('event.PlaceId', pid).where('event.EventStartTime','>=', mySQLDateFrom).where('event.EventEndTime','<=',mySQLDateTo);
+    return await knex<Event>('event').select('*').innerJoin<Place>('place', 'event.PlaceID', 'place.PlaceID').where('event.EventStartTime','>=', mySQLDateFrom).where('event.EventEndTime','<=',mySQLDateTo).where('event.PlaceId', pid);
   }
 }
 
