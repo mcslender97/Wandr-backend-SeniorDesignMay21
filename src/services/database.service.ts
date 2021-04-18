@@ -128,15 +128,12 @@ class DatabaseService {
   }
   async showEventByPlace(pid: number) {
     return await knex<Event>('event').select('*').innerJoin<Place>('place', 'event.PlaceID', 'place.PlaceID').where('event.PlaceId', pid);
-    // return await knex<Event>('event').select('*').innerJoin('place', 'event.PlaceID', 'place.PlaceID').where('event.PlaceID', pid);
-    //return await knex.raw('SELECT * FROM event INNER JOIN place on event.PlaceID = place.PlaceID where event.PlaceID = ?', pid);
+  
   }
   async getNumberOfUsers(): Promise<number> {
     return await knex<User>('user').count({ id: 'ID' });
   }
-  // async getEventsOfADay(): Promise<Event[]{
-  //   return await knex<Event>('event').where
-  // }
+
   async createUser_Event(userid: number, eventid: number, timestamp: string) {
     return await knex('user_event').insert({
       EventId: eventid,
@@ -156,13 +153,13 @@ class DatabaseService {
       .first();
   }
   async getEventsJoinedOfAUser(userid: number) {
-    return await knex<Event>('event').select('event.*').innerJoin<userEvent>('user_event', 'event.EventId', 'user_event.EventId').where('user_event.UserID', userid);
+    return await knex<Event>('event').select('event.*', 'place.Location').innerJoin<userEvent>('user_event', 'event.EventId', 'user_event.EventId').innerJoin('place','event.PlaceID','place.PlaceID').where('user_event.UserID', userid);
   }
   async showEventByPlaceInADate(pid: number, date: string) {//YYYY-MM-DD
     //convert date to datetime
     const mySQLDateFrom = date.concat(' 00:00:00');
     const mySQLDateTo = date.concat(' 23:59:59');
-    return await knex<Event>('event').select('*').innerJoin<Place>('place', 'event.PlaceID', 'place.PlaceID').where('event.EventStartTime','>=', mySQLDateFrom).where('event.EventEndTime','<=',mySQLDateTo).where('event.PlaceId', pid);
+    return await knex<Event>('event').select('*').innerJoin<Place>('place', 'event.PlaceID', 'place.PlaceID').where('event.EventStartTime','>=', mySQLDateFrom).andWhere('event.EventEndTime','<=',mySQLDateTo).andWhere('event.PlaceId', pid);
   }
 }
 
