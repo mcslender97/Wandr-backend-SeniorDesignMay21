@@ -77,6 +77,18 @@ class EventsController {
     //     next(error);
     //   }
     // };
+  public getAllEventMessages = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const eventId = Number(req.params.id);
+      
+      const eventMessages: eventMessages[] = await this.eventService.loadAllEventMessages(eventId);
+
+      res.status(200).json(eventMessages);
+    } catch (error) {
+      next(error);
+    }
+  }
+  
   }
   
   export default EventsController;

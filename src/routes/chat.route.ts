@@ -8,7 +8,7 @@ import validationMiddleware from '../middlewares/validation.middleware';
 class ChatRoute implements Route {
   public path = '/chat';
   public router = Router();
-//   public usersController = new UsersController();
+//   public chatController = newChatController();
 
   constructor() {
     this.initializeRoutes();
