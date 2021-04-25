@@ -85,7 +85,7 @@ UNLOCK TABLES;
 CREATE TABLE `eventmessages` (
   `ID` int NOT NULL AUTO_INCREMENT,
   `time_stamp` timestamp NULL DEFAULT NULL,
-  `content` int DEFAULT NULL,
+  `content` varchar(2048) DEFAULT NULL,
   `User_Event_ID` int NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `FKEventMessa797465` (`User_Event_ID`),

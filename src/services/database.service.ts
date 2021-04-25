@@ -163,7 +163,7 @@ class DatabaseService {
     return await knex<Event>('event').select('*').innerJoin<Place>('place', 'event.PlaceID', 'place.PlaceID').where('event.EventStartTime','>=', mySQLDateFrom).andWhere('event.EventEndTime','<=',mySQLDateTo).andWhere('event.PlaceId', pid);
   }
   async getAllEventMessages(eventID: number) {
-    return await knex<eventMessage>('eventmessages').select('eventmessages.*').innerJoin<userEvent>('user_event','eventmessages.User_Event_ID','user_event.ID').where('user_event.EventId',eventID);//user event id or event id
+    return await knex<eventMessage>('eventmessages').select('eventmessages.*').innerJoin<userEvent>('user_event','eventmessages.User_Event_ID','user_event.ID').where('user_event.EventId',eventID).orderBy('time_stamp');//user event id or event id
   }
 }
 

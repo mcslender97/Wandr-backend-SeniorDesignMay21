@@ -587,7 +587,34 @@ paths:
                       - $ref: "#/components/schemas/place" 
                       - $ref: "#/components/schemas/city"    
         500:
-          description: 'Server Error'        
+          description: 'Server Error'    
+  /chat/{eventid}:
+    get:
+      security:
+        - bearerAuth: []
+      tags:
+        - chat
+      summary: Get chat history of an event
+      parameters:
+      - name: eventid
+        in: path
+        description: event id number
+        required: true
+        schema:
+          type: integer
+          format: int64
+          minimum: 1
+      responses:
+        200:
+          description: 'OK'
+          content:
+              application/json:
+                schema:
+                  type: array
+                  $ref: "#/components/schemas/eventMessage"
+        500:
+          description: 'Server Error'              
+        
 # definitions
 components:
   securitySchemes:
@@ -717,15 +744,15 @@ components:
           type: integer
         joinedAt:
           type: string
-    eventMessages:
+    eventMessage:
       type: object
       required:
         - timestamp
         - content
       properties:
-        id:
+        ID:
           type: integer
-        timestamp:
+        time_stamp:
           type: string
         content:
           type: string

@@ -1,6 +1,6 @@
 export interface eventMessage{
     ID: number,
-    timeStamp: string,
+    time_stamp: string,
     content: string,
     User_Event_ID: number
 }
