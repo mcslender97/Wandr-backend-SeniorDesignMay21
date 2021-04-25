@@ -2,7 +2,7 @@ import bcrypt from 'bcrypt';
 import { CreateEventDto, GenerateEventDto, UpdateEventDto } from '../dtos/events.dto';
 //import { CreateEventDto } from '../dtos/events.dto';
 import HttpException from '../exceptions/HttpException';
-import { eventMessages } from '../interfaces/eventMessages.interface';
+import { eventMessage } from '../interfaces/eventMessages.interface';
 import { Event } from '../interfaces/events.interface';
 import { userEvent } from '../interfaces/userEvent.interface';
 
@@ -24,7 +24,7 @@ class EventService {
     const events = await this.db.getAllEvents();
     return events;
   }
-  public async loadAllEventMessages(EventId: number): Promise<eventMessages[]>{
+  public async loadAllEventMessages(EventId: number): Promise<eventMessage[]>{
     const messages = await this.db.getAllEventMessages(EventId);
     return messages;//give user event id or event id?
   }

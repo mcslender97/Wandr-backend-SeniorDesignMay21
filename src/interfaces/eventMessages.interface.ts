@@ -1,4 +1,4 @@
-export interface eventMessages{
+export interface eventMessage{
     ID: number,
     timeStamp: string,
     content: string,

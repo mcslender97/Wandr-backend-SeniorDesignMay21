@@ -99,6 +99,7 @@ CREATE TABLE `eventmessages` (
 
 LOCK TABLES `eventmessages` WRITE;
 /*!40000 ALTER TABLE `eventmessages` DISABLE KEYS */;
+INSERT INTO `eventmessages` VALUES (1,'2021-01-01 17:00:59','Hello everyone!',1);
 /*!40000 ALTER TABLE `eventmessages` ENABLE KEYS */;
 UNLOCK TABLES;
 
