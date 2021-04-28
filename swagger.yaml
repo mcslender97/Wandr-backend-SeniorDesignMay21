@@ -750,6 +750,10 @@ components:
         - timestamp
         - content
       properties:
+        Username:
+          type: string
+        Pfp:
+          type: string
         ID:
           type: integer
         time_stamp:

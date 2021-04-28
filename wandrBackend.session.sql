@@ -231,7 +231,7 @@ CREATE TABLE `user` (
   `Password` varchar(255) NOT NULL,
   `Dob` date DEFAULT NULL,
   `Gender` varchar(32) DEFAULT NULL,
-  `Pfp` varchar(1024) DEFAULT NULL,
+  `Pfp` varchar(2048) DEFAULT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
