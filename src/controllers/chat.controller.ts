@@ -15,7 +15,7 @@ class ChatController
           let eventid = Number(req.params.eventid);
           const findAllEventMessagesData: eventMessage[] = await this.chatService.showAllMesssagesInAEvent(eventid);
     
-            //res.status(200).json(findAllPlacesData);
+            res.status(200).json(findAllEventMessagesData);
             console.log("findEventChat")
         } catch (error) {
           next(error);
