@@ -6,13 +6,14 @@ import UsersRoute from './routes/users.route';
 import EventsRoute from './routes/events.route';
 import PlacesRoute from './routes/places.route';
 import CitiesRoute from './routes/cities.route';
+import ChatRoute from './routes/chat.route';
 import validateEnv from './utils/validateEnv';
 import DatabaseService from './services/database.service';
 function init() {
   new DatabaseService()
     .importSQLDBQuery()
     .then(() => {
-      const app = new App([new IndexRoute(), new UsersRoute(), new AuthRoute(), new EventsRoute(), new PlacesRoute(), new CitiesRoute()]);
+      const app = new App([new IndexRoute(), new UsersRoute(), new AuthRoute(), new EventsRoute(), new PlacesRoute(), new CitiesRoute(), new ChatRoute()]);
       app.listen();
     })
     .catch(e => {

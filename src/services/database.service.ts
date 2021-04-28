@@ -11,6 +11,7 @@ import { CreateEventDto, GenerateEventDto, UpdateEventDto } from '../dtos/events
 import { userEvent } from '../interfaces/userEvent.interface';
 import { City } from '../interfaces/cities.interfaces';
 import fs from 'fs';
+import { eventMessage } from '../interfaces/eventMessages.interface';
 
 const knex = Knex({
   client: 'mysql',
@@ -160,6 +161,10 @@ class DatabaseService {
     const mySQLDateFrom = date.concat(' 00:00:00');
     const mySQLDateTo = date.concat(' 23:59:59');
     return await knex<Event>('event').select('*').innerJoin<Place>('place', 'event.PlaceID', 'place.PlaceID').where('event.EventStartTime','>=', mySQLDateFrom).andWhere('event.EventEndTime','<=',mySQLDateTo).andWhere('event.PlaceId', pid);
+  }
+  async getAllEventMessages(eventID: number) {
+    return await knex<eventMessage>('eventmessages').select('user.Username','user.Pfp','eventmessages.*').innerJoin<userEvent>('user_event', 'eventmessages.User_Event_ID', 'user_event.ID').innerJoin('user','user_event.UserID','user.ID').where('user_event.EventId', eventID).orderBy('time_stamp');//user event id or event id
+    //also loads: user name and pfp
   }
 }
 

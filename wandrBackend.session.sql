@@ -85,7 +85,7 @@ UNLOCK TABLES;
 CREATE TABLE `eventmessages` (
   `ID` int NOT NULL AUTO_INCREMENT,
   `time_stamp` timestamp NULL DEFAULT NULL,
-  `content` int DEFAULT NULL,
+  `content` varchar(2048) DEFAULT NULL,
   `User_Event_ID` int NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `FKEventMessa797465` (`User_Event_ID`),
@@ -99,6 +99,7 @@ CREATE TABLE `eventmessages` (
 
 LOCK TABLES `eventmessages` WRITE;
 /*!40000 ALTER TABLE `eventmessages` DISABLE KEYS */;
+INSERT INTO `eventmessages` VALUES (1,'2021-01-01 17:00:59','Hello everyone!',1);
 /*!40000 ALTER TABLE `eventmessages` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -230,7 +231,7 @@ CREATE TABLE `user` (
   `Password` varchar(255) NOT NULL,
   `Dob` date DEFAULT NULL,
   `Gender` varchar(32) DEFAULT NULL,
-  `Pfp` varchar(1024) DEFAULT NULL,
+  `Pfp` varchar(2048) DEFAULT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -241,7 +242,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'Hanzo Shimada','hanzomain','hanzomain@gmail.com',8881234567,'$2b$10$hmrwtGwC.QlfWt6YWaT3S.FP9CarS3.V9n3Qr.d9y2ovcan0oxs56','1990-12-08','Male',NULL),(2,'Hana Song','Dva','dvamain@gmail.com',18134223334,'$2b$10$aHAXcOgNSsJvL91U3kSqGerIGXNSMgUy0T27De6Ppt0e4x00eghNG','1998-11-21','Female',NULL);
+INSERT INTO `user` VALUES (1,'Hanzo Shimada','hanzomain','hanzomain@gmail.com',8881234567,'$2b$10$hmrwtGwC.QlfWt6YWaT3S.FP9CarS3.V9n3Qr.d9y2ovcan0oxs56','1990-12-08','Male','https://d1u1mce87gyfbn.cloudfront.net/hero/hanzo/hero-select-portrait.png'),(2,'Hana Song','Dva','dvamain@gmail.com',18134223334,'$2b$10$aHAXcOgNSsJvL91U3kSqGerIGXNSMgUy0T27De6Ppt0e4x00eghNG','1998-11-21','Female','https://d1u1mce87gyfbn.cloudfront.net/hero/dva/hero-select-portrait.png');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 

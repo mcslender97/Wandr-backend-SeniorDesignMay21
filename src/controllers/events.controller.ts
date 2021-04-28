@@ -6,6 +6,7 @@ import { Event } from '../interfaces/events.interface';
 import EventService from '../services/events.service';
 import {  RequestWithUser } from '../interfaces/auth.interface';
 import { userEvent } from '../interfaces/userEvent.interface';
+import { eventMessage } from '../interfaces/eventMessages.interface';
 
 class EventsController {
     public eventService = new EventService();
@@ -77,6 +78,18 @@ class EventsController {
     //     next(error);
     //   }
     // };
+  public getAllEventMessages = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const eventId = Number(req.params.id);
+      
+      const eventMessages: eventMessage[] = await this.eventService.loadAllEventMessages(eventId);
+
+      res.status(200).json(eventMessages);
+    } catch (error) {
+      next(error);
+    }
+  }
+  
   }
   
   export default EventsController;
