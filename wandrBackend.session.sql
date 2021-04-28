@@ -115,7 +115,7 @@ CREATE TABLE `place` (
   `Description` varchar(255) NOT NULL,
   `Location` varchar(1024) NOT NULL,
   `CityID` int NOT NULL,
-  `PictureURI` varchar(1024) NULL,
+  `PictureURI` varchar(2048) NULL,
   PRIMARY KEY (`PlaceID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -126,7 +126,7 @@ CREATE TABLE `place` (
 
 LOCK TABLES `place` WRITE;
 /*!40000 ALTER TABLE `place` DISABLE KEYS */;
-INSERT INTO `place` VALUES (1,'Hanamura Temple','Temple','Have a big bell','1 Hanamura Str, Tokyo Japan',2,''),(2,'Walmart Supercenter Erie','Shopping','Walmart shopping center ','2711 Elm Str,Erie, PA, USA',1,''),(3,'Erie Art Museum','Museum','Dedicated to promotion and advancement of visual arts','20 E 5th Str, Erie, PA, USA',1,'');
+INSERT INTO `place` VALUES (1,'Hanamura Temple','Temple','Have a big bell','1 Hanamura Str, Tokyo Japan',2,'https://static.wikia.nocookie.net/overwatch_gamepedia/images/4/46/Hanamura_concept.jpg'),(2,'Walmart Supercenter Erie','Shopping','Walmart shopping center ','2711 Elm Str,Erie, PA, USA',1,'https://wicu.images.worldnow.com/images/19351120_G.jpeg'),(3,'Erie Art Museum','Museum','Dedicated to promotion and advancement of visual arts','20 E 5th Str, Erie, PA, USA',1,'https://upload.wikimedia.org/wikipedia/commons/c/c7/CustomsHouseEAM.jpg');
 /*!40000 ALTER TABLE `place` ENABLE KEYS */;
 UNLOCK TABLES;
 
