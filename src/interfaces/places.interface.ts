@@ -1,6 +1,6 @@
 export interface Place {
   id: number;
-  name: string;
+  Name: string;
   type: string; //timestamp
   description: string;
   location: string;

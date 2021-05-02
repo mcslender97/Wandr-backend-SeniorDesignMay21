@@ -38,12 +38,15 @@ class EventService {
   }
 
   public async createEvent(userID: number, eventData: CreateEventDto): Promise<Event> {
-    if (isEmpty(eventData)) throw new HttpException(400, "You're not eventData");  
+    if (isEmpty(eventData)) throw new HttpException(400, "No event data");  
     // const findEvent = await this.db.findEventByID(eventData.EventId); check if event is duplicate?
     // if (!(findEvent === null)) throw new HttpException(409, `You're Event already exists`);
-    
+    const place = await this.db.findPlaceByID(eventData.PlaceID);
+    if (!place) throw new HttpException(404,"No place found!");
     const createEventData: GenerateEventDto = {
+      
       ...eventData,
+      Title: [ place.Name,"on", (eventData.EventStartTime).toString()].join(' '),//auto-generated event title.
       CreatedAt: this.date.toJSON().slice(0, 19).replace('T', ' '),
       UserID: userID  
     };
