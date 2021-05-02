@@ -186,7 +186,7 @@ paths:
       - user
       summary: Get Events that Current User Joined
       responses:
-        201:
+        200:
           description: 'OK'
           content:
               application/json:
