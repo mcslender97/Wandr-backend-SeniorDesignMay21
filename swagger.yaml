@@ -234,8 +234,6 @@ paths:
             schema:
               type: object
               properties:
-                Title:
-                  type: string
                 EventStartTime:
                   type: string
                   description: Start time of event. Format "YYYY-MM-DD HH:MM:SS"
@@ -252,8 +250,14 @@ paths:
                 schema:
                   type: object
                   $ref: "#/components/schemas/event"
+        400:
+          description: 'Invalid input'
+        404:
+          description: 'Not found'
         409:
           description: 'Conflict'
+        422:
+          description: 'Invalid time set'
         500:
           description: 'Server Error'
     put:

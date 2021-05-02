@@ -113,7 +113,7 @@ class DatabaseService {
     return await knex<Place>('place');
   }
   async findPlaceByID(id: number) {
-    return await knex('place').where('PlaceID', id).first();
+    return await knex<Place>('place').where('PlaceID', id).first();
   }
   async showPlaceByCityID(cityid: number) {
     return await knex<Place>('place').select('*').innerJoin<City>('city', 'place.CityID', 'city.CityID').where('place.CityID', cityid);
