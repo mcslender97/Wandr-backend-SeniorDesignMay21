@@ -5,6 +5,8 @@ This is the backend structure of Project Wandr for Senior Design II class of Gan
 
 This source code was taken from Bitbucket repo at https://bitbucket.gannon.xyz/projects/WAND/repos/wandr-backend , developed by me
 
+![System design of backend](/backend-structure.png?raw=true "Backend/server structure")
+
 ## Working features:
 - Authentication using JWT token
   - Login
