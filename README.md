@@ -1,11 +1,11 @@
-## Wandr-backend-SeniorDesignMay21
+# Wandr-backend-SeniorDesignMay21
 
-# Background information
+## Background information
 This is the backend structure of Project Wandr for Senior Design II class of Gannon University, Spring 2021 
 
 This source code was taken from Bitbucket repo at https://bitbucket.gannon.xyz/projects/WAND/repos/wandr-backend , developed by me
 
-# Working features:
+## Working features:
 - Authentication using JWT token
   - Login
   - Create user account
@@ -30,7 +30,7 @@ This source code was taken from Bitbucket repo at https://bitbucket.gannon.xyz/p
  - Chat group
   - Get chat history
 
-# Instruction
+## Instruction
 Requires Docker
 
 To build and start service
