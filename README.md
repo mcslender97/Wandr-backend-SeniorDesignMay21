@@ -1,10 +1,11 @@
-# Wandr-backend-SeniorDesignMay21
+## Wandr-backend-SeniorDesignMay21
 
+# Background information
 This is the backend structure of Project Wandr for Senior Design II class of Gannon University, Spring 2021 
 
-This source code was taken from Bitbucket repo at https://bitbucket.gannon.xyz/projects/WAND/repos/wandr-backend , owned by me
+This source code was taken from Bitbucket repo at https://bitbucket.gannon.xyz/projects/WAND/repos/wandr-backend , developed by me
 
-Working features:
+# Working features:
 - Authentication using JWT token
   - Login
   - Create user account
@@ -29,7 +30,7 @@ Working features:
  - Chat group
   - Get chat history
 
-
+# Instruction
 Requires Docker
 
 To build and start service
@@ -39,6 +40,13 @@ docker-compose up -d
 
 Stop service
 docker-compose down
+
+By default: 
+
+- Backend use localhost:3000
+  - API docs are accessable from backend using localhost:3000/api-docs
+  - Template crediental info for API testing are in models folder.
+- Adminer use localhost:8080
 
 
 Based on https://github.com/ljlm0402/typescript-express-starter
