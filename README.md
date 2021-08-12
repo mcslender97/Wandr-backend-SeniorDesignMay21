@@ -33,16 +33,24 @@ This source code was taken from Bitbucket repo at https://bitbucket.gannon.xyz/p
   - Get chat history
 
 ## Instruction
-Requires Docker
 
-To build and start service
-
+To start:
+```
+npm run start
+```
+Dev test
+```
+npm run dev
+```
+To build and start service with Docker 
+```
 docker build
 docker-compose up -d
-
+```
 Stop service
+```
 docker-compose down
-
+```
 By default: 
 
 - Backend use localhost:3000
