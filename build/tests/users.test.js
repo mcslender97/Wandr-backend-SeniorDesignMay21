@@ -22,7 +22,7 @@ describe('Testing Users', () => {
     describe('[GET] /users/:id', () => {
         it('response statusCode 200 / findOne', () => {
             const userId = 1;
-            const findUser = users_model_1.default.find(user => user.id === userId);
+            const findUser = users_model_1.default.find(user => user.ID === userId);
             const usersRoute = new users_route_1.default();
             const app = new app_1.default([usersRoute]);
             return supertest_1.default(app.getServer()).get(`${usersRoute.path}/${userId}`).expect(200, { data: findUser, message: 'findOne' });
@@ -31,8 +31,8 @@ describe('Testing Users', () => {
     describe('[POST] /users', () => {
         it('response statusCode 201 / created', async () => {
             const userData = {
-                email: 'lkm@gmail.com',
-                password: 'q1w2e3r4',
+                Email: 'lkm@gmail.com',
+                Password: 'q1w2e3r4',
             };
             const usersRoute = new users_route_1.default();
             const app = new app_1.default([usersRoute]);
@@ -43,8 +43,8 @@ describe('Testing Users', () => {
         it('response statusCode 200 / updated', async () => {
             const userId = 1;
             const userData = {
-                email: 'lim@gmail.com',
-                password: '1q2w3e4r',
+                Email: 'lim@gmail.com',
+                Password: '1q2w3e4r',
             };
             const usersRoute = new users_route_1.default();
             const app = new app_1.default([usersRoute]);
@@ -54,7 +54,7 @@ describe('Testing Users', () => {
     describe('[DELETE] /users/:id', () => {
         it('response statusCode 200 / deleted', () => {
             const userId = 1;
-            const deleteUser = users_model_1.default.filter(user => user.id !== userId);
+            const deleteUser = users_model_1.default.filter(user => user.ID !== userId);
             const usersRoute = new users_route_1.default();
             const app = new app_1.default([usersRoute]);
             return supertest_1.default(app.getServer()).delete(`${usersRoute.path}/${userId}`).expect(200, { data: deleteUser, message: 'deleted' });

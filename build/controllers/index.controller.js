@@ -5,7 +5,7 @@ class IndexController {
         this.index = (req, res, next) => {
             try {
                 res.status(200).json({
-                    test: "hello!"
+                    test: 'hello!',
                 });
             }
             catch (error) {

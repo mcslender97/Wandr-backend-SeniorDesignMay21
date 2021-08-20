@@ -5,15 +5,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const HttpException_1 = __importDefault(require("../exceptions/HttpException"));
-const users_model_1 = __importDefault(require("../models/users.model"));
+const database_service_1 = __importDefault(require("../services/database.service"));
 const authMiddleware = async (req, res, next) => {
+    const db = new database_service_1.default();
     try {
-        const cookies = req.cookies;
-        if (cookies && cookies.Authorization) {
+        const headers = req.headers;
+        if (headers && headers.authorization && headers.authorization.startsWith("Bearer ")) {
             const secret = process.env.JWT_SECRET;
-            const verificationResponse = (await jsonwebtoken_1.default.verify(cookies.Authorization, secret));
+            const verificationResponse = (await jsonwebtoken_1.default.verify(headers.authorization.replace(/Bearer /, ""), secret));
             const userId = verificationResponse.id;
-            const findUser = users_model_1.default.find(user => user.id === userId);
+            const findUser = await db.findUserByID(userId);
             if (findUser) {
                 req.user = findUser;
                 next();

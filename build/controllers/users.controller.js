@@ -7,29 +7,33 @@ const users_service_1 = __importDefault(require("../services/users.service"));
 class UsersController {
     constructor() {
         this.userService = new users_service_1.default();
-        // public getUsers = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-        //   try {
-        //     const findAllUsersData: User[] = await this.userService.findAllUser();
-        //     res.status(200).json({ data: findAllUsersData, message: 'findAll' });
-        //   } catch (error) {
-        //     next(error);
-        //   }
-        // };
-        this.getUserById = async (req, res, next) => {
+        this.getUsers = async (req, res, next) => {
             try {
-                const userId = Number(req.params.id);
-                const findOneUserData = await this.userService.findUserById(userId);
-                res.status(200).json({ data: findOneUserData, message: 'findOne' });
+                const findAllUsersData = await this.userService.findAllUser();
+                res.status(200).json(findAllUsersData);
+                console.log('findAll');
             }
             catch (error) {
                 next(error);
             }
         };
-        this.createUser = async (req, res, next) => {
+        this.getUserById = async (req, res, next) => {
             try {
-                const userData = req.body;
-                const createUserData = await this.userService.createUser(userData);
-                res.status(201).json({ data: createUserData, message: 'created' });
+                const userId = Number(req.params.id);
+                const findOneUserData = await this.userService.findUserById(userId);
+                res.status(200).json(findOneUserData);
+                console.log('findOne');
+            }
+            catch (error) {
+                next(error);
+            }
+        };
+        this.getEventsJoinedByUser = async (req, res, next) => {
+            try {
+                const userId = req.user.ID;
+                const findOneUserJoinedEventData = await this.userService.findEventedJoinedOfUserById(userId);
+                res.status(200).json(findOneUserJoinedEventData);
+                console.log('findOne');
             }
             catch (error) {
                 next(error);

@@ -1,0 +1,14 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 30
+    },
+    "auditLog": "D:\\wandr-backend-github-ver\\Wandr-backend-SeniorDesignMay21\\build\\logs\\info\\.4e6d0ce59d31d482e62f4fcd65fb0e19ce60b662-audit.json",
+    "files": [
+        {
+            "date": 1629307873426,
+            "name": "D:\\wandr-backend-github-ver\\Wandr-backend-SeniorDesignMay21\\build\\logs\\info\\2021-08-18.log",
+            "hash": "f2de73f771ebc493be1a2b24f43098ff"
+        }
+    ]
+}

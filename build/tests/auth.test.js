@@ -13,8 +13,8 @@ describe('Testing Auth', () => {
     describe('[POST] /signup', () => {
         it('response should have the Create userData', () => {
             const userData = {
-                email: 'test@email.com',
-                password: 'q1w2e3r4',
+                Email: 'test@email.com',
+                Password: 'q1w2e3r4',
             };
             const authRoute = new auth_route_1.default();
             const app = new app_1.default([authRoute]);
@@ -24,8 +24,8 @@ describe('Testing Auth', () => {
     describe('[POST] /login', () => {
         it('response should have the Set-Cookie header with the Authorization token', async () => {
             const userData = {
-                email: 'lim@gmail.com',
-                password: 'q1w2e3r4',
+                Email: 'lim@gmail.com',
+                Password: 'q1w2e3r4',
             };
             process.env.JWT_SECRET = 'jwt_secret';
             const authRoute = new auth_route_1.default();

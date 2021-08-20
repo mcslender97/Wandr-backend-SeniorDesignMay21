@@ -2,21 +2,21 @@ version: "3.7"
 
 services:
   server:
+    image: mcslender/wandr-k8-deploy
     build:
       context: ./
       dockerfile: Dockerfile.dev
     container_name: server
     ports:
       - "3000:3000"
-    volumes:
-      - ./:/app
-      - /app/node_modules
-    restart: "unless-stopped"
+
+    restart: always
+    env_file: .env
     environment:
-      MYSQL_DATABASE: wandr1
-      MYSQL_HOST: db
-      MYSQL_USER: root
-      MYSQL_PASSWORD: wandr
+      MYSQL_DATABASE: $MYSQL_DATABASE
+      MYSQL_HOST: $MYSQL_HOST
+      MYSQL_USER: $MYSQL_USER
+      MYSQL_PASSWORD: $MYSQL_PASSWORD
     networks:
       - backend
   db:
@@ -24,8 +24,8 @@ services:
     volumes:
       - ./db:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: wandr
-      MYSQL_DATABASE: wandr1
+      MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
+      MYSQL_DATABASE: $MYSQL_DATABASE
     networks:
       - backend
   adminer:

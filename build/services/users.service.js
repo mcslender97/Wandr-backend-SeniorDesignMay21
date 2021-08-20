@@ -12,24 +12,31 @@ class UserService {
         this.db = new database_service_1.default();
         this.users = this.db.getAllUser();
     }
-    // public async findAllUser(): Promise<User[]> {
-    //   const users: User[] = this.users;
-    //   return users;
-    // }
+    async findAllUser() {
+        //   const users: User[] = this.users;
+        const users = await this.db.getAllUser();
+        return users;
+    }
     async findUserById(userId) {
         // const findUser: User = this.users.find(user => user.id === userId);
         const user = await this.db.findUserByID(userId);
         // if (!findUser) throw new HttpException(409, "You're not user");
         return user;
     }
+    async findEventedJoinedOfUserById(userId) {
+        //   const events: Event[] = this.events;
+        const events = await this.db.getEventsJoinedOfAUser(userId);
+        return events;
+    }
     async createUser(userData) {
         if (util_1.isEmpty(userData))
             throw new HttpException_1.default(400, "You're not userData");
-        const findUser = (await this.db.getAllUser()).find(user => user.email === userData.email);
-        if (findUser)
-            throw new HttpException_1.default(409, `You're email ${userData.email} already exists`);
-        const hashedPassword = await bcrypt_1.default.hash(userData.password, 10);
-        const createUserData = Object.assign(Object.assign({ id: this.users.length + 1 }, userData), { password: hashedPassword, dob: null, fullname: "", gender: "", phone: null, email: "" });
+        // const findUser: User = (await this.db.getAllUser()).find(user => user.email === userData.email);
+        const findUser = await this.db.findUserByEmail(userData.Email);
+        if (!(findUser === null))
+            throw new HttpException_1.default(409, `You're email ${userData.Email} already exists`);
+        const hashedPassword = await bcrypt_1.default.hash(userData.Password, 10);
+        const createUserData = Object.assign(Object.assign({ ID: this.users.length + 1 }, userData), { Password: hashedPassword, Dob: null, Fullname: '', Gender: '', Phone: null, Email: '' });
         return createUserData;
     }
     async updateUser(userId, userData) {
@@ -40,19 +47,19 @@ class UserService {
         const findUser = await this.db.findUserByID(userId);
         if (!findUser)
             throw new HttpException_1.default(409, "You're not user");
-        const hashedPassword = await bcrypt_1.default.hash(userData.password, 10);
-        const updateUserData = this.users.map((user) => {
-            if (user.id === findUser.id)
-                user = Object.assign(Object.assign({ id: userId }, userData), { password: hashedPassword, dob: null, fullname: "", gender: "", phone: null, email: "" });
-            return user;
-        });
+        const hashedPassword = await bcrypt_1.default.hash(userData.Password, 10);
+        // const updateUserData: User[] = this.users.map((user: User) => {
+        //   if (user.id === findUser.id) user = { id: userId, ...userData, password: hashedPassword, dob: null,fullname: "",gender: "",phone: null,email: ""};
+        //   return user;
+        // });
+        const updateUserData = await this.db.updateUserByID(userId, userData);
         return updateUserData;
     }
     async deleteUser(userId) {
         const findUser = this.users.find(user => user.id === userId);
         if (!findUser)
             throw new HttpException_1.default(409, "You're not user");
-        const deleteUserData = this.users.filter(user => user.id !== findUser.id);
+        const deleteUserData = this.users.filter((user) => user.id !== findUser.ID);
         return deleteUserData;
     }
 }
